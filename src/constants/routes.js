@@ -1,2 +1,2 @@
-const LoginRoute = "login"
-const SignUpRoute = "signup"
+export const LoginRoute = "/login"
+export const SignUpRoute = "/signup"

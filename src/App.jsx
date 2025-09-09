@@ -3,14 +3,15 @@ import './App.css'
 import Loginpage from './features/auth/login/Loginpage'
 import Signuppage from './features/auth/signup/Signuppage'
 import Dashboard from './features/events/dashboard/Dashboard'
+import { LoginRoute, SignUpRoute } from './constants/routes'
 
 function App() {
 
   return (
     <Routes>
       <Route path='/' element={<Dashboard/>} />
-      <Route path='/login' element={<Loginpage />} />
-      <Route path='/signup' element={<Signuppage />} />
+      <Route path={LoginRoute} element={<Loginpage />} />
+      <Route path={SignUpRoute} element={<Signuppage />} />
     </Routes>
   )
 }
