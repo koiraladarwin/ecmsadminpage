@@ -9,10 +9,10 @@ const TaskBar = () => {
           <h1 className="text-white font-bold">U</h1>
         </div>
 
-        <div className='flex flex-col space-y-10'>
-          <div><Link className='block w-full px-4 py-2 rounded text-white  hover:bg-slate-200 hover:text-orange-400'>Home</Link></div>
-          <div><Link className='block w-full px-4 py-2 rounded text-white hover:bg-slate-200 hover:text-orange-400'>Event</Link></div>
-          <div><Link className='block w-full px-4 py-2 rounded text-white hover:bg-slate-200 hover:text-orange-400'>Import</Link></div>
+        <div className='flex flex-col space-y-5 px-3 w-full text-white'>
+          <div className='w-full text-center rounded bg-slate-200 text-orange-400 py-2'><Link>Home</Link></div>
+          <div className='w-full text-center rounded hover:bg-slate-200 hover:text-orange-400 py-2'><Link>Event</Link></div>
+          <div className='w-full text-center rounded hover:bg-slate-200 hover:text-orange-400 py-2'><Link>Import</Link></div>
         </div>
 
       </div>
