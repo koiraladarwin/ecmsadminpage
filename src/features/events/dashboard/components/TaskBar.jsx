@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const TaskBar = () => {
   return (
     <>
-      <div className='w-64 h-screen bg-slate-800 flex flex-col items-center'>
+      <div className='w-64 h-100vh bg-slate-800 flex flex-col items-center'>
         <div className="w-12 h-12 rounded-full bg-orange-600 flex justify-center items-center mb-6 mt-6">
           <h1 className="text-white font-bold">U</h1>
         </div>
