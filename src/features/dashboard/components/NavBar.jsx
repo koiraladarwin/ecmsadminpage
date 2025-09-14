@@ -1,10 +1,11 @@
 import React from 'react'
 import { FaCalendarAlt, FaChevronDown, FaSearch } from 'react-icons/fa'
 import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
+
 const NavBar = () => {
   return (
     <div className="bg-white px-6 py-4 flex flex-col lg:flex-row lg:justify-between gap:5 xl:gap-0 items-center">
-      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+      <div className="flex flex-col md:flex-row md:flex-2 items-center md:gap-2">
         {/* My Events with icon */}
         <div className="flex items-center gap-2 text-lg font-semibold text-gray-800 whitespace-nowrap">
           <FaCalendarAlt className="text-gray-600" size={25} />
@@ -12,7 +13,7 @@ const NavBar = () => {
         </div>
 
         {/* Search with icon  */}
-        <div className="relative">
+        <div className=" relative">
           <input
             type="text"
             placeholder="Search"
@@ -27,13 +28,20 @@ const NavBar = () => {
           <HiOutlineQuestionMarkCircle size={18} />
           <div>Help</div>
         </div>
+      
+    
 
         {/* upgrade part */}
         <div className="flex overflow-hidden border border-sidebar-hover rounded-r-4xl rounded-l-xl">
-          <button className="px-4 text-sidebar-hover text-sm font-medium flex flex-col -space-y-1">
-            <span>
-              Current Plan
-            </span>
+          <button className="px-4 text-sidebar-hover text-sm font-medium flex flex-col">
+            <div className='flex gap-1'>
+              <span >
+                Current
+              </span>
+              <span>
+                Plan
+              </span>
+            </div>
             <span className="font-extrabold">STANDARD</span>
           </button>
 
@@ -44,7 +52,7 @@ const NavBar = () => {
 
       </div>
       {/* profile part */}
-      <div className="flex w-full justify-center pt-2 lg:pt-0 lg:justify-end gap-3">
+      <div className="flex  justify-center pt-2 lg:pt-0 lg:justify-end gap-3">
         <img
           src="/placeholder.jpg"
           alt="Profile"

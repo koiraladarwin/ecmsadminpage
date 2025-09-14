@@ -30,7 +30,7 @@ function App() {
         <Route path="finance/:financeId" element={<FinancePage />} />
         <Route path="hireteam" element={<HireTeamPage />} />
         <Route path="/import-export" element={<ImportExportPage />} />
-        <Route path="/events" element={<EventsPage/>} />
+        <Route path="/events/category" element={<EventsPage/>} />
           
       </Route>
     </Routes>

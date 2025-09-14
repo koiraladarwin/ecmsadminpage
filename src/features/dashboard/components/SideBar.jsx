@@ -29,9 +29,8 @@ export default function SideBar() {
   return (
     <div className="w-64 bg-sidebar-bg shadow-md overflow-hidden flex flex-col">
       {/* header */}
-      <div className="p-4 border-b border-gray-200 flex items-center justify-between">
-        <div className="text-xl font-semibold text-white">ECMS</div>
-        <FaBars className='text-white' />
+      <div className="p-4  flex items-center justify-center">
+        <h1 className="text-3xl font-semibold text-white mt-5 ">ECMS</h1>
       </div>
 
 
