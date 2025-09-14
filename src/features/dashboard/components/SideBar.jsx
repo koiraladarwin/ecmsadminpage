@@ -27,7 +27,7 @@ export default function SideBar() {
   }
 
   return (
-    <div className="w-64 bg-[var(--color-sidebar-bg)] shadow-md overflow-hidden flex flex-col">
+    <div className="w-64 bg-sidebar-bg shadow-md overflow-hidden flex flex-col">
       {/* header */}
       <div className="p-4 border-b border-gray-200 flex items-center justify-between">
         <div className="text-xl font-semibold text-white">ECMS</div>
@@ -55,24 +55,24 @@ export default function SideBar() {
           to="/"
           end
           className={({ isActive }) =>
-            `flex items-center px-5 py-3 transition ${isActive ? 'bg-[var(--color-sidebar-hover)] font-semibold text-[var(--color-active-text)]' : 'text-[var(--color-passive-text)] hover:bg-gray-100'
+            `flex items-center px-5 py-3 transition ${isActive ? 'bg-sidebar-hover font-semibold text-active-text' : 'text-passive-text hover:bg-gray-100'
             }`
           }
         >
 
           <MdOutlineSpaceDashboard
-            className="mr-3 text-[var(--color-passive-text)]" size={18}
+            className="mr-3 text-passive-text" size={18}
           />
           Dashboard
         </NavLink>
 
         {/* events section */}
-        <div className="">
+        <div>
           <button
             onClick={() => handleOpen("events")}
-            className="flex items-center w-full px-5 py-3 font-semibold text-[var(--color-passive-text)] hover:bg-gray-100"
+            className="flex items-center w-full px-5 py-3 font-semibold text-passive-text hover:bg-gray-100"
           >
-            <FiCalendar className="mr-3 text-[var(--color-passive-text)]" size={18} />
+            <FiCalendar className="mr-3 text-passive-text" size={18} />
             Events
             <FiChevronRight
               className={`ml-auto transition-transform ${open == 'events' ? 'rotate-90' : ''}`}
@@ -86,7 +86,7 @@ export default function SideBar() {
               <NavLink
                 to="/events/category"
                 className={({ isActive }) =>
-                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)] font-semibold  text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover font-semibold  text-active-text" : "text-passive-text hover:bg-gray-100"
                   }`
                 }
               >
@@ -96,7 +96,7 @@ export default function SideBar() {
               <NavLink
                 to="/events/createvent"
                 className={({ isActive }) =>
-                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                   }`
                 }
               >
@@ -106,7 +106,7 @@ export default function SideBar() {
               <NavLink
                 to="/events/session"
                 className={({ isActive }) =>
-                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                   }`
                 }
               >
@@ -116,7 +116,7 @@ export default function SideBar() {
               <NavLink
                 to="/events/invitation"
                 className={({ isActive }) =>
-                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                   }`
                 }
               >
@@ -126,7 +126,7 @@ export default function SideBar() {
               <NavLink
                 to="/events/ticket"
                 className={({ isActive }) =>
-                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                   }`
                 }
               >
@@ -143,8 +143,8 @@ export default function SideBar() {
 
         {/* people */}
         <div className=''>
-          <button onClick={() => handleOpen("people")} className="flex items-center w-full px-5 py-3 font-semibold text-[var(--color-passive-text)] hover:bg-gray-100">
-            <IoPeopleOutline className="mr-3 text-[var(--color-passive-text)]" size={18} />
+          <button onClick={() => handleOpen("people")} className="flex items-center w-full px-5 py-3 font-semibold text-passive-text hover:bg-gray-100">
+            <IoPeopleOutline className="mr-3 text-passive-text" size={18} />
             People
             <FiChevronRight
               className={`ml-auto transition-transform ${open == "people" ? 'rotate-90' : ''}`}
@@ -158,7 +158,7 @@ export default function SideBar() {
             <NavLink
               to="/people/staff"
               className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                 }`
               }
             >
@@ -168,7 +168,7 @@ export default function SideBar() {
             <NavLink
               to="/people/enroll"
               className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                 }`
               }
             >
@@ -183,18 +183,18 @@ export default function SideBar() {
         <NavLink
           to="/support"
           className={({ isActive }) =>
-            `flex items-center px-5 py-3 transition ${isActive ? 'bg-[var(--color-sidebar-hover)] text-[var(--color-active-text)]  font-semibold' : 'text-[var(--color-passive-text)] hover:bg-gray-100'
+            `flex items-center px-5 py-3 transition ${isActive ? 'bg-sidebar-hover text-active-text  font-semibold' : 'text-passive-text hover:bg-gray-100'
             }`
           }
         >
-          <TfiSupport className="mr-3 text-[var(--color-passive-text)]" size={18} />
+          <TfiSupport className="mr-3 text-passive-text" size={18} />
           Support
         </NavLink>
 
         {/* report */}
         <div className=''>
-          <button onClick={() => handleOpen("report")} className="flex items-center w-full px-5 py-3 font-semibold text-[var(--color-passive-text)] hover:bg-gray-100">
-            <HiOutlineDocumentReport className="mr-3 text-[var(--color-passive-text)]" size={18} />
+          <button onClick={() => handleOpen("report")} className="flex items-center w-full px-5 py-3 font-semibold text-passive-text hover:bg-gray-100">
+            <HiOutlineDocumentReport className="mr-3 text-passive-text" size={18} />
             Report
             <FiChevronRight
               className={`ml-auto transition-transform ${open == "report" ? 'rotate-90' : ''}`}
@@ -208,7 +208,7 @@ export default function SideBar() {
             <NavLink
               to="/report/checkinreport"
               className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                 }`
               }
             >
@@ -218,7 +218,7 @@ export default function SideBar() {
             <NavLink
               to="/report/invitationreport"
               className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                 }`
               }
             >
@@ -228,7 +228,7 @@ export default function SideBar() {
             <NavLink
               to="/report/salesreport"
               className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                 }`
               }
             >
@@ -242,8 +242,8 @@ export default function SideBar() {
 
         {/* setting */}
         <div className=''>
-          <button onClick={() => handleOpen("settings")} className="flex items-center w-full px-5 py-3 font-semibold text-[var(--color-passive-text)] hover:bg-gray-100 ">
-            <FiSettings className="mr-3 text-[var(--color-passive-text)]" size={18} />
+          <button onClick={() => handleOpen("settings")} className="flex items-center w-full px-5 py-3 font-semibold text-passive-text hover:bg-gray-100 ">
+            <FiSettings className="mr-3 text-passive-text" size={18} />
             Setting
             <FiChevronRight
               className={`ml-auto transition-transform ${open == "settings" ? 'rotate-90' : ''}`}
@@ -257,7 +257,7 @@ export default function SideBar() {
             <NavLink
               to="/settings/setting1"
               className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                 }`
               }
             >
@@ -267,7 +267,7 @@ export default function SideBar() {
             <NavLink
               to="/settings/setting2"
               className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                 }`
               }
             >
@@ -277,7 +277,7 @@ export default function SideBar() {
             <NavLink
               to="/settings/setting3"
               className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                 }`
               }
             >
@@ -290,8 +290,8 @@ export default function SideBar() {
 
         {/* finance */}
         <div className=''>
-          <button onClick={() => handleOpen("finance")} className="flex items-center w-full px-5 py-3 font-semibold text-[var(--color-passive-text)] hover:bg-gray-100 ">
-            <HiOutlineHomeModern className="mr-3 text-[var(--color-passive-text)]" size={18} />
+          <button onClick={() => handleOpen("finance")} className="flex items-center w-full px-5 py-3 font-semibold text-passive-text hover:bg-gray-100 ">
+            <HiOutlineHomeModern className="mr-3 text-passive-text" size={18} />
             Finance
             <FiChevronRight
               className={`ml-auto transition-transform ${open == "finance" ? 'rotate-90' : ''}`}
@@ -305,7 +305,7 @@ export default function SideBar() {
             <NavLink
               to="/finance/finance1"
               className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                 }`
               }
             >
@@ -315,7 +315,7 @@ export default function SideBar() {
             <NavLink
               to="/finance/finance2"
               className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                 }`
               }
             >
@@ -325,7 +325,7 @@ export default function SideBar() {
             <NavLink
               to="/finance/finance3"
               className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]" : "text-[var(--color-passive-text)] hover:bg-gray-100"
+                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                 }`
               }
             >
@@ -340,11 +340,11 @@ export default function SideBar() {
         <NavLink
           to="/hireteam"
           className={({ isActive }) =>
-            `flex items-center px-5 py-3 transition ${isActive ? 'bg-[var(--color-sidebar-hover)]  font-semibold text-[var(--color-active-text)]' : 'text-[var(--color-passive-text)] hover:bg-gray-100'
+            `flex items-center px-5 py-3 transition ${isActive ? 'bg-sidebar-hover  font-semibold text-active-text' : 'text-passive-text hover:bg-gray-100'
             }`
           }
         >
-          <RiTeamLine className="mr-3 text-[var(--color-passive-text)]" size={18} />
+          <RiTeamLine className="mr-3 text-passive-text" size={18} />
           Hire Team
         </NavLink>
       </nav>

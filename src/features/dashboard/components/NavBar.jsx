@@ -29,15 +29,15 @@ const NavBar = () => {
         </div>
 
         {/* upgrade part */}
-        <div className="flex overflow-hidden border border-[var(--color-sidebar-hover)] rounded-r-4xl rounded-l-xl">
-          <button className="px-4 text-[var(--color-sidebar-hover)] text-sm font-medium flex flex-col -space-y-1">
+        <div className="flex overflow-hidden border border-sidebar-hover rounded-r-4xl rounded-l-xl">
+          <button className="px-4 text-sidebar-hover text-sm font-medium flex flex-col -space-y-1">
             <span>
               Current Plan
             </span>
             <span className="font-extrabold">STANDARD</span>
           </button>
 
-          <button className="px-4 bg-[var(--color-sidebar-hover)] text-white text-lg font-medium rounded-4xl hover:bg-purple-700">
+          <button className="px-4 bg-sidebar-hover text-white text-lg font-medium rounded-4xl hover:bg-purple-700">
             Upgrade
           </button>
         </div>

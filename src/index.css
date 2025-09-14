@@ -1,4 +1,5 @@
 @import "tailwindcss";
+
 @theme {
   --color-sidebar-bg: #262042;
   --color-sidebar-hover:#772A92;
