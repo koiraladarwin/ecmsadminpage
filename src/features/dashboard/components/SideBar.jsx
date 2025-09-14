@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FiHome, FiCalendar, FiChevronRight } from 'react-icons/fi';
+import { FiHome, FiCalendar, FiChevronRight, FiSettings } from 'react-icons/fi';
 import { FaBars } from 'react-icons/fa';
+import { IoPeopleOutline } from 'react-icons/io5';
+import { TfiSupport } from 'react-icons/tfi';
+import { HiOutlineDocumentReport } from 'react-icons/hi';
+import { RiTeamLine } from 'react-icons/ri';
+import { HiOutlineHomeModern } from 'react-icons/hi2';
 
 const events = [
   { id: 'event-1', label: 'Event 1' },
@@ -17,7 +22,7 @@ export default function SideBar() {
       {/* header */}
       <div className="p-4 border-b border-gray-200 flex items-center justify-between">
         <div className="text-xl font-semibold text-orange-500">ECMS</div>
-        <FaBars  className='text-gray-500'/>
+        <FaBars className='text-gray-500' />
       </div>
 
 
@@ -87,14 +92,77 @@ export default function SideBar() {
 
         </div>
 
+
+        {/* people */}
         <NavLink
-          to="/import-export"
+          to="/people"
           className={({ isActive }) =>
-            `px-5 py-3 border-t border-gray-200 hover:bg-gray-100 transition ${isActive ? 'bg-gray-200 font-semibold' : ''
+            `flex items-center px-5 py-3 border-t border-gray-200 hover:bg-gray-100 transition ${isActive ? 'bg-gray-200 font-semibold' : ''
             }`
           }
         >
-          Import/Export
+          <IoPeopleOutline className="mr-3 text-gray-600" size={18} />
+          People
+        </NavLink>
+
+        {/* support */}
+        <NavLink
+          to="/support"
+          className={({ isActive }) =>
+            `flex items-center px-5 py-3 border-t border-gray-200 hover:bg-gray-100 transition ${isActive ? 'bg-gray-200 font-semibold' : ''
+            }`
+          }
+        >
+          <TfiSupport className="mr-3 text-gray-600" size={18} />
+          Support
+        </NavLink>
+
+        {/* report */}
+        <NavLink
+          to="/report"
+          className={({ isActive }) =>
+            `flex items-center px-5 py-3 border-t border-gray-200 hover:bg-gray-100 transition ${isActive ? 'bg-gray-200 font-semibold' : ''
+            }`
+          }
+        >
+          <HiOutlineDocumentReport className="mr-3 text-gray-600" size={18} />
+          Report
+        </NavLink>
+
+        {/* setting */}
+        <NavLink
+          to="/settings"
+          className={({ isActive }) =>
+            `flex items-center px-5 py-3 border-t border-gray-200 hover:bg-gray-100 transition ${isActive ? 'bg-gray-200 font-semibold' : ''
+            }`
+          }
+        >
+          <FiSettings className="mr-3 text-gray-600" size={18} />
+          Setting
+        </NavLink>
+
+        {/* finance */}
+        <NavLink
+          to="/finance"
+          className={({ isActive }) =>
+            `flex items-center px-5 py-3 border-t border-gray-200 hover:bg-gray-100 transition ${isActive ? 'bg-gray-200 font-semibold' : ''
+            }`
+          }
+        >
+          <HiOutlineHomeModern className="mr-3 text-gray-600" size={18} />
+          Finance
+        </NavLink>
+
+        {/* hire team */}
+        <NavLink
+          to="/hireteam"
+          className={({ isActive }) =>
+            `flex items-center px-5 py-3 border-t border-gray-200 hover:bg-gray-100 transition ${isActive ? 'bg-gray-200 font-semibold' : ''
+            }`
+          }
+        >
+          <RiTeamLine className="mr-3 text-gray-600" size={18} />
+          Hire Team
         </NavLink>
       </nav>
 
