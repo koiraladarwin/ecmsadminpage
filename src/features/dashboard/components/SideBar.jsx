@@ -145,7 +145,53 @@ export default function SideBar() {
         </NavLink>
 
         {/* report */}
-        <NavLink
+        <div className='border-t border-gray-200'>
+          <button onClick={() => setOpen("report")} className="flex items-center w-full px-5 py-3 font-semibold text-gray-800 hover:bg-gray-100 border-b border-gray-200">
+            <HiOutlineDocumentReport className="mr-3 text-gray-600" size={18} />
+            Report
+            <FiChevronRight
+              className={`ml-auto transition-transform ${open == "report" ? 'rotate-90' : ''}`}
+              size={18}
+            />
+          </button>
+        </div>
+        {/* people list */}
+        {open == "report" && (
+          <div className="flex flex-col ml-10 py-2 space-y-1">
+            <NavLink
+              to="/report/checkinreport"
+              className={({ isActive }) =>
+                `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                }`
+              }
+            >
+              Check-in Report
+            </NavLink>
+
+            <NavLink
+              to="/report/invitationreport"
+              className={({ isActive }) =>
+                `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                }`
+              }
+            >
+              Inivitation Report
+            </NavLink>
+
+            <NavLink
+              to="/report/salesreport"
+              className={({ isActive }) =>
+                `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                }`
+              }
+            >
+              Sales Report
+            </NavLink>
+          </div>
+        )
+
+        }
+        {/* <NavLink
           to="/report"
           className={({ isActive }) =>
             `flex items-center px-5 py-3 border-t border-gray-200 hover:bg-gray-100 transition ${isActive ? 'bg-gray-200 font-semibold' : ''
@@ -154,7 +200,7 @@ export default function SideBar() {
         >
           <HiOutlineDocumentReport className="mr-3 text-gray-600" size={18} />
           Report
-        </NavLink>
+        </NavLink> */}
 
         {/* setting */}
         <NavLink
