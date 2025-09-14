@@ -42,8 +42,7 @@ export default function Events() {
            </div>
 
           <hr  className=' ml-20 mr-20 m-10 border-gray-400 border-2'/>
-
-        
+       
             <div className='box-border m-20 p-10 border-gray-500 border-2 bg-white text-center'>
 
                 <h1 className='text-3xl font-bold mt-2'> Welcome! Lets create your first event </h1>
