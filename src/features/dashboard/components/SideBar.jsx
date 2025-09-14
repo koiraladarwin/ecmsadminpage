@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { FiHome, FiCalendar, FiChevronRight, FiSettings } from 'react-icons/fi';
+import { FiCalendar, FiChevronRight, FiSettings } from 'react-icons/fi';
 import { FaBars } from 'react-icons/fa';
 import { IoPeopleOutline } from 'react-icons/io5';
 import { TfiSupport } from 'react-icons/tfi';
 import { HiOutlineDocumentReport } from 'react-icons/hi';
 import { RiTeamLine } from 'react-icons/ri';
 import { HiOutlineHomeModern } from 'react-icons/hi2';
+import { MdOutlineSpaceDashboard } from 'react-icons/md';
 
 const events = [
   { id: 'event-1', label: 'Event 1' },
@@ -29,7 +30,7 @@ export default function SideBar() {
     <div className="w-64 bg-[var(--color-sidebar-bg)] shadow-md overflow-hidden flex flex-col">
       {/* header */}
       <div className="p-4 border-b border-gray-200 flex items-center justify-between">
-        <div className="text-xl font-semibold text-orange-500">ECMS</div>
+        <div className="text-xl font-semibold text-white">ECMS</div>
         <FaBars className='text-white' />
       </div>
 
@@ -42,7 +43,8 @@ export default function SideBar() {
           className="w-20 h-20 rounded-full border-2 border-gray-300 bg-gray-100 object-cover"
         />
         <div className="mt-3 text-center text-white text-sm font-medium">
-          Hi,Bikram!<br /><span className='text-slate-300'>Nepal Freight Forwarder Association(NEFFA)</span>
+          Hi,Bikram!<br />
+          <span className='text-slate-300 leading-relaxed'>Nepal Freight Forwarder Association(NEFFA)</span>
         </div>
       </div>
 
@@ -57,7 +59,8 @@ export default function SideBar() {
             }`
           }
         >
-          <FiHome
+
+          <MdOutlineSpaceDashboard
             className="mr-3 text-[var(--color-passive-text)]" size={18}
           />
           Dashboard
