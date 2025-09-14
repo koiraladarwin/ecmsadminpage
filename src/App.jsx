@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import Loginpage from "./features/auth/pages/Loginpage";
-import Home from "./features/dashboard/pages/DashboardHome";
 import ImportExportPage from "./features/importexport/Importexport";
 import EventPage from "./features/event/EventPage";
 import Dashboard from "./features/dashboard/pages/Dashboard";
+import Home from "./features/dashboard/pages/Home";
 
 function App() {
   return (

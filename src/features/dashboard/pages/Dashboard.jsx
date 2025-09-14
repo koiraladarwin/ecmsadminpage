@@ -6,9 +6,9 @@ export default function Dashboard() {
   return (
     <div className="flex min-h-screen bg-gray-50">
       <SideBar />
-      <div className="flex-1">
+      <div className="flex flex-col flex-1">
         <NavBar />
-        <div className="p-6">
+        <div className="flex-1 overflow-y-auto">
           <Outlet />
         </div>
       </div>
