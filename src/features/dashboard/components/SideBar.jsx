@@ -15,7 +15,6 @@ const events = [
 ];
 
 export default function SideBar() {
-  const [eventsOpen, setEventsOpen] = useState(true);
   const [open, setOpen] = useState("");
 
   return (
@@ -57,39 +56,74 @@ export default function SideBar() {
         {/* events section */}
         <div className="border-b border-gray-200">
           <button
-            onClick={() => setEventsOpen(!eventsOpen)}
+            onClick={() => setOpen("events")}
             className="flex items-center w-full px-5 py-3 font-semibold text-gray-800 hover:bg-gray-100 border-b border-gray-200"
           >
             <FiCalendar className="mr-3 text-gray-600" size={18} />
             Events
             <FiChevronRight
-              className={`ml-auto transition-transform ${eventsOpen ? 'rotate-90' : ''}`}
+              className={`ml-auto transition-transform ${open == 'events' ? 'rotate-90' : ''}`}
               size={18}
             />
           </button>
 
           {/* events list */}
+          {open == "events" && (
+            <div className="flex flex-col ml-10 py-2 space-y-1">
+              <NavLink
+                to="/events/category"
+                className={({ isActive }) =>
+                  `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                  }`
+                }
+              >
+                Category
+              </NavLink>
 
-          {eventsOpen && (
-            <div className="relative py-2 space-y-4">
-              <div className='h-[calc(100%-8px)] w-[2px] bg-gray-400 absolute ml-[77px] top-0'></div>
-              <div className='mt-2 space-y-1'>
-                {events.map((event) => (
-                  <NavLink
-                    key={event.id}
-                    to={`/events/${event.id}`}
-                    className={({ isActive }) =>
-                      `group flex gap-2 items-center relative py-2 pl-18 text-sm text-gray-700 ${isActive ? 'font-semibold' : ''
-                      }`
-                    }
-                  >
-                    <span className="h-3 w-3 rounded-full bg-gray-400 group-hover:bg-black transition-colors duration-200"></span>
-                    <span className="text-gray-500 font-medium text-lg">{event.label}</span>
-                  </NavLink>
-                ))}
-              </div>
+              <NavLink
+                to="/events/createvent"
+                className={({ isActive }) =>
+                  `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                  }`
+                }
+              >
+                Create Event
+              </NavLink>
+
+              <NavLink
+                to="/events/session"
+                className={({ isActive }) =>
+                  `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                  }`
+                }
+              >
+                Session
+              </NavLink>
+
+              <NavLink
+                to="/events/invitation"
+                className={({ isActive }) =>
+                  `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                  }`
+                }
+              >
+                Invitation
+              </NavLink>
+
+              <NavLink
+                to="/events/ticket"
+                className={({ isActive }) =>
+                  `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                  }`
+                }
+              >
+                Ticket
+              </NavLink>
             </div>
-          )}
+          )
+
+          }
+
 
         </div>
 
@@ -288,17 +322,6 @@ export default function SideBar() {
         )
 
         }
-
-        {/* <NavLink
-          to="/finance"
-          className={({ isActive }) =>
-            `flex items-center px-5 py-3 border-t border-gray-200 hover:bg-gray-100 transition ${isActive ? 'bg-gray-200 font-semibold' : ''
-            }`
-          }
-        >
-          <HiOutlineHomeModern className="mr-3 text-gray-600" size={18} />
-          Finance
-        </NavLink> */}
 
         {/* hire team */}
         <NavLink
