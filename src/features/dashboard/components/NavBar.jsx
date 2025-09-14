@@ -3,8 +3,8 @@ import { FaCalendarAlt, FaChevronDown, FaSearch } from 'react-icons/fa'
 import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
 const NavBar = () => {
   return (
-    <div className="bg-white px-6 py-4 flex justify-between items-center">
-      <div className="flex items-center gap-6">
+    <div className="bg-white px-6 py-4 flex flex-col lg:flex-row lg:justify-between gap:5 xl:gap-0 items-center">
+      <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
         {/* My Events with icon */}
         <div className="flex items-center gap-2 text-lg font-semibold text-gray-800 whitespace-nowrap">
           <FaCalendarAlt className="text-gray-600" size={25} />
@@ -44,14 +44,14 @@ const NavBar = () => {
 
       </div>
       {/* profile part */}
-      <div className="flex w-full justify-end gap-3">
+      <div className="flex w-full justify-center pt-2 lg:pt-0 lg:justify-end gap-3">
         <img
           src="/placeholder.jpg"
           alt="Profile"
           className="w-12 h-12 rounded-full border-2 border-gray-300 bg-gray-100 object-cover"
         />
         <div className='flex items-center gap-1 justify-between'>
-          <button className="text-gray-500  font-semibold">Admin</button>
+          <button className="text-gray-500  font-semibold ">Admin</button>
           <FaChevronDown className='mt-1 text-gray-500' />
         </div>
       </div>
