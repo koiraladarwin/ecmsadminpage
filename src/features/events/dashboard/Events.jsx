@@ -1,9 +1,7 @@
-import React from 'react'
 import NavBar from './components/NavBar'
 import TaskBar from './components/TaskBar'
 import {FaPlus} from "react-icons/fa"
 import { Link } from 'react-router-dom'
-// import  {NewEvent}  from './NewEvent'
 export default function Events() {
   return (
     <>
@@ -15,7 +13,6 @@ export default function Events() {
           <NavBar />
 
           <div className='flex items-center justify-between mt-10 pl-20 pr-20'>
-            {/* <h1 className='text-2xl font-bold'></h1> */}
 
             <div className='flex '>
                 <button className='border px-5 py-1'>
@@ -34,16 +31,15 @@ export default function Events() {
             </div>
 
             <div className=''>
-                    <span> Event Categories</span>
-                </div>
+              <span> Event Categories</span>
+            </div>
 
             <button className='bg-[#772a92] text-white px-4 py-2 rounded-3xl flex items-center gap-2'>
-               <FaPlus /> 
-                CreateEvent    {/* + sign halna baki xa */}
+              <FaPlus /> 
+              CreateEvent    
             </button>
 
-            
-          </div>
+           </div>
 
           <hr  className=' ml-20 mr-20 m-10 border-gray-400 border-2'/>
 
@@ -55,8 +51,8 @@ export default function Events() {
                     organize, and bring your ideas to life. Click below to get started and make something great!
                 </p>
 
-            <Link to="/NewEvent">
-                <button className='flex px-4 py-2 rounded-3xl gap-2 mt-5 mx-auto bg-[#f91111] '>
+            <Link to="/newevent">
+                <button className='flex items-center px-4 py-2 rounded-3xl gap-2 mt-5 mx-auto bg-[#f91111] '>
                     <FaPlus /> Create your 1st Event
                 </button>
             </Link>
