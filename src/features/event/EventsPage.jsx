@@ -1,17 +1,11 @@
-import NavBar from './components/NavBar'
-import TaskBar from './components/TaskBar'
 import { FaPlus } from "react-icons/fa"
 import { Link } from 'react-router-dom'
 
-export default function Events() {
+export default function EventsPage() {
   return (
     <>
-      <div className='flex min-h-screen bg-[#e1d0f0]'>
-        <div className='flex flex-1'>
-          <TaskBar />
-        </div>
+      <div className='flex min-h-full bg-[#e1d0f0]'>
         <div class='w-full'>
-          <NavBar />
 
           <div className='flex items-center justify-between mt-10 pl-20 pr-20'>
 
