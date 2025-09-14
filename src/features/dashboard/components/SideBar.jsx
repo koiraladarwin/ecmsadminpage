@@ -242,7 +242,54 @@ export default function SideBar() {
         }
 
         {/* finance */}
-        <NavLink
+        <div className='border-t border-gray-200'>
+          <button onClick={() => setOpen("finance")} className="flex items-center w-full px-5 py-3 font-semibold text-gray-800 hover:bg-gray-100 border-b border-gray-200">
+            <HiOutlineHomeModern className="mr-3 text-gray-600" size={18} />
+            Finance
+            <FiChevronRight
+              className={`ml-auto transition-transform ${open == "finance" ? 'rotate-90' : ''}`}
+              size={18}
+            />
+          </button>
+        </div>
+        {/* finance list */}
+        {open == "finance" && (
+          <div className="flex flex-col ml-10 py-2 space-y-1">
+            <NavLink
+              to="/finance/finance1"
+              className={({ isActive }) =>
+                `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                }`
+              }
+            >
+              finance 1
+            </NavLink>
+
+            <NavLink
+              to="/finance/finance2"
+              className={({ isActive }) =>
+                `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                }`
+              }
+            >
+              finance 2
+            </NavLink>
+
+            <NavLink
+              to="/finance/finance3"
+              className={({ isActive }) =>
+                `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                }`
+              }
+            >
+              finance 3
+            </NavLink>
+          </div>
+        )
+
+        }
+
+        {/* <NavLink
           to="/finance"
           className={({ isActive }) =>
             `flex items-center px-5 py-3 border-t border-gray-200 hover:bg-gray-100 transition ${isActive ? 'bg-gray-200 font-semibold' : ''
@@ -251,7 +298,7 @@ export default function SideBar() {
         >
           <HiOutlineHomeModern className="mr-3 text-gray-600" size={18} />
           Finance
-        </NavLink>
+        </NavLink> */}
 
         {/* hire team */}
         <NavLink

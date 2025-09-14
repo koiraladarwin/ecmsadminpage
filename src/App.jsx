@@ -24,7 +24,7 @@ function App() {
         <Route path="support" element={<SupportPage />} />
         <Route path="report/:reportId" element={<ReportPage />} />
         <Route path="settings/:settingId" element={<SettingsPage />} />
-        <Route path="finance" element={<FinancePage />} />
+        <Route path="finance/:financeId" element={<FinancePage />} />
         <Route path="hireteam" element={<HireTeamPage />} />
       </Route>
     </Routes>
