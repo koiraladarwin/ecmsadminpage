@@ -23,7 +23,7 @@ function App() {
         <Route path="people/:peopleId" element={<PeoplePage />} />
         <Route path="support" element={<SupportPage />} />
         <Route path="report/:reportId" element={<ReportPage />} />
-        <Route path="settings" element={<SettingsPage />} />
+        <Route path="settings/:settingId" element={<SettingsPage />} />
         <Route path="finance" element={<FinancePage />} />
         <Route path="hireteam" element={<HireTeamPage />} />
       </Route>
