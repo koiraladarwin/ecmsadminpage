@@ -155,7 +155,7 @@ export default function SideBar() {
             />
           </button>
         </div>
-        {/* people list */}
+        {/* report list */}
         {open == "report" && (
           <div className="flex flex-col ml-10 py-2 space-y-1">
             <NavLink
