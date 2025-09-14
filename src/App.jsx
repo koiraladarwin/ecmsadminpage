@@ -20,7 +20,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="import-export" element={<ImportExportPage />} />
         <Route path="events/:eventId" element={<EventPage />} />
-        <Route path="people" element={<PeoplePage />} />
+        <Route path="people/:peopleId" element={<PeoplePage />} />
         <Route path="support" element={<SupportPage />} />
         <Route path="report" element={<ReportPage />} />
         <Route path="settings" element={<SettingsPage />} />

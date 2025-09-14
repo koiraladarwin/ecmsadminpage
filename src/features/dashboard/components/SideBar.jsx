@@ -16,6 +16,7 @@ const events = [
 
 export default function SideBar() {
   const [eventsOpen, setEventsOpen] = useState(true);
+  const [open, setOpen] = useState("");
 
   return (
     <div className="w-64 bg-white shadow-md rounded-lg overflow-hidden flex flex-col">
@@ -94,16 +95,42 @@ export default function SideBar() {
 
 
         {/* people */}
-        <NavLink
-          to="/people"
-          className={({ isActive }) =>
-            `flex items-center px-5 py-3 border-t border-gray-200 hover:bg-gray-100 transition ${isActive ? 'bg-gray-200 font-semibold' : ''
-            }`
-          }
-        >
-          <IoPeopleOutline className="mr-3 text-gray-600" size={18} />
-          People
-        </NavLink>
+        <div className='border-t border-gray-200'>
+          <button onClick={() => setOpen("people")} className="flex items-center w-full px-5 py-3 font-semibold text-gray-800 hover:bg-gray-100 border-b border-gray-200">
+            <IoPeopleOutline className="mr-3 text-gray-600" size={18} />
+            People
+            <FiChevronRight
+              className={`ml-auto transition-transform ${open == "people" ? 'rotate-90' : ''}`}
+              size={18}
+            />
+          </button>
+        </div>
+        {/* people list */}
+        {open == "people" && (
+          <div className="flex flex-col ml-10 py-2 space-y-1">
+            <NavLink
+              to="/people/staff"
+              className={({ isActive }) =>
+                `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                }`
+              }
+            >
+              Staff/Attendee
+            </NavLink>
+
+            <NavLink
+              to="/people/enroll"
+              className={({ isActive }) =>
+                `px-5 py-2 hover:bg-gray-100 transition ${isActive ? "bg-gray-200 font-semibold text-black" : "text-gray-700"
+                }`
+              }
+            >
+              Enroll
+            </NavLink>
+          </div>
+        )
+
+        }
 
         {/* support */}
         <NavLink
