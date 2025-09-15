@@ -1,17 +1,17 @@
 import { Route, Routes } from "react-router-dom";
 import Loginpage from "./features/auth/pages/Loginpage";
-import ImportExportPage from "./features/importexport/Importexport";
 import Dashboard from "./features/dashboard/pages/Dashboard";
 
 import PeoplePage from "./features/dashboard/people/pages/PeoplePage";
 import SupportPage from "./features/dashboard/support/SupportPage";
 import ReportPage from "./features/dashboard/report/pages/ReportPage";
 import SettingsPage from "./features/dashboard/settings/pages/SettingsPage";
-import FinancePage from "./features/finance/pages/FinancePage";
 import HireTeamPage from "./features/dashboard/hireteam/HireTeamPage";
 
 import Home from "./features/dashboard/pages/Home";
-import EventsPage from "./features/event/EventsPage";
+import EventsPage from "./features/dashboard/event/EventsPage";
+import FinancePage from "./features/dashboard/finance/pages/FinancePage";
+import ImportExportPage from "./features/dashboard/importexport/Importexport";
 
 
 function App() {
@@ -29,7 +29,6 @@ function App() {
         <Route path="settings/:settingId" element={<SettingsPage />} />
         <Route path="finance/:financeId" element={<FinancePage />} />
         <Route path="hireteam" element={<HireTeamPage />} />
-        <Route path="/import-export" element={<ImportExportPage />} />
         <Route path="/events/category" element={<EventsPage/>} />
           
       </Route>
