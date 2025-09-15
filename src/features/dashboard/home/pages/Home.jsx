@@ -9,7 +9,7 @@ import { MdPersonOutline } from "react-icons/md";
 
 export default function Home() {
   return (
-    <div className="min-h-full py-15 px-26 bg-purple-200 flex flex-col space-y-12">
+    <div className="min-h-full pt-10 px-26 bg-purple-200 flex flex-col space-y-12">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <StatCard title="ACTIVE EVENTS" value="42%" subtext="21/50" />
         <StatCard title="ENROLLMENT STATUS" value="30%" subtext="150/500" />

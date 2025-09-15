@@ -23,24 +23,33 @@ export default function WeatherWidget() {
       </div>
       <div className="p-6">
         <p className="text-4xl font-bold text-center ">⛅23°C</p>
-        <p className="text-sm text-textgray font-bold text-center ">Moon Cloud Fast Wind</p>
-        <p className="text-sm  font-bold text-center mt-5">Future Weather</p>
+        <p className="text-sm  font-bold text-center ">Moon Cloud Fast Wind</p>
+        <div className="flex justify-center">
+          <hr className='mb-2 mt-2 w-[90%] border-gray-200 border-[1px]' />
+        </div>
+        <p className="text-sm  font-bold text-center mt-3">Future Weather</p>
 
         <div className="mt-4 text-sm text-gray-700 space-y-3">
-          {forecast.map((f) => (
-            <div className=" flex justify-evenly items-center" key={f.day}>
-              <p className="font-bold text-xl">
-                {f.icon} {f.temp}°C
-              </p>
-              <div className="flex flex-col tex-sm  font-bold">
-                <p>
-                  {f.day}
+          {forecast.map((f, i) => (
+            <div>
+              <div className=" flex justify-evenly items-center" key={f.day}>
+                <p className="font-bold text-xl">
+                  {f.icon} {f.temp}°C
                 </p>
-                <p>
-                  {f.date}
-                </p>
-
+                <div className="flex flex-col tex-sm  font-bold">
+                  <p>
+                    {f.day}
+                  </p>
+                  <p>
+                    {f.date}
+                  </p>
+                </div>
               </div>
+              {i !== forecast.length - 1 && (
+                <div className="flex justify-center">
+                  <hr className='mb-2 mt-2 w-[80%] border-gray-200 border-[1px]' />
+                </div>
+              )}
             </div>
           ))}
         </div>
