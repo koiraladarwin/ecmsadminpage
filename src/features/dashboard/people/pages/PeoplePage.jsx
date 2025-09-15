@@ -1,13 +1,14 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import Header from '../components/header'
+
 
 function PeoplePage() {
-  const { peopleId } = useParams()
+
 
   return (
-    <h2 className="text-xl font-bold text-gray-800">
-      {peopleId}
-    </h2>
+  <>
+  <Header/>
+  </>
   )
 }
 

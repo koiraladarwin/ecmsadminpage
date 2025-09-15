@@ -14,6 +14,7 @@ import FinancePage from "./features/dashboard/finance/pages/FinancePage";
 import ImportExportPage from "./features/dashboard/importexport/Importexport";
 import CategoryPage from "./features/dashboard/category/page/Category";
 import CreateEventPage from "./features/dashboard/event/NewEventPage";
+import StaffAttendeePage from "./features/dashboard/people/pages/StaffAttendeePage";
 
 
 function App() {
@@ -25,7 +26,8 @@ function App() {
         <Route index element={<Home />} />
 
         <Route path="import-export" element={<ImportExportPage />} />
-        <Route path="people/:peopleId" element={<PeoplePage />} />
+        <Route path='people' element={<PeoplePage/>}/>
+        <Route path="people/:peopleId" element={<StaffAttendeePage/>} />
         <Route path="support" element={<SupportPage />} />
         <Route path="report/:reportId" element={<ReportPage />} />
         <Route path="settings/:settingId" element={<SettingsPage />} />

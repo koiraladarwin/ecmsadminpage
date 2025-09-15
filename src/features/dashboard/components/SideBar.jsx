@@ -152,39 +152,52 @@ export default function SideBar() {
 
         {/* people */}
         <div className=''>
-          <button onClick={() => handleOpen("people")} className="flex items-center w-full px-5 py-3 font-semibold text-passive-text hover:bg-gray-100">
+          <NavLink
+            to="/people"
+            end
+            onClick={() => handleOpen("people")}
+            className={({ isActive }) =>
+              `flex items-center w-full px-5 py-3 font-semibold transition ${isActive
+                ? "bg-sidebar-hover text-active-text"
+                : "text-passive-text hover:bg-gray-100"
+              }`
+            }
+          >
+            {/* <button onClick={() => handleOpen("people")} className="flex items-center w-full px-5 py-3 font-semibold text-passive-text hover:bg-gray-100"> */}
             <IoPeopleOutline className="mr-3 text-passive-text" size={18} />
             People
             <FiChevronRight
               className={`ml-auto transition-transform ${open == "people" ? 'rotate-90' : ''}`}
               size={18}
             />
-          </button>
+          </NavLink>
+          {/* </button> */}
         </div>
         {/* people list */}
-        {open == "people" && (
-          <div className="flex flex-col py-2 space-y-1">
-            <NavLink
-              to="/people/staff"
-              className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                }`
-              }
-            >
-              Staff/Attendee
-            </NavLink>
+        {
+          open == "people" && (
+            <div className="flex flex-col py-2 space-y-1">
+              <NavLink
+                to="/people/staff"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                Staff/Attendee
+              </NavLink>
 
-            <NavLink
-              to="/people/enroll"
-              className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                }`
-              }
-            >
-              Enroll
-            </NavLink>
-          </div>
-        )
+              <NavLink
+                to="/people/enroll"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                Enroll
+              </NavLink>
+            </div>
+          )
 
         }
 
@@ -212,39 +225,40 @@ export default function SideBar() {
           </button>
         </div>
         {/* report list */}
-        {open == "report" && (
-          <div className="flex flex-col py-2 space-y-1">
-            <NavLink
-              to="/report/checkinreport"
-              className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                }`
-              }
-            >
-              Check-in Report
-            </NavLink>
+        {
+          open == "report" && (
+            <div className="flex flex-col py-2 space-y-1">
+              <NavLink
+                to="/report/checkinreport"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                Check-in Report
+              </NavLink>
 
-            <NavLink
-              to="/report/invitationreport"
-              className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                }`
-              }
-            >
-              Inivitation Report
-            </NavLink>
+              <NavLink
+                to="/report/invitationreport"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                Inivitation Report
+              </NavLink>
 
-            <NavLink
-              to="/report/salesreport"
-              className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                }`
-              }
-            >
-              Sales Report
-            </NavLink>
-          </div>
-        )
+              <NavLink
+                to="/report/salesreport"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                Sales Report
+              </NavLink>
+            </div>
+          )
 
         }
 
@@ -261,39 +275,40 @@ export default function SideBar() {
           </button>
         </div>
         {/* setting list */}
-        {open == "settings" && (
-          <div className="flex flex-col py-2 space-y-1">
-            <NavLink
-              to="/settings/setting1"
-              className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                }`
-              }
-            >
-              setting 1
-            </NavLink>
+        {
+          open == "settings" && (
+            <div className="flex flex-col py-2 space-y-1">
+              <NavLink
+                to="/settings/setting1"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                setting 1
+              </NavLink>
 
-            <NavLink
-              to="/settings/setting2"
-              className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                }`
-              }
-            >
-              setting 2
-            </NavLink>
+              <NavLink
+                to="/settings/setting2"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                setting 2
+              </NavLink>
 
-            <NavLink
-              to="/settings/setting3"
-              className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                }`
-              }
-            >
-              setting 3
-            </NavLink>
-          </div>
-        )
+              <NavLink
+                to="/settings/setting3"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-[var(--color-sidebar-hover)]  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                setting 3
+              </NavLink>
+            </div>
+          )
 
         }
 
@@ -309,39 +324,40 @@ export default function SideBar() {
           </button>
         </div>
         {/* finance list */}
-        {open == "finance" && (
-          <div className="flex flex-col py-2 space-y-1">
-            <NavLink
-              to="/finance/finance1"
-              className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                }`
-              }
-            >
-              finance 1
-            </NavLink>
+        {
+          open == "finance" && (
+            <div className="flex flex-col py-2 space-y-1">
+              <NavLink
+                to="/finance/finance1"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                finance 1
+              </NavLink>
 
-            <NavLink
-              to="/finance/finance2"
-              className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                }`
-              }
-            >
-              finance 2
-            </NavLink>
+              <NavLink
+                to="/finance/finance2"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                finance 2
+              </NavLink>
 
-            <NavLink
-              to="/finance/finance3"
-              className={({ isActive }) =>
-                `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                }`
-              }
-            >
-              finance 3
-            </NavLink>
-          </div>
-        )
+              <NavLink
+                to="/finance/finance3"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                finance 3
+              </NavLink>
+            </div>
+          )
 
         }
 
@@ -356,12 +372,12 @@ export default function SideBar() {
           <RiTeamLine className="mr-3 text-passive-text" size={18} />
           Hire Team
         </NavLink>
-      </nav>
+      </nav >
 
       <div className="mt-auto px-4 py-3 flex flex-col space-y-2 text-gray-500 text-xs">
         <div>v1.0.0</div>
       </div>
-    </div>
+    </div >
   );
 }
 
