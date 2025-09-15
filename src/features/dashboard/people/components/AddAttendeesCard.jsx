@@ -1,7 +1,9 @@
 import React from 'react'
 import Button from './Button'
+import { useNavigate } from 'react-router-dom'
 
 function AddAttendeesCard() {
+  const navigate = useNavigate()
   return (
     <div className="w-full flex justify-center items-center">
       <div className="flex flex-col justify-center items-center bg-white  border-1 border-bg-sidebar-hover rounded-lg w-[75%]  shadow-md py-10 text-center gap-6">
@@ -11,7 +13,7 @@ function AddAttendeesCard() {
           participants to manage your events smoothly, collaborate<br />
           better, and keep everyone connected in one place.
         </p>
-        <Button text="Add Team & Attendees" type="danger" />
+        <Button text="Add Team & Attendees" type="danger" navigate={navigate}/>
       </div>
     </div>
   )
