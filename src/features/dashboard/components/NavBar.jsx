@@ -1,15 +1,18 @@
 import React from 'react'
 import { FaCalendarAlt, FaChevronDown, FaSearch } from 'react-icons/fa'
 import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
+import { useLocation } from 'react-router-dom'
 
 const NavBar = () => {
+  const pathname = useLocation().pathname.split("/")[1]
+
   return (
     <div className="bg-white px-6 py-4 flex flex-col lg:flex-row lg:justify-between gap:5 xl:gap-0 items-center">
       <div className="flex flex-col md:flex-row md:flex-2 items-center md:gap-2">
         {/* My Events with icon */}
         <div className="flex items-center gap-2 text-lg font-semibold text-gray-800 whitespace-nowrap">
           <FaCalendarAlt className="text-gray-600" size={25} />
-          My Events
+          {pathname ? pathname : "My Events"}
         </div>
 
         {/* Search with icon  */}
