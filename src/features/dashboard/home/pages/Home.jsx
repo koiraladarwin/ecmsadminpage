@@ -1,9 +1,11 @@
-import AttendeeStats from "../components/home/AttendeeStats";
-import GraphBox from "../components/home/GraphBox";
-import HireBox from "../components/home/HireBox";
-import StatBox from "../components/home/StatBox";
-import StatCard from "../components/home/StatCard";
-import WeatherWidget from "../components/home/WeatherWidget";
+import AttendeeStats from "../components/AttendeeStats";
+import GraphBox from "../components/GraphBox";
+import HireBox from "../components/HireBox";
+import StatBox from "../components/StatBox";
+import StatCard from "../components/StatCard";
+import WeatherWidget from "../components/WeatherWidget";
+import { BsPersonVcard } from "react-icons/bs";
+import { MdPersonOutline } from "react-icons/md";
 
 export default function Home() {
   return (
@@ -22,8 +24,8 @@ export default function Home() {
 
       <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
         <HireBox />
-        <StatBox title="ENROLLED STAFF" value="4" />
-        <StatBox title="ACTIVE ISSUES" value="0" />
+        <StatBox title="ENROLLED STAFF" value="4" Icon={MdPersonOutline}/>
+        <StatBox title="ACTIVE ISSUES" value="0" Icon={BsPersonVcard}/>
       </div>
     </div>
   );
