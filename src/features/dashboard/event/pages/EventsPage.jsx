@@ -8,7 +8,7 @@ export default function EventsPage() {
 
   return (
     <>
-      <div className='flex min-h-full bg-[#e1d0f0]'>
+      <div className='flex h-full bg-[#e1d0f0]'>
         <div className='w-full'>
 
           <EventHeader />
@@ -37,11 +37,10 @@ export default function EventsPage() {
               }
 
             </div>
-
           </div>
-
+          <div className="h-1">
+          </div>
         </div>
-
       </div>
     </>
   )

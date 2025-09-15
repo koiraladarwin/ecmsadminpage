@@ -2,6 +2,21 @@
 
 
 
+*::-webkit-scrollbar {
+  width: 0px;  /* Hides the vertical scrollbar */
+  height: 0px; /* Hides the horizontal scrollbar */
+}
+
+/* For Firefox */
+html {
+  scrollbar-width: none;  /* Hides scrollbar */
+}
+
+/* For Internet Explorer and Edge */
+body {
+  -ms-overflow-style: none; /* Hides the scrollbar */
+}
+
 .label {
   @apply font-semibold;
 }
