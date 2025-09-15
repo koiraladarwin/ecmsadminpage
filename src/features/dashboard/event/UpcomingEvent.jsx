@@ -1,0 +1,27 @@
+import Header from "../components/event/Header";
+import AllEventCard from "../components/event/AllEventCard";
+import { events } from "../components/event/EventsDetail";
+export default function UpcomingEvent(){
+
+    const upcomingEvent = events.filter(
+        (event) => event.status?.trim().toLowerCase() === "soon");
+    return (
+        <div className="min-h-screen">
+            <Header />
+            <div className="box-border border-2 rounded-lg border-textgray shadow-2xl p-10 m-10 bg-white">
+                <div>
+                    {upcomingEvent.length > 0 ? ( 
+                        upcomingEvent.map((event, index) => (
+                            <AllEventCard 
+                                key={index} {...event} 
+                            
+                            />
+                        ))
+                    ): (    
+                        <p>No Upcoming events found.</p>
+                    )}
+                </div>
+            </div>
+        </div>
+    )
+}
