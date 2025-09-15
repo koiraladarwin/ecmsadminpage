@@ -45,7 +45,7 @@ export default function EventsPage() {
               organize, and bring your ideas to life. Click below to get started and make something great!
             </p>
 
-            <Link to="/createevent">
+            <Link to="/event/createevent">
               <button className='flex items-center px-4 py-2 rounded-3xl gap-2 mt-5 mx-auto bg-[#f91111] '>
                 <FaPlus /> Create your 1st Event
               </button>
