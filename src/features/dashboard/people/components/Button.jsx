@@ -5,6 +5,7 @@ function Button({ text, type }) {
   const styles = {
     primary: 'bg-sidebar-hover text-white hover:bg-purple-500',
     secondary: 'bg-white text-black hover:bg-gray-500 hover:text-white',
+    danger: 'bg-red-700 text-white hover:bg-red-400 font-bold'
   }
   return (
     <div>
