@@ -1,6 +1,6 @@
-import AllEventCard from "../components/event/AllEventCard";
-import Header from "../components/event/Header";
-import {events} from"../components/event/EventsDetail";
+import AllEventCard from "./AllEventCard.jsx";
+import Header from "./Header.jsx";
+import {events} from "./EventsDetail.jsx";
 export default function MyallEvent()
 {
     const filteredEvents = events.filter(

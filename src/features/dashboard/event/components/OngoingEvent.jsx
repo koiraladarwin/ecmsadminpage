@@ -1,24 +1,24 @@
-import Header from "../components/event/Header";
-import AllEventCard from "../components/event/AllEventCard";
-import { events } from "../components/event/EventsDetail";
-export default function PastEvent(){
+import Header from "./Header.jsx";
+import AllEventCard from "./AllEventCard.jsx";
+import { events } from "./EventsDetail.jsx";
+export default function OngoingEvent(){
 
-    const pastEvent = events.filter(
-        (event) => event.status?.trim().toLowerCase() === "closed");
+    const ongoingEvent = events.filter(
+        (event) => event.status?.trim().toLowerCase() === "online");
     return (
         <div className="min-h-screen">
             <Header />
             <div className="box-border border-2 rounded-lg border-textgray shadow-2xl p-10 m-10 bg-white">
                 <div>
-                    {pastEvent.length > 0 ? ( 
-                        pastEvent.map((event, index) => (
+                    {ongoingEvent.length > 0 ? ( 
+                        ongoingEvent.map((event, index) => (
                             <AllEventCard 
                                 key={index} {...event} 
                             
                             />
                         ))
                     ): (    
-                        <p>No past events found.</p>
+                        <p>No ongoing events found.</p>
                     )}
                 </div>
             </div>

@@ -9,11 +9,11 @@ import ReportPage from "./features/dashboard/report/pages/ReportPage";
 import SettingsPage from "./features/dashboard/settings/pages/SettingsPage";
 import HireTeamPage from "./features/dashboard/hireteam/HireTeamPage";
 
-import EventsPage from "./features/dashboard/event/EventsPage";
+import EventsPage from "./features/dashboard/event/pages/EventsPage.jsx";
 import FinancePage from "./features/dashboard/finance/pages/FinancePage";
 import ImportExportPage from "./features/dashboard/importexport/Importexport";
 import CategoryPage from "./features/dashboard/category/page/Category";
-import CreateEventPage from "./features/dashboard/event/NewEventPage";
+import CreateEventPage from "./features/dashboard/event/pages/NewEventPage.jsx";
 import StaffAttendeePage from "./features/dashboard/people/pages/StaffAttendeePage";
 import Home from "./features/dashboard/home/pages/Home";
 

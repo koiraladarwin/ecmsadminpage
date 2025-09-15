@@ -1,6 +1,6 @@
-import Header from "../components/event/Header";
-import AllEventCard from "../components/event/AllEventCard";
-import { events } from "../components/event/EventsDetail";
+import Header from "./Header.jsx";
+import AllEventCard from "./AllEventCard.jsx";
+import { events } from "./EventsDetail.jsx";
 export default function UpcomingEvent(){
 
     const upcomingEvent = events.filter(
