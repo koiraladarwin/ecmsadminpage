@@ -6,9 +6,10 @@ function PeoplePage() {
 
 
   return (
-  <>
-  <Header/>
-  </>
+    <>
+      <Header title="Staffs/Attendees" />
+
+    </>
   )
 }
 
