@@ -13,6 +13,7 @@ import EventsPage from "./features/dashboard/event/EventsPage";
 import FinancePage from "./features/dashboard/finance/pages/FinancePage";
 import ImportExportPage from "./features/dashboard/importexport/Importexport";
 import CategoryPage from "./features/dashboard/category/page/Category";
+import CreateEventPage from "./features/dashboard/event/NewEventPage";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="finance/:financeId" element={<FinancePage />} />
         <Route path="hireteam" element={<HireTeamPage />} />
         <Route path="/events/event" element={<EventsPage/>} />
+        <Route path="/events/createvent" element={<CreateEventPage/>} />
         <Route path="/events/category" element={<CategoryPage/>} />
           
       </Route>

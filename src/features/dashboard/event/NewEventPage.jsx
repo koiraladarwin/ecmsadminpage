@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function NewEventPage() {
+export default function CreateEventPage() {
   return (
     <div className='flex min-h-screen bg-bglightpurple'>
       
