@@ -1,11 +1,8 @@
 import React from 'react'
-import Header from '../components/header'
+import Header from '../components/Header'
 import AddAttendeesCard from '../components/AddAttendeesCard'
 
-
 function PeoplePage() {
-
-
   return (
     <>
       <Header title="Staffs/Attendees" />
