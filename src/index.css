@@ -1,32 +1,30 @@
 @import "tailwindcss";
 
 
-@theme{
-    --color-buttonpurple: #772A92;
-    --color-bglightpurple: #E2D0F0;
-    --color-buttonred: #FF0000;
-    --color-textgray: #B1B1B1;
+
+.label {
+  @apply font-semibold;
 }
 
-.label{
-    @apply font-semibold;
+input {
+  @apply border-textgray border-1 p-1
 }
 
-input{
-    @apply border-textgray border-1 p-1
+select {
+  @apply border-textgray border-1 p-1
 }
 
-select{
-    @apply border-textgray border-1 p-1
-}
-textarea{
-    @apply border-textgray border-1 p-1
+textarea {
+  @apply border-textgray border-1 p-1
 }
 
 @theme {
   --color-sidebar-bg: #262042;
-  --color-sidebar-hover:#772A92;
-  --color-passive-text:#B1B1B1;
-  --color-active-text:#FFFFFF;
+  --color-sidebar-hover: #772A92;
+  --color-passive-text: #B1B1B1;
+  --color-active-text: #FFFFFF;
+  --color-buttonpurple: #772A92;
+  --color-bglightpurple: #E2D0F0;
+  --color-buttonred: #FF0000;
+  --color-textgray: #B1B1B1;
 }
-

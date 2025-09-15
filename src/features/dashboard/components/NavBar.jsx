@@ -28,8 +28,8 @@ const NavBar = () => {
           <HiOutlineQuestionMarkCircle size={18} />
           <div>Help</div>
         </div>
-      
-    
+
+
 
         {/* upgrade part */}
         <div className="flex overflow-hidden border border-sidebar-hover rounded-r-4xl rounded-l-xl">
@@ -53,11 +53,6 @@ const NavBar = () => {
       </div>
       {/* profile part */}
       <div className="flex  justify-center pt-2 lg:pt-0 lg:justify-end gap-3">
-        <img
-          src="/placeholder.jpg"
-          alt="Profile"
-          className="w-12 h-12 rounded-full border-2 border-gray-300 bg-gray-100 object-cover"
-        />
         <div className='flex items-center gap-1 justify-between'>
           <button className="text-gray-500  font-semibold ">Admin</button>
           <FaChevronDown className='mt-1 text-gray-500' />
