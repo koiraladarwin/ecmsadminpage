@@ -15,9 +15,9 @@ function StaffAttendeePage() {
       {
         showForm ?
           form == 'individual' ?
-            <AddStaffForm onClick={setForm} form={form} />
+            <AddStaffForm onClick={setForm} showForm={setShowForm} form={form} />
             :
-            <AddAttendeeForm onClick={setForm} form={form} />
+            <AddAttendeeForm onClick={setForm} showForm={setShowForm} form={form} />
           :
           <>
             <PeopleDisplay showForm={setShowForm} />

@@ -1,17 +1,23 @@
 import React, { useState } from 'react'
 import NormalBtn from '../NormalBtn'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom';
 
-function AddAttendeeForm({ onClick, form }) {
+function AddAttendeeForm({ onClick, form, showForm }) {
+  const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm()
 
-  const onSubmit = (data) => {
+  const onSave = async (data) => {
+    showForm(false)
+  };
 
-  }
+  const onSaveAndNew = (data) => {
+    navigate("/people");
+  };
 
   return (
     <div className="w-full flex justify-center items-center py-10 pb-15">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full bg-white p-6 sm:p-10 rounded-lg shadow-md border-[1.4px] border-bg-sidebar-bg flex flex-col gap-6">
+      <form onSubmit={e => e.preventDefault()} className="w-full bg-white p-6 sm:p-10 rounded-lg shadow-md border-[1.4px] border-bg-sidebar-bg flex flex-col gap-6">
 
         {/* Attendee Type */}
         <div className="flex flex-col md:flex-row gap-6 justify-end">
@@ -119,7 +125,7 @@ function AddAttendeeForm({ onClick, form }) {
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
           <div className="flex flex-col flex-1">
             <label className="font-bold text-sidebar-bg">Designation</label>
-            <input type="text" className="border rounded-sm p-2 mt-1 w-full ouline-none"
+            <input type="text" className="border rounded-sm p-2 mt-1 w-full outline-none"
               {...register("designation")}
             />
           </div>
@@ -160,8 +166,8 @@ function AddAttendeeForm({ onClick, form }) {
 
         {/* btns */}
         <div className='flex gap-6 flex-col md:flex-row'>
-          <NormalBtn text="Save" type='primary' />
-          <NormalBtn text="Save & Add New" type='primary' />
+          <NormalBtn text="Save" type='primary' onClick={handleSubmit(onSave)} />
+          <NormalBtn text="Save & Add New" type='primary' onClick={handleSubmit(onSaveAndNew)} />
         </div>
       </form>
     </div>

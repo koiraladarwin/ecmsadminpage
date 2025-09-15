@@ -1,17 +1,23 @@
 import React, { useState } from 'react'
 import NormalBtn from '../NormalBtn'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom';
 
-function AddStaffForm({ form, onClick }) {
+function AddStaffForm({ form, onClick, showForm }) {
+  const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm()
 
+  const onSave = async (data) => {
+    showForm(false);
+  };
 
-  const onSubmit = (data) => {
+  const onSaveAndNew = (data) => {
+    navigate("/people");
+  };
 
-  }
   return (
     <div className="w-full flex justify-center items-center py-10 pb-15 ">
-      <form onSubmit={handleSubmit(onSubmit)} className="w-full bg-white p-6 sm:p-10 rounded-sm shadow-md border-[1.4px] border-bg-sidebar-bg flex flex-col gap-6">
+      <form onSubmit={e => e.preventDefault()} className="w-full bg-white p-6 sm:p-10 rounded-sm shadow-md border-[1.4px] border-bg-sidebar-bg flex flex-col gap-6">
 
         {/* Attendee Type */}
         <div className="flex flex-col md:flex-row gap-6 justify-end">
@@ -139,8 +145,8 @@ function AddStaffForm({ form, onClick }) {
 
         {/* btns */}
         <div className='flex gap-6 flex-col md:flex-row'>
-          <NormalBtn text="Save" type='primary' />
-          <NormalBtn text="Save & Add New" type='primary' />
+          <NormalBtn text="Save" type='primary' onClick={handleSubmit(onSave)} />
+          <NormalBtn text="Save & Add New" type='primary' onClick={handleSubmit(onSaveAndNew)} />
         </div>
       </form>
     </div>
