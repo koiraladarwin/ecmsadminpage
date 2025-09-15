@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import NormalBtn from '../NormalBtn'
 
-function AddStaffForm({form, onClick}) {
+function AddStaffForm({ form, onClick }) {
   const [tag, setTag] = useState('')
+  const [category, setCategory] = useState('')
 
   return (
-    <div className="w-full flex justify-center items-center py-10  min-h-screen">
-      <div className="w-full bg-white p-6 sm:p-10 rounded-lg shadow-md flex flex-col gap-6">
+    <div className="w-full flex justify-center items-center py-10 pb-15 ">
+      <div className="w-full bg-white p-6 sm:p-10 rounded-sm shadow-md border-[1.4px] border-bg-sidebar-bg flex flex-col gap-6">
 
         {/* Attendee Type */}
         <div className="flex flex-col md:flex-row gap-6 justify-end">
@@ -37,20 +38,25 @@ function AddStaffForm({form, onClick}) {
           <label className="font-bold text-sidebar-bg">
             Full Name <span className="text-sidebar-bg">*</span>
           </label>
-          <input type="text" className="border rounded-md p-2 mt-1 w-full outline-none" />
+          <input type="text" className="border rounded-sm p-2 mt-1 w-full outline-none" />
         </div>
 
-        {/* Category, Tag, Upload Photo */}
+        {/* Category, Tag, mobile */}
         {/* Category */}
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
           <div className="flex flex-col flex-1">
-            <label className="font-bold text-sidebar-bg">Default Category</label>
-            <input
-              type="text"
-              value="Attendees"
-              disabled
-              className="border rounded-md p-2 mt-1 text-gray-600 cursor-not-allowed w-full outline-none"
-            />
+            <label className="font-bold text-sidebar-bg">
+              Choose Tag <span className="text-sidebar-bg">*</span>
+            </label>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              className="border rounded-sm p-2 mt-1 w-full focus:outline-none"
+            >
+              <option value="">Select Category</option>
+              <option value="staff">staff</option>
+              <option value="attendee">attendee</option>
+            </select>
           </div>
 
           {/* Tag */}
@@ -61,7 +67,7 @@ function AddStaffForm({form, onClick}) {
             <select
               value={tag}
               onChange={(e) => setTag(e.target.value)}
-              className="border rounded-md p-2 mt-1 w-full"
+              className="border rounded-sm p-2 mt-1 w-full focus:outline-none"
             >
               <option value="">Select tag</option>
               <option value="tag-1">TAG1</option>
@@ -75,7 +81,7 @@ function AddStaffForm({form, onClick}) {
             <label className="font-bold text-sidebar-bg">
               Mobile Number <span className="text-sidebar-bg">*</span>
             </label>
-            <input type="text" className="border rounded-md p-2 mt-1 w-full outline-none" />
+            <input type="text" className="border rounded-sm p-2 mt-1 w-full outline-none" />
           </div>
 
 
@@ -87,15 +93,15 @@ function AddStaffForm({form, onClick}) {
           <label className="font-bold text-sidebar-bg">
             Email Address <span className="text-sidebar-bg">*</span>
           </label>
-          <input type="email" className="border rounded-md p-2 mt-1 w-full outline-none" />
+          <input type="email" className="border rounded-sm p-2 mt-1 w-full outline-none" />
         </div>
 
         {/* upload photo */}
-        <div className="flex flex-col flex-1">
+        <div className="flex  items-center gap-2">
           <label className="font-bold text-sidebar-bg">Upload Photo</label>
           <input
             type="file"
-            className="border rounded-md  mt-1 w-full outline-none"
+            className="border rounded-sm  mt-1 w-[30%] outline-none"
           />
         </div>
 
