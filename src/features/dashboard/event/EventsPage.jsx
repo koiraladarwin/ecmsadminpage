@@ -1,5 +1,3 @@
-import NavBar from './components/NavBar'
-import TaskBar from './components/TaskBar'
 import { FaPlus } from "react-icons/fa"
 import { Link } from 'react-router-dom'
 import Header from "../components/event/Header"
