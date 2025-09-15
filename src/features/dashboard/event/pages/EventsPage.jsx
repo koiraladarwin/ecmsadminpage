@@ -29,7 +29,7 @@ export default function EventsPage() {
 
               </>
             }
-            <div>
+            <div className="flex gap-2 flex-col">
 
               {events.map((event) => {
                 return <AllEventCard {...event} key={event.id} />
