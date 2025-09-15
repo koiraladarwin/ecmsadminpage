@@ -1,7 +1,7 @@
 import { FaPlus } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
-export default function Header() {
+export default function EventHeader() {
   const tabs = [
     { name: "ALL", path: "/events/myallevent" },
     { name: "PAST", path: "/events/pastevent" },
