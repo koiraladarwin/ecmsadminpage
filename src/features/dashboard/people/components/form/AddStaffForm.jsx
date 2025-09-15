@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import NormalBtn from '../NormalBtn'
 
-function AddAttendeeForm({onClick, form}) {
+function AddStaffForm({form, onClick}) {
   const [tag, setTag] = useState('')
 
   return (
@@ -70,38 +70,6 @@ function AddAttendeeForm({onClick, form}) {
             </select>
           </div>
 
-          {/* upload photo */}
-          <div className="flex flex-col flex-1">
-            <label className="font-bold text-sidebar-bg">Upload Photo</label>
-            <input
-              type="file"
-              className="border rounded-md  mt-1 w-full outline-none"
-            />
-          </div>
-        </div>
-
-        {/* Company / Organization */}
-        <div className="flex flex-col">
-          <label className="font-bold text-sidebar-bg">
-            Company / Organization Name <span className="text-sidebar-bg">*</span>
-          </label>
-          <input type="text" className="border rounded-md p-2 mt-1 w-full outline-none" />
-        </div>
-
-        {/* Address */}
-        <div className="flex flex-col">
-          <label className="font-bold text-sidebar-bg">Address</label>
-          <input type="text" className="border rounded-md p-2 mt-1 w-full outline-none" />
-        </div>
-
-        {/* Designation & Mobile */}
-        {/* designation */}
-        <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-          <div className="flex flex-col flex-1">
-            <label className="font-bold text-sidebar-bg">Designation</label>
-            <input type="text" className="border rounded-md p-2 mt-1 w-full ouline-none" />
-          </div>
-
           {/* mobile */}
           <div className="flex flex-col flex-1">
             <label className="font-bold text-sidebar-bg">
@@ -109,7 +77,10 @@ function AddAttendeeForm({onClick, form}) {
             </label>
             <input type="text" className="border rounded-md p-2 mt-1 w-full outline-none" />
           </div>
+
+
         </div>
+
 
         {/* Email */}
         <div className="flex flex-col">
@@ -119,9 +90,18 @@ function AddAttendeeForm({onClick, form}) {
           <input type="email" className="border rounded-md p-2 mt-1 w-full outline-none" />
         </div>
 
+        {/* upload photo */}
+        <div className="flex flex-col flex-1">
+          <label className="font-bold text-sidebar-bg">Upload Photo</label>
+          <input
+            type="file"
+            className="border rounded-md  mt-1 w-full outline-none"
+          />
+        </div>
+
         {/* btns */}
         <div className='flex gap-6 flex-col md:flex-row'>
-          <NormalBtn text="Save" type='primary'/>
+          <NormalBtn text="Save" type='primary' />
           <NormalBtn text="Save & Add New" type='primary' />
         </div>
       </div>
@@ -129,4 +109,4 @@ function AddAttendeeForm({onClick, form}) {
   )
 }
 
-export default AddAttendeeForm
+export default AddStaffForm
