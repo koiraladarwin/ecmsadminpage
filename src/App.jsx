@@ -12,6 +12,7 @@ import Home from "./features/dashboard/pages/Home";
 import EventsPage from "./features/dashboard/event/EventsPage";
 import FinancePage from "./features/dashboard/finance/pages/FinancePage";
 import ImportExportPage from "./features/dashboard/importexport/Importexport";
+import CategoryPage from "./features/dashboard/category/page/Category";
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
         <Route path="settings/:settingId" element={<SettingsPage />} />
         <Route path="finance/:financeId" element={<FinancePage />} />
         <Route path="hireteam" element={<HireTeamPage />} />
-        <Route path="/events/category" element={<EventsPage/>} />
+        <Route path="/events/event" element={<EventsPage/>} />
+        <Route path="/events/category" element={<CategoryPage/>} />
           
       </Route>
     </Routes>

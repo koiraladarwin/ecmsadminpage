@@ -83,6 +83,16 @@ export default function SideBar() {
           {open == "events" && (
             <div className="flex flex-col py-2 space-y-1">
               <NavLink
+                to="/events/event"
+                className={({ isActive }) =>
+                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover font-semibold  text-active-text" : "text-passive-text hover:bg-gray-100"
+                  }`
+                }
+              >
+                My Events
+              </NavLink>
+
+              <NavLink
                 to="/events/category"
                 className={({ isActive }) =>
                   `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover font-semibold  text-active-text" : "text-passive-text hover:bg-gray-100"
