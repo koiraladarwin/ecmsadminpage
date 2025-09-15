@@ -3,12 +3,13 @@ import NormalBtn from '../NormalBtn'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 
-function AddStaffForm({ form, onClick, showForm }) {
+function AddStaffForm({ form, onClick, showForm, setActiveTab }) {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm()
 
   const onSave = async (data) => {
     showForm(false);
+    setActiveTab(data.category)
   };
 
   const onSaveAndNew = (data) => {
@@ -66,16 +67,17 @@ function AddStaffForm({ form, onClick, showForm }) {
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
           <div className="flex flex-col flex-1">
             <label className="font-bold text-sidebar-bg">
-              Choose Category
+              Choose Category <span className="text-sidebar-bg">*</span>
             </label>
             <select
-              {...register("category")}
+              {...register("category", { required: "Category is required" })}
               className="border rounded-sm p-2 mt-1 w-full focus:outline-none"
             >
               <option value="">Select Category</option>
               <option value="staff">staff</option>
               <option value="attendee">attendee</option>
             </select>
+            {errors.category && <p className="text-red-500 text-sm mt-1">{errors.category.message}</p>}
           </div>
 
           {/* Tag */}

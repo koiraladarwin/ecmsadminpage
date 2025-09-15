@@ -8,6 +8,7 @@ import AddStaffForm from '../components/form/AddStaffForm'
 function StaffAttendeePage() {
   const [showForm, setShowForm] = useState(false)
   const [form, setForm] = useState("individual")
+  const [activeTab, setActiveTab] = useState('staff');
 
   return (
     <div className='w-full lg:px-20 px-5'>
@@ -15,12 +16,12 @@ function StaffAttendeePage() {
       {
         showForm ?
           form == 'individual' ?
-            <AddStaffForm onClick={setForm} showForm={setShowForm} form={form} />
+            <AddStaffForm onClick={setForm} showForm={setShowForm} form={form} setActiveTab={setActiveTab} />
             :
-            <AddAttendeeForm onClick={setForm} showForm={setShowForm} form={form} />
+            <AddAttendeeForm onClick={setForm} showForm={setShowForm} form={form} setActiveTab={setActiveTab} />
           :
           <>
-            <PeopleDisplay showForm={setShowForm} />
+            <PeopleDisplay showForm={setShowForm} activeTab={activeTab} setActiveTab={setActiveTab} />
           </>
       }
 

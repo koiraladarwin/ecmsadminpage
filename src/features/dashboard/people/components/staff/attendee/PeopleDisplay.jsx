@@ -28,8 +28,7 @@ const attendeeDummyData = [
 ];
 
 
-const PeopleDisplay = ({ showForm }) => {
-  const [activeTab, setActiveTab] = useState('staff');
+const PeopleDisplay = ({ showForm, activeTab, setActiveTab }) => {
 
   const dataToShow = activeTab === "staff" ? staffDummyData : attendeeDummyData
   return (

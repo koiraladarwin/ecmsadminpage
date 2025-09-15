@@ -3,12 +3,13 @@ import NormalBtn from '../NormalBtn'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 
-function AddAttendeeForm({ onClick, form, showForm }) {
+function AddAttendeeForm({ onClick, form, showForm, setActiveTab }) {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm()
 
   const onSave = async (data) => {
     showForm(false)
+    setActiveTab("attendee")
   };
 
   const onSaveAndNew = (data) => {
