@@ -106,7 +106,7 @@ export default function CreateEventPage() {
             <textarea className='w-full border h-50'></textarea>
 
             <p className='mt-10 mb-10'>
-              By continuing you are agreeing to ECM's 
+              By continuing you are agreeing to ECMS's 
               <Link><span className="text-buttonred"> Terms & Conditions </span></Link> 
               and 
               <Link><span className="text-buttonred"> Privacy Policy</span></Link>. 

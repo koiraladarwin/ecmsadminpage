@@ -33,9 +33,9 @@ function App() {
         <Route path="settings/:settingId" element={<SettingsPage />} />
         <Route path="finance/:financeId" element={<FinancePage />} />
         <Route path="hireteam" element={<HireTeamPage />} />
-        <Route path="/events/event" element={<EventsPage/>} />
-        <Route path="/events/createvent" element={<CreateEventPage/>} />
-        <Route path="/events/category" element={<CategoryPage/>} />
+        <Route path="/event" element={<EventsPage/>} />
+        <Route path="/event/createvent" element={<CreateEventPage/>} />
+        <Route path="/event/category" element={<CategoryPage/>} />
           
       </Route>
     </Routes>

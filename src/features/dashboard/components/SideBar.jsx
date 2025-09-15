@@ -67,33 +67,30 @@ export default function SideBar() {
 
         {/* events section */}
         <div>
-          <button
+          <NavLink
+            to="/event"
+            end
             onClick={() => handleOpen("events")}
-            className="flex items-center w-full px-5 py-3 font-semibold text-passive-text hover:bg-gray-100"
-          >
+            className={({ isActive }) =>
+              `flex items-center w-full px-5 py-3 font-semibold transition ${isActive
+                ? "bg-sidebar-hover text-active-text"
+                : "text-passive-text hover:bg-gray-100"
+              }`
+            }>
+
             <FiCalendar className="mr-3 text-passive-text" size={18} />
             Events
             <FiChevronRight
               className={`ml-auto transition-transform ${open == 'events' ? 'rotate-90' : ''}`}
               size={18}
             />
-          </button>
+          </NavLink>
 
           {/* events list */}
           {open == "events" && (
             <div className="flex flex-col py-2 space-y-1">
               <NavLink
-                to="/events/event"
-                className={({ isActive }) =>
-                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover font-semibold  text-active-text" : "text-passive-text hover:bg-gray-100"
-                  }`
-                }
-              >
-                My Events
-              </NavLink>
-
-              <NavLink
-                to="/events/category"
+                to="/event/category"
                 className={({ isActive }) =>
                   `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover font-semibold  text-active-text" : "text-passive-text hover:bg-gray-100"
                   }`
@@ -103,7 +100,7 @@ export default function SideBar() {
               </NavLink>
 
               <NavLink
-                to="/events/createvent"
+                to="/event/createvent"
                 className={({ isActive }) =>
                   `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                   }`
@@ -113,7 +110,7 @@ export default function SideBar() {
               </NavLink>
 
               <NavLink
-                to="/events/session"
+                to="/event/session"
                 className={({ isActive }) =>
                   `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                   }`
@@ -123,7 +120,7 @@ export default function SideBar() {
               </NavLink>
 
               <NavLink
-                to="/events/invitation"
+                to="/event/invitation"
                 className={({ isActive }) =>
                   `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
                   }`
@@ -163,7 +160,6 @@ export default function SideBar() {
               }`
             }
           >
-            {/* <button onClick={() => handleOpen("people")} className="flex items-center w-full px-5 py-3 font-semibold text-passive-text hover:bg-gray-100"> */}
             <IoPeopleOutline className="mr-3 text-passive-text" size={18} />
             People
             <FiChevronRight
@@ -171,7 +167,6 @@ export default function SideBar() {
               size={18}
             />
           </NavLink>
-          {/* </button> */}
         </div>
         {/* people list */}
         {

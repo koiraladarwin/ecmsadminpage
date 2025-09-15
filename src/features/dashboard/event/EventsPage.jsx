@@ -29,7 +29,7 @@ export default function EventsPage() {
               <span> Event Categories</span>
             </div>
 
-            <button className='bg-[#772a92] text-white px-4 py-2 rounded-3xl flex items-center gap-2'>
+            <button className='bg-primary text-white px-4 py-2 rounded-3xl flex items-center gap-2'>
               <FaPlus />
               CreateEvent
             </button>
@@ -45,7 +45,7 @@ export default function EventsPage() {
               organize, and bring your ideas to life. Click below to get started and make something great!
             </p>
 
-            <Link to="/newevent">
+            <Link to="/createevent">
               <button className='flex items-center px-4 py-2 rounded-3xl gap-2 mt-5 mx-auto bg-[#f91111] '>
                 <FaPlus /> Create your 1st Event
               </button>
