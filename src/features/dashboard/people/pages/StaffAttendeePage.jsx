@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import AddAttendeeForm from '../components/form/AddAttendeeForm'
 import PeopleDisplay from '../components/staff/attendee/PeopleDisplay'

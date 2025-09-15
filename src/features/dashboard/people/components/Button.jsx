@@ -1,12 +1,12 @@
 import React from 'react'
 import { FiPlus } from 'react-icons/fi'
-import { Link, useNavigate } from 'react-router-dom'
+
 
 function Button({ text, type, navigate }) {
   const styles = {
     primary: 'bg-sidebar-hover text-white hover:bg-purple-500',
     secondary: 'bg-white text-black hover:bg-gray-500 hover:text-white',
-    danger: 'bg-red-700 text-white hover:bg-red-400 font-bold'
+    danger: 'bg-buttonred text-white hover:bg-red-400 font-bold'
   }
   return (
     <div>
