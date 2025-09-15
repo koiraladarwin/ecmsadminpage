@@ -3,13 +3,11 @@ import NormalBtn from '../NormalBtn'
 import { useForm } from 'react-hook-form'
 
 function AddStaffForm({ form, onClick }) {
-  const [tag, setTag] = useState('')
-  const [category, setCategory] = useState('')
   const { register, handleSubmit, formState: { errors } } = useForm()
 
 
   const onSubmit = (data) => {
-    console.log('form submitted', data)
+
   }
   return (
     <div className="w-full flex justify-center items-center py-10 pb-15 ">
@@ -65,8 +63,7 @@ function AddStaffForm({ form, onClick }) {
               Choose Category
             </label>
             <select
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
+              {...register("category")}
               className="border rounded-sm p-2 mt-1 w-full focus:outline-none"
             >
               <option value="">Select Category</option>
@@ -136,6 +133,7 @@ function AddStaffForm({ form, onClick }) {
           <input
             type="file"
             className="border rounded-sm  mt-1 w-[30%] outline-none"
+            {...register("photo")}
           />
         </div>
 
