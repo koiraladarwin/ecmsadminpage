@@ -1,1 +1,24 @@
 @import "tailwindcss";
+
+@theme{
+    --color-buttonpurple: #772A92;
+    --color-bglightpurple: #E2D0F0;
+    --color-navyblue: #262042;
+    --color-buttonred: #FF0000;
+    --color-textgray: #B1B1B1;
+}
+
+.label{
+    @apply font-semibold;
+}
+
+input{
+    @apply border-textgray border-1 p-1
+}
+
+select{
+    @apply border-textgray border-1 p-1
+}
+textarea{
+    @apply border-textgray border-1 p-1
+}
