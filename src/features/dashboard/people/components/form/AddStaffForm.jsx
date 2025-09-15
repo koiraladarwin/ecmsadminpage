@@ -1,13 +1,19 @@
 import React, { useState } from 'react'
 import NormalBtn from '../NormalBtn'
+import { useForm } from 'react-hook-form'
 
 function AddStaffForm({ form, onClick }) {
   const [tag, setTag] = useState('')
   const [category, setCategory] = useState('')
+  const { register, handleSubmit, formState: { errors } } = useForm()
 
+
+  const onSubmit = (data) => {
+    console.log('form submitted', data)
+  }
   return (
     <div className="w-full flex justify-center items-center py-10 pb-15 ">
-      <div className="w-full bg-white p-6 sm:p-10 rounded-sm shadow-md border-[1.4px] border-bg-sidebar-bg flex flex-col gap-6">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-full bg-white p-6 sm:p-10 rounded-sm shadow-md border-[1.4px] border-bg-sidebar-bg flex flex-col gap-6">
 
         {/* Attendee Type */}
         <div className="flex flex-col md:flex-row gap-6 justify-end">
@@ -38,7 +44,17 @@ function AddStaffForm({ form, onClick }) {
           <label className="font-bold text-sidebar-bg">
             Full Name <span className="text-sidebar-bg">*</span>
           </label>
-          <input type="text" className="border rounded-sm p-2 mt-1 w-full outline-none" />
+          <input type="text" className="border rounded-sm p-2 mt-1 w-full outline-none"
+            {...register("fullName", {
+              required: "Full Name is required",
+              pattern: {
+                value: /^[A-Za-z ]+$/,
+                message: "full name contains only alphabets"
+                ,
+              },
+            })}
+          />
+          {errors.fullName && <p className="text-red-500">{errors.fullName.message}</p>}
         </div>
 
         {/* Category, Tag, mobile */}
@@ -46,7 +62,7 @@ function AddStaffForm({ form, onClick }) {
         <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
           <div className="flex flex-col flex-1">
             <label className="font-bold text-sidebar-bg">
-              Choose Tag <span className="text-sidebar-bg">*</span>
+              Choose Category
             </label>
             <select
               value={category}
@@ -65,15 +81,15 @@ function AddStaffForm({ form, onClick }) {
               Choose Tag <span className="text-sidebar-bg">*</span>
             </label>
             <select
-              value={tag}
-              onChange={(e) => setTag(e.target.value)}
               className="border rounded-sm p-2 mt-1 w-full focus:outline-none"
+              {...register("tag", { required: "Tag is required" })}
             >
               <option value="">Select tag</option>
               <option value="tag-1">TAG1</option>
               <option value="tag-2">TAG2</option>
               <option value="tag-3">TAG3</option>
             </select>
+            {errors.tag && <p className="text-red-500 text-sm mt-1">{errors.tag.message}</p>}
           </div>
 
           {/* mobile */}
@@ -81,7 +97,16 @@ function AddStaffForm({ form, onClick }) {
             <label className="font-bold text-sidebar-bg">
               Mobile Number <span className="text-sidebar-bg">*</span>
             </label>
-            <input type="text" className="border rounded-sm p-2 mt-1 w-full outline-none" />
+            <input type="text" className="border rounded-sm p-2 mt-1 w-full outline-none"
+              {...register("mobile", {
+                required: "Mobile number is required",
+                pattern: {
+                  value: /^[0-9]{10}$/,
+                  message: "should be number and 10 digits",
+                },
+              })}
+            />
+            {errors.mobile && <p className="text-red-500">{errors.mobile.message}</p>}
           </div>
 
 
@@ -93,7 +118,16 @@ function AddStaffForm({ form, onClick }) {
           <label className="font-bold text-sidebar-bg">
             Email Address <span className="text-sidebar-bg">*</span>
           </label>
-          <input type="email" className="border rounded-sm p-2 mt-1 w-full outline-none" />
+          <input type="email" className="border rounded-sm p-2 mt-1 w-full outline-none"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Invalid email format",
+              },
+            })}
+          />
+          {errors.email && <p className="text-red-500">{errors.email.message}</p>}
         </div>
 
         {/* upload photo */}
@@ -110,7 +144,7 @@ function AddStaffForm({ form, onClick }) {
           <NormalBtn text="Save" type='primary' />
           <NormalBtn text="Save & Add New" type='primary' />
         </div>
-      </div>
+      </form>
     </div>
   )
 }
