@@ -3,11 +3,26 @@ import NormalBtn from '../NormalBtn'
 import SearchableDropdown from '../SearchableDropdown'
 import CustomDropdown from '../CustomDropDown'
 import Swal from 'sweetalert2'
+import EnrollList from '../enrolldetail/EnrollList'
 
 function EnrollStaffForm() {
   const staffOptions = [
     { id: 'STF-001', name: 'Mr. Carlos Cole' },
     { id: 'STF-002', name: 'Mr. Peter Lee' },
+  ]
+  const data = [
+    {
+      attendee: { id: 'INV-001', name: 'Mr. Lee Yng' },
+      event: 'Education Fair 2025',
+      session: 'Inauguration',
+      entry: 'Invitation'
+    },
+    {
+      attendee: { id: 'TKT-001', name: 'Mrs. Yng Thong' },
+      event: 'Teej Mela 2082',
+      session: 'Lunch',
+      entry: 'Ticket'
+    },
   ]
   const eventOptions = ['Event1', 'Event2', 'Event3']
   const sessionOptions = ['Session1', 'Session2', 'Session3']
@@ -61,7 +76,9 @@ function EnrollStaffForm() {
         <div className='ml-2'>
           <NormalBtn text='Enroll' type='primary' onClick={handleSubmit} />
         </div>
+
       </div>
+      <EnrollList data={data} />
     </div>
   )
 }
