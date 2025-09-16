@@ -19,7 +19,7 @@ function SearchableDropdown({ label, options, onSelect }) {
     if (onSelect) onSelect(option)
   }
   return (
-    <div className='relative' tabIndex={0} onBlur={() => setOpen(false)}>
+    <div className='relative'>
       <label className='font-bold text-bg-sidebar'>{label}</label>
       <input
         type='text'
@@ -27,7 +27,8 @@ function SearchableDropdown({ label, options, onSelect }) {
         onChange={handleSearch}
         onClick={() => setOpen(!open)}
         value={selected ? selected.name : search}
-        className='border p-2 w-full focus:outline-none h-10'
+        className=' p-2 w-full focus:outline-none h-10'
+        style={{ border: "1px solid black" }}
       />
       {
         open &&
