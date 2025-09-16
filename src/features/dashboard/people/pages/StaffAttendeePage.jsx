@@ -9,7 +9,7 @@ function StaffAttendeePage() {
   const [activeTab, setActiveTab] = useState(data ? data : "staff");
 
   return (
-    <div className='w-full lg:px-20 px-5'>
+    <div className='w-full lg:px-20 px-5 pb-10'>
       <Header title="Staffs/Attendees-ALL" download={true} showForm={false} />
       <PeopleDisplay activeTab={activeTab} setActiveTab={setActiveTab} />
     </div>
