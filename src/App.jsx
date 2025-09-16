@@ -18,6 +18,7 @@ import StaffAttendeePage from "./features/dashboard/people/pages/StaffAttendeePa
 import Home from "./features/dashboard/home/pages/Home";
 import AddAttendeeForm from "./features/dashboard/people/components/form/AddAttendeeForm.jsx";
 import AddStaffForm from "./features/dashboard/people/components/form/AddStaffForm.jsx";
+import EnrollPage from "./features/dashboard/people/pages/EnrollPage.jsx";
 
 
 function App() {
@@ -29,7 +30,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path="import-export" element={<ImportExportPage />} />
         <Route path='people' element={<PeoplePage />} />
-        <Route path="people/:peopleId" element={<StaffAttendeePage />} />
+        <Route path="people/staff" element={<StaffAttendeePage />} />
+        <Route path="people/enroll" element={<EnrollPage />} />
         <Route path='/people/staff/addattendee' element={<AddAttendeeForm />} />
         <Route path='/people/staff/addstaff' element={<AddStaffForm />} />
         <Route path="support" element={<SupportPage />} />
