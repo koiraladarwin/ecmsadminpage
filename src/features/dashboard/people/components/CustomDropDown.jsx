@@ -12,7 +12,7 @@ function CustomDropdown({ label, options, onSelect }) {
   }
 
   return (
-    <div className="relative">
+    <div className="relative " tabIndex={0} onBlur={() => setOpen(false)}>
       {/* select part */}
       <label className="font-bold text-sidebar-bg mb-1 block">{label}</label>
       <div

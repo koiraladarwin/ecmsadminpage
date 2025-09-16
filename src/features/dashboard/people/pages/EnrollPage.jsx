@@ -9,7 +9,7 @@ function EnrollPage() {
   const [activeTab, setActiveTab] = useState('Staffs')
   return (
     <>
-      <div className='w-full px-20 '>
+      <div className='w-full px-20 pb-20 '>
         <PeopleScreenHeader title='Enrollment' showForm={false} showBtn={false} />
         <FilterTab filterByTitle1="Staffs" filterByTitle2="Attendees" activeTab={activeTab} setActiveTab={setActiveTab}
         />

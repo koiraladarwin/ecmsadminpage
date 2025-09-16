@@ -19,7 +19,7 @@ function SearchableDropdown({ label, options, onSelect }) {
     if (onSelect) onSelect(option)
   }
   return (
-    <div className='relative'>
+    <div className='relative' tabIndex={0} onBlur={() => setOpen(false)}>
       <label className='font-bold text-bg-sidebar'>{label}</label>
       <input
         type='text'
