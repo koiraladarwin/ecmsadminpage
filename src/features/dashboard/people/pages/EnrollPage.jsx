@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PeopleScreenHeader from '../components/PeopleScreenHeader'
 import FilterTab from '../components/FilterTab'
 import EnrollStaffForm from '../components/form/EnrollStaffForm'
+import EnrollAttendeeForm from '../components/form/EnrollAttendeeFor,'
 
 
 function EnrollPage() {
@@ -12,7 +13,10 @@ function EnrollPage() {
         <PeopleScreenHeader title='Enrollment' showForm={false} showBtn={false} />
         <FilterTab filterByTitle1="Staffs" filterByTitle2="Attendees" activeTab={activeTab} setActiveTab={setActiveTab}
         />
-        <EnrollStaffForm />
+        {
+          activeTab == 'Staffs' ? <EnrollStaffForm /> : <EnrollAttendeeForm />
+        }
+
 
       </div>
     </>
