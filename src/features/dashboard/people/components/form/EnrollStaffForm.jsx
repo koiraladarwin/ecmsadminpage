@@ -31,7 +31,7 @@ function EnrollStaffForm() {
 
       {/* session and enroll */}
       <div className='flex items-end w-full gap-6 py-4'>
-        <div className='flex flex-col w-[32%]'>
+        <div className='flex flex-col w-[33%]'>
           <label className='font-bold text-sidebar-bg'>Session</label>
           <select className='border p-2  focus:outline-none'>
             <option>Select Session</option>
