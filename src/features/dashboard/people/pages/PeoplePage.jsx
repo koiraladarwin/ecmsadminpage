@@ -1,18 +1,18 @@
 import React from 'react'
-import Header from '../components/Header'
 import AddAttendeesCard from '../components/AddAttendeesCard'
+import PeopleScreenHeader from '../components/PeopleScreenHeader'
 
 function PeoplePage() {
   return (
-    <>
-      <Header title="Staffs/Attendees" />
-      <div className="w-full flex justify-center lg:justify-end px-4 sm:px-6 py-2">
-        <p className="underline text-gray-600 text-sm sm:text-base lg:pe-10 xl:pe-12 pe-0">
+    <div className='w-full px-14'>
+      <PeopleScreenHeader title="Staffs/Attendees" />
+      <div className="w-full flex justify-center lg:justify-end">
+        <p className="underline text-gray-600 pb-4 text-sm sm:text-base">
           Download Format
         </p>
       </div>
       <AddAttendeesCard />
-    </>
+    </div>
   )
 }
 

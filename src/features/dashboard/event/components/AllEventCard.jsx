@@ -34,7 +34,7 @@ export default function AllEventCard({
                         <img src={loginimage} className=" object-contain" alt="" />
                     </div>
 
-                            <div className="space-y-1">
+                            <div className="space-y-1 flex flex-col  items-start">
                                 <h2 className="text-2xl font-bold">{title}</h2>
                                 <div className="flex space-x-2 text-gray-600">
                                     <p>{startdate}</p>

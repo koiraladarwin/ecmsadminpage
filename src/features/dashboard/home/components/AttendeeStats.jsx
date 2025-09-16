@@ -14,7 +14,7 @@ export default function AttendeeStats() {
   ];
 
   return (
-    <div className="bg-white shadow-lg rounded-3xl max-w-sm  mx-auto">
+    <div className="bg-white shadow-lg rounded-3xl max-w-sm  mx-auto  w-full">
       <div className="flex items-center mb-4 bg-primary-dark px-6 h-[85px]">
         <FaChartBar className="text-white mr-2" />
         <h3 className="text-lg font-semibold text-white uppercase">Attendees Statics</h3>
