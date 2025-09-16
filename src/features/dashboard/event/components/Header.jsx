@@ -1,5 +1,4 @@
 import { FaPlus } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
 
 export default function EventHeader({activeTab, setActiveTab}) {
 
