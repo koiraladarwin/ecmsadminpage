@@ -1,13 +1,8 @@
 import { FaPlus } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
 
-export default function EventHeader() {
-  const tabs = [
-    { name: "ALL", path: "/events/myallevent" },
-    { name: "PAST", path: "/events/pastevent" },
-    { name: "ON GOING", path: "/events/ongoingevent" },
-    { name: "UPCOMING", path: "/events/upcomingevent" },
-  ];
+export default function EventHeader({activeTab, setActiveTab}) {
+
+  const tabs = ["ALL", "PAST", "ONGOING", "UPCOMING"];
 
   return (
     <div className="">
@@ -15,29 +10,34 @@ export default function EventHeader() {
         
         <div className="flex">
           {tabs.map((tab) => (
-            <NavLink
-              key={tab.name}
-              to={tab.path}
-              end
-              className={({ isActive }) =>
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+
+              className={   
                 `border px-5 py-1 transition-colors duration-200 ${
-                  isActive ? "bg-sidebar-bg text-white" : "hover:bg-buttonpurple"
+                  activeTab === tab ? "bg-sidebar-bg text-white" : "hover:bg-buttonpurple"
                 }`
               }
             >
-              {tab.name}
-            </NavLink>
+              {tab}
+            </button>
           ))}
         </div>
-        <NavLink to="/event/createvent" >
+
+        
+        <div>
+          <span>Event Categories</span>
+        </div>
+
+        
         <button className="bg-[#772a92] text-white px-4 py-2 rounded-3xl flex items-center gap-2">
           <FaPlus />
           CreateEvent
         </button>
-        </NavLink>
       </div>
 
-      <hr className="ml-20 mr-20 m-10 border-gray-400 border-2" />
+      <hr className="ml-20 mr-20 m-10 border-gray-400 border-1" />
     </div>
   );
 }
