@@ -2,6 +2,7 @@ import React from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { FiPlus } from 'react-icons/fi'
 import PersonListCard from './PersonListCard'
+import { useNavigate } from 'react-router-dom'
 
 const staffDummyData = [
   { id: 1, name: "Mr. Carlos Cole", role: "Risk Analyst", company: "Biz Tech Pvt. Ltd.", image: "/placeholder.jpg" },
@@ -28,9 +29,9 @@ const attendeeDummyData = [
 ];
 
 
-const PeopleDisplay = ({ showForm, activeTab, setActiveTab }) => {
-
+const PeopleDisplay = ({ activeTab, setActiveTab }) => {
   const dataToShow = activeTab === "staff" ? staffDummyData : attendeeDummyData
+  const navigate = useNavigate()
   return (
     <div className='w-full'>
       <div className='w-full flex justify-between'>
@@ -39,7 +40,7 @@ const PeopleDisplay = ({ showForm, activeTab, setActiveTab }) => {
           <button className={`ps-7 pe-14 py-1  font-semibold rounded-tl-xl rounded-tr-xl ${activeTab === 'attendee' ? 'bg-sidebar-hover text-white' : 'text-gray-700'}`} onClick={() => setActiveTab("attendee")}>Attendees</button>
         </div>
         <div className='flex gap-3'>
-          <button className={'flex items-center gap-1 px-2 h-[25px] pe-5 font-semibold rounded-full transition text-xs text-white bg-sidebar-hover cursor-pointer'} onClick={() => showForm(true)}>
+          <button className={'flex items-center gap-1 px-2 h-[25px] pe-5 font-semibold rounded-full transition text-xs text-white bg-sidebar-hover cursor-pointer'} onClick={() => navigate("/people/staff/add")}>
             <FiPlus size={12} />
             <span className='hidden md:block'>
               Add Staff/Attendee
