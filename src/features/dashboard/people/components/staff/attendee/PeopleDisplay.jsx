@@ -40,7 +40,7 @@ const PeopleDisplay = ({ activeTab, setActiveTab }) => {
           <button className={`ps-7 pe-14 py-1  font-semibold rounded-tl-xl rounded-tr-xl ${activeTab === 'attendee' ? 'bg-sidebar-hover text-white' : 'text-gray-700'}`} onClick={() => setActiveTab("attendee")}>Attendees</button>
         </div>
         <div className='flex gap-3'>
-          <button className={'flex items-center gap-1 px-2 h-[25px] pe-5 font-semibold rounded-full transition text-xs text-white bg-sidebar-hover cursor-pointer'} onClick={() => navigate("/people/staff/add")}>
+          <button className={'flex items-center gap-1 px-2 h-[25px] pe-5 font-semibold rounded-full transition text-xs text-white bg-sidebar-hover cursor-pointer'} onClick={() => navigate("/people/staff/addstaff")}>
             <FiPlus size={12} />
             <span className='hidden md:block'>
               Add Staff/Attendee

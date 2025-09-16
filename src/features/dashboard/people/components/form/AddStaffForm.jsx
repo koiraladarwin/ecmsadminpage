@@ -40,7 +40,7 @@ function AddStaffForm({ form }) {
                 name="attendeeType"
                 value="company"
                 checked={false}
-                onChange={() => navigate("/people/attendee/add")}
+                onChange={() => navigate("/people/staff/addattendee")}
               />
               Company / Organization
             </label>

@@ -30,7 +30,7 @@ function AddAttendeeForm({ form }) {
                 name="attendeeType"
                 value="individual"
                 checked={false}
-                onChange={() => navigate('/people/staff/add')}
+                onChange={() => navigate('/people/staff/addstaff')}
               />
               Individual
             </label>

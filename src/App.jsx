@@ -30,8 +30,8 @@ function App() {
         <Route path="import-export" element={<ImportExportPage />} />
         <Route path='people' element={<PeoplePage />} />
         <Route path="people/:peopleId" element={<StaffAttendeePage />} />
-        <Route path='/people/attendee/add' element={<AddAttendeeForm />} />
-        <Route path='/people/staff/add' element={<AddStaffForm />} />
+        <Route path='/people/staff/addattendee' element={<AddAttendeeForm />} />
+        <Route path='/people/staff/addstaff' element={<AddStaffForm />} />
         <Route path="support" element={<SupportPage />} />
         <Route path="report/:reportId" element={<ReportPage />} />
         <Route path="settings/:settingId" element={<SettingsPage />} />
