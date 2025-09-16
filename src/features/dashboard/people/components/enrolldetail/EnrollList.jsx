@@ -20,7 +20,16 @@ function EnrollList({ data }) {
           {data.map((item, index) => (
             <tr key={index}>
               <td className="p-3">{item.attendee.id}</td>
-              <td className="p-3">{item.attendee.name}</td>
+              <td className="p-3">
+                <div className="flex items-center gap-2">
+                  <img
+                    src={item.image}
+                    alt={item.attendee.name}
+                    className="w-8 h-8 rounded-full object-cover"
+                  />
+                  <span>{item.attendee.name}</span>
+                </div>
+              </td>
               <td className="p-3">{item.event}</td>
               <td className="p-3">{item.session}</td>
               <td className="p-3">{item.entry}</td>
