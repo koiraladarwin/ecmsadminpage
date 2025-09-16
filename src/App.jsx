@@ -16,6 +16,8 @@ import CategoryPage from "./features/dashboard/category/page/Category";
 import CreateEventPage from "./features/dashboard/event/pages/NewEventPage.jsx";
 import StaffAttendeePage from "./features/dashboard/people/pages/StaffAttendeePage";
 import Home from "./features/dashboard/home/pages/Home";
+import AddAttendeeForm from "./features/dashboard/people/components/form/AddAttendeeForm.jsx";
+import AddStaffForm from "./features/dashboard/people/components/form/AddStaffForm.jsx";
 
 
 function App() {
@@ -25,10 +27,11 @@ function App() {
 
       <Route path="/" element={<Dashboard />}>
         <Route index element={<Home />} />
-
         <Route path="import-export" element={<ImportExportPage />} />
         <Route path='people' element={<PeoplePage />} />
         <Route path="people/:peopleId" element={<StaffAttendeePage />} />
+        <Route path='/people/staff/addattendee' element={<AddAttendeeForm />} />
+        <Route path='/people/staff/addstaff' element={<AddStaffForm />} />
         <Route path="support" element={<SupportPage />} />
         <Route path="report/:reportId" element={<ReportPage />} />
         <Route path="settings/:settingId" element={<SettingsPage />} />
