@@ -46,9 +46,9 @@ function EnrollStaffForm() {
   }
 
   return (
-    <div className='w-full bg-white px-20 py-10 border-[1.3px] border-b-sidebar-bg '>
+    <div className='w-full bg-white px-10 py-10 border-[1.3px] border-b-sidebar-bg '>
       {/* staff and events */}
-      <div className='flex items-end w-full gap-8'>
+      <div className='flex flex-col lg:flex-row lg:items-end w-full gap-8'>
         <div className='flex flex-col flex-1'>
           <SearchableDropdown label='Staffs' options={staffOptions} onSelect={(attendee) => handleSelect('attendee', attendee)} />
         </div>
@@ -64,8 +64,8 @@ function EnrollStaffForm() {
       </div>
 
       {/* session and enroll */}
-      <div className='flex items-end w-full gap-6 py-4'>
-        <div className='flex flex-col w-[48%]'>
+      <div className='flex flex-col lg:flex-row lg:items-end w-full gap-6 py-4'>
+        <div className='flex flex-col lg:w-[48%]'>
           <CustomDropdown
             label='Session'
             options={sessionOptions}

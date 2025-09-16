@@ -48,10 +48,10 @@ function EnrollAttendeeForm() {
   }
 
   return (
-    <div className='w-full bg-white px-20 py-10 border-[1.3px] border-b-sidebar-bg space-y-6'>
+    <div className='w-full bg-white px-10 py-10 border-[1.3px] border-b-sidebar-bg space-y-6'>
 
       {/* Attendee and Event Row */}
-      <div className='flex items-end  w-full gap-6'>
+      <div className='flex flex-col lg:flex-row lg:items-end w-full gap-6'>
         <div className='flex flex-col flex-1'>
           <SearchableDropdown
             label='Attendees'
@@ -59,7 +59,6 @@ function EnrollAttendeeForm() {
             onSelect={(attendee) => handleSelect('attendee', attendee)}
           />
         </div>
-
         <div className='flex flex-col flex-1'>
           <CustomDropdown
             label='Events'
@@ -70,7 +69,7 @@ function EnrollAttendeeForm() {
       </div>
 
       {/* Session and Entry Row */}
-      <div className='flex  w-full gap-6'>
+      <div className='flex flex-col lg:flex-row lg:items-end w-full gap-6'>
         <div className='flex flex-col flex-1'>
           <CustomDropdown
             label='Session'

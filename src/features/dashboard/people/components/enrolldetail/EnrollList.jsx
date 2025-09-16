@@ -24,8 +24,8 @@ function EnrollList({ data }) {
               <td className="p-3">{item.event}</td>
               <td className="p-3">{item.session}</td>
               <td className="p-3">{item.entry}</td>
-              <td className='underline cursor-pointer'>Modify</td>
-              <td className='underline cursor-pointer'>Remove</td>
+              <td className='underline p-1 cursor-pointer'>Modify</td>
+              <td className='underline p-1 cursor-pointer'>Remove</td>
             </tr>
           ))}
         </tbody>
