@@ -29,7 +29,8 @@ function AddStaffForm({ form }) {
                 type="checkbox"
                 name="attendeeType"
                 value="individual"
-                checked={'individual'}
+                checked={true}
+                onChange={() => { }}
               />
               Individual
             </label>
@@ -38,7 +39,7 @@ function AddStaffForm({ form }) {
                 type="checkbox"
                 name="attendeeType"
                 value="company"
-                checked={form === 'company'}
+                checked={false}
                 onChange={() => navigate("/people/attendee/add")}
               />
               Company / Organization

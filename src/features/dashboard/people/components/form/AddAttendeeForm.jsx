@@ -29,6 +29,7 @@ function AddAttendeeForm({ form }) {
                 type="checkbox"
                 name="attendeeType"
                 value="individual"
+                checked={false}
                 onChange={() => navigate('/people/staff/add')}
               />
               Individual
@@ -38,7 +39,8 @@ function AddAttendeeForm({ form }) {
                 type="checkbox"
                 name="attendeeType"
                 value="company"
-                checked={'company'}
+                checked={true}
+                onChange={() => { }}
               />
               Company / Organization
             </label>
