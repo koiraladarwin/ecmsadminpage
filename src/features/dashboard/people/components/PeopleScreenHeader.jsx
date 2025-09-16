@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from './Button'
 
-function Header({ title, download = false, showForm = true }) {
+function PeopleScreenHeader({ title, download = false, showForm = true }) {
   return (
     <div className='pt-15 pb-5 w-full '>
       <div className='w-full flex flex-col gap-6 md:flex-row justify-between items-center border-b border-gray-800 pb-5 '>
@@ -18,4 +18,4 @@ function Header({ title, download = false, showForm = true }) {
   )
 }
 
-export default Header
+export default PeopleScreenHeader
