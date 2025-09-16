@@ -27,7 +27,7 @@ function SearchableDropdown({ label, options, onSelect }) {
         onChange={handleSearch}
         onClick={() => setOpen(!open)}
         value={selected ? selected.name : search}
-        className='border p-2 w-full focus:outline-none'
+        className='border p-2 w-full focus:outline-none h-10'
       />
       {
         open &&
