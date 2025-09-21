@@ -33,7 +33,7 @@ const ComboChart = () => {
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
               <input type="checkbox" className="w-4 h-4 accent-purple-600" />
-              <span className="text-sm  text-sidebar-bg font-bold">Semi Annual</span>
+              <span className="text-sm  text-sidebar-bg font-bold ">Semi Annual</span>
             </label>
           </div>
           <div className="flex flex-col">
@@ -43,7 +43,7 @@ const ComboChart = () => {
             </label>
             <label className="flex items-center gap-2 cursor-pointer">
               <input type="checkbox" className="w-4 h-4 accent-purple-600" />
-              <span className="text-sm text-sidebar-bg font-bold">Semi Annual</span>
+              <span className="text-sm text-sidebar-bg font-bold">Annual</span>
             </label>
           </div>
         </div>
