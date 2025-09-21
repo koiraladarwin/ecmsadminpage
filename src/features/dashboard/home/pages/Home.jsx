@@ -22,7 +22,7 @@ export default function Home() {
         <WeatherWidget />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center flex-1">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center flex-1 pb-10">
         <HireBox />
         <StatBox title="ENROLLED STAFF" value="4" Icon={MdPersonOutline} />
         <StatBox title="ACTIVE ISSUES" value="0" Icon={BsPersonVcard} />
