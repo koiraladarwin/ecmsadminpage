@@ -12,7 +12,7 @@ export default function WeatherWidget() {
     <div className="bg-white  shadow rounded-3xl flex flex-col w-full  ">
       <div className=" bg-primary-dark flex justify-center items-center py-5">
         <div>
-          <div className="flex items-center gap-1 md:gap-2">
+          <div className="flex items-center gap-0 sm:gap-1 md:gap-2">
             <IoChevronBackOutline className="text-white inline-block " size={20} />
             <h3 className="font-semibold text-white text-md md:text-lg text-center">Today's Weather</h3>
             <IoChevronForwardOutline className="text-white inline-block " size={20} />
@@ -23,7 +23,7 @@ export default function WeatherWidget() {
       </div>
       <div className="p-6">
         <p className="text-4xl text-sidebar-bg font-bold text-center ">⛅23°</p>
-        <p className="text-sm text-sidebar-bg font-extrabold text-center border-b-2 border-gray-300 pt-3 pb-1 ">Moon Cloud Fast Wind</p>
+        <p className=" text-[10px] sm:text-[12px] md:text-sm text-sidebar-bg font-extrabold text-center border-b-2 border-gray-300 pt-3 pb-1 ">Moon Cloud Fast Wind</p>
         <p className="text-sm  font-extrabold text-sidebar-bg text-center pt-3 pb-2 ">Future Weather</p>
 
         <div className=" text-sm text-gray-700 space-y-3">
