@@ -14,12 +14,12 @@ export default function AttendeeStats() {
   ];
 
   return (
-    <div className="bg-white shadow-lg rounded-3xl max-w-sm  mx-auto  w-full ">
-      <div className="flex items-center mb-5 bg-primary-dark gap-4  justify-center py-8">
+    <div className="bg-white shadow-lg rounded-3xl max-w-sm   w-full ">
+      <div className="flex items-center  bg-primary-dark gap-2 md:gap-4  justify-center py-[29px]">
         <FaChartBar className="text-white " size={20} />
-        <h3 className="text-ld font-semibold text-white uppercase">Attendees Statics</h3>
+        <h3 className=" text-sm md:text-lg font-semibold text-white ">Attendees Statics</h3>
       </div>
-      <ul className="text-sm space-y-3 text-gray-700 bg-gray-100 mx-4 px-4 mb-5 rounded-lg pt-5 pb-5">
+      <ul className="text-sm space-y-3 text-gray-700 bg-gray-100 mt-5 mx-4 px-4 mb-5 rounded-lg pt-5 pb-5">
         {stats.map((item) => (
           <li key={item.label} className="flex justify-between border-b-1 border-gray-300 pb-2">
             <span className="font-medium">{item.label}</span>
