@@ -28,25 +28,19 @@ export default function WeatherWidget() {
 
         <div className=" text-sm text-gray-700 ">
           {forecast.map((f, i) => (
-            <div className=''>
-              <div className=" flex justify-center gap-2 items-center border-b-2 border-gray-200 pb-2 pt-2" key={f.day}>
+            <div key={f.day}>
+              <div
+                className={`flex justify-center gap-2 items-center pb-2 pt-2 
+        ${i !== forecast.length - 1 ? "border-b-2 border-gray-200" : ""}`}
+              >
                 <p className="font-bold text-xl">
                   {f.icon} {f.temp}°
                 </p>
-                <div className="flex flex-col  tex-sm  font-extrabold text-sidebar-bg">
-                  <p>
-                    {f.day}
-                  </p>
-                  <p>
-                    {f.date}
-                  </p>
+                <div className="flex flex-col text-sm font-extrabold text-sidebar-bg">
+                  <p>{f.day}</p>
+                  <p>{f.date}</p>
                 </div>
               </div>
-              {/* {i !== forecast.length - 1 && (
-                <div className="flex justify-center">
-                  <hr className='mb-2 mt-2 w-[80%] border-gray-200 border-[1px]' />
-                </div>
-              )} */}
             </div>
           ))}
         </div>
