@@ -9,11 +9,11 @@ import { MdPersonOutline } from "react-icons/md";
 
 export default function Home() {
   return (
-    <div className="h-full py-4 px-32 flex flex-col space-y-4 justify-center">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 flex-2">
-        <StatCard title="ACTIVE EVENTS" value="42%" subtext="21/50" />
-        <StatCard title="ENROLLMENT STATUS" value="30%" subtext="150/500" />
-        <StatCard title="TOTAL ATTENDEES" value="80%" subtext="1568" />
+    <div className="h-full w-full py-4 px-10 md:px-5 lg:px-2 xl:px-10  flex flex-col space-y-6 justify-center pt-360 md:pt-305 lg:pt-100">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-2 xl:gap-8 flex-1">
+        <StatCard title="ACTIVE EVENTS" value={21} total={50} subtext="21/50" />
+        <StatCard title="ENROLLMENT STATUS" value={150} total={500} subtext="150/500" />
+        <StatCard title="TOTAL ATTENDEES" value={1600} total={2000} showTotal={true} />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 flex-3">
@@ -22,10 +22,10 @@ export default function Home() {
         <WeatherWidget />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center flex-1">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-center flex-1 pb-10">
         <HireBox />
-        <StatBox title="ENROLLED STAFF" value="4" Icon={MdPersonOutline}/>
-        <StatBox title="ACTIVE ISSUES" value="0" Icon={BsPersonVcard}/>
+        <StatBox title="ENROLLED STAFF" value="4" Icon={MdPersonOutline} />
+        <StatBox title="ACTIVE ISSUES" value="0" Icon={BsPersonVcard} />
       </div>
     </div>
   );
