@@ -26,7 +26,7 @@ export default function WeatherWidget() {
         <p className=" text-[10px] sm:text-[12px] md:text-sm text-sidebar-bg font-extrabold text-center border-b-2 border-gray-300 pt-3 pb-1 ">Moon Cloud Fast Wind</p>
         <p className="text-sm  font-extrabold text-sidebar-bg text-center pt-3 pb-2 ">Future Weather</p>
 
-        <div className=" text-sm text-gray-700 space-y-3">
+        <div className=" text-sm text-gray-700 ">
           {forecast.map((f, i) => (
             <div className=''>
               <div className=" flex justify-center gap-2 items-center border-b-2 border-gray-200 pb-2 pt-2" key={f.day}>
