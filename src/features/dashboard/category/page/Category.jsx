@@ -1,7 +1,11 @@
+import AddCategoryCard from "../components/AddCategoryCArd"
+import CategoryHeader from "../components/CategoryHeader"
+
 const CategoryPage = () => {
   return (
-    <div>
-      Category 
+    <div className="px-15">
+      <CategoryHeader title="Event Categories" showForm={false}/>
+      <AddCategoryCard/>
     </div>
   )
 }

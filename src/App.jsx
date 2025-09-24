@@ -19,6 +19,8 @@ import Home from "./features/dashboard/home/pages/Home";
 import AddAttendeeForm from "./features/dashboard/people/components/form/AddAttendeeForm.jsx";
 import AddStaffForm from "./features/dashboard/people/components/form/AddStaffForm.jsx";
 import EnrollPage from "./features/dashboard/people/pages/EnrollPage.jsx";
+import CreateCategoryPage from "./features/dashboard/category/page/CreateCategoryPage.jsx";
+import AllCategoriesPage from "./features/dashboard/category/page/AllCategoriesPage.jsx";
 
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
         <Route path="/event" element={<EventsPage />} />
         <Route path="/event/createvent" element={<CreateEventPage />} />
         <Route path="/event/category" element={<CategoryPage />} />
+        <Route path="/event/category/createcategory" element={<CreateCategoryPage />} />
+        <Route path="/event/category/allcategories" element={<AllCategoriesPage />} />
 
       </Route>
     </Routes>
