@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { FaUser } from 'react-icons/fa';
 
 function CheckinReportPage() {
@@ -69,6 +69,7 @@ function CheckinReportPage() {
 
       <div className="bg-white p-10 border-2">
         {/* Filters */}
+        <h1 className='text-2xl mb-4 textBold'>Check-in Report</h1>
         <div className="grid md:grid-cols-4 gap-4 mb-4">
           {/* Event */}
           <div>

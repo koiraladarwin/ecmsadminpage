@@ -240,7 +240,7 @@ export default function SideBar() {
                   }`
                 }
               >
-                Inivitation Report
+                Invitation Report
               </NavLink>
 
               <NavLink
