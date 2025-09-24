@@ -19,9 +19,12 @@ import Home from "./features/dashboard/home/pages/Home";
 import AddAttendeeForm from "./features/dashboard/people/components/form/AddAttendeeForm.jsx";
 import AddStaffForm from "./features/dashboard/people/components/form/AddStaffForm.jsx";
 import EnrollPage from "./features/dashboard/people/pages/EnrollPage.jsx";
+import CreateCategoryPage from "./features/dashboard/category/page/CreateCategoryPage.jsx";
+import AllCategoriesPage from "./features/dashboard/category/page/AllCategoriesPage.jsx";
 import SalesReportPage from "./features/dashboard/report/pages/SalesReportPage.jsx";
 import InvitationReportPage from "./features/dashboard/report/pages/InvitationReportPage.jsx";
 import CheckinReportPage from "./features/dashboard/report/pages/CheckInReportPage.jsx";
+
 
 
 function App() {
@@ -47,6 +50,8 @@ function App() {
         <Route path="/event" element={<EventsPage />} />
         <Route path="/event/createvent" element={<CreateEventPage />} />
         <Route path="/event/category" element={<CategoryPage />} />
+        <Route path="/event/category/createcategory" element={<CreateCategoryPage />} />
+        <Route path="/event/category/allcategories" element={<AllCategoriesPage />} />
 
       </Route>
     </Routes>
