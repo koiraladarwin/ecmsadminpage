@@ -34,12 +34,13 @@ import Invitations from "./features/dashboard/event/invitations/pages/Invitation
 import CreateInvitations from "./features/dashboard/event/invitations/pages/Createinvitations.jsx";
 import ShowAllInvitations from "./features/dashboard/event/invitations/pages/ShowAllInvitations.jsx";
 import ViewGeneralInvitations from "./features/dashboard/event/invitations/pages/ViewGeneralInvitations.jsx";
+import MainPage from "./features/auth/pages/MainPage.jsx";
 
 
 function App() {
   return (
     <Routes>
-      <Route path="/login" element={<Loginpage />} />
+      <Route path="/login" element={<MainPage />} />
 
       <Route path="/" element={<Dashboard />}>
         <Route index element={<Home />} />
@@ -62,14 +63,14 @@ function App() {
         <Route path="/event/category/createcategory" element={<CreateCategoryPage />} />
         <Route path="/event/category/allcategories" element={<AllCategoriesPage />} />
 
-        <Route path="/event/session" element={<SessionPage/>} />
-        <Route path="/event/createsession" element={<CreateSessionPage/>} />
-        <Route path="/event/allsession" element={<SessionsAll/>} />
+        <Route path="/event/session" element={<SessionPage />} />
+        <Route path="/event/createsession" element={<CreateSessionPage />} />
+        <Route path="/event/allsession" element={<SessionsAll />} />
 
         <Route path="event/invitation" element={<Invitations />} />
-        <Route path="event/createinvitation" element={<CreateInvitations/>} />
-        <Route path="event/allinvitations" element={<ShowAllInvitations/>} />
-        <Route path="event/generalinvitation" element={<ViewGeneralInvitations/>} />
+        <Route path="event/createinvitation" element={<CreateInvitations />} />
+        <Route path="event/allinvitations" element={<ShowAllInvitations />} />
+        <Route path="event/generalinvitation" element={<ViewGeneralInvitations />} />
 
       </Route>
     </Routes>
