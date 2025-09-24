@@ -1,11 +1,11 @@
 function SupportPage() {
   return (
-    <div className="p-14 ">
+    <div className="p-14 max-h-full">
       <h2 className="text-xl pb-5">
         My Support Tickets
       </h2>
 
-      <div className="bg-white border-gray-500 border-2 shadow p-6">
+      <div className="bg-white border-gray-500 border-2 shadow p-6 overflow-scroll">
         <h3 className="text-xl mb-6">Choose Department</h3>
 
         <div className="grid md:grid-cols-3 gap-6">
