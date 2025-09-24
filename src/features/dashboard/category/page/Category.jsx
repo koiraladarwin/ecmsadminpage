@@ -1,4 +1,4 @@
-import AddCategoryCard from "../components/AddCategoryCArd"
+import AddCategoryCard from "../components/AddCategoryCard"
 import CategoryHeader from "../components/CategoryHeader"
 
 const CategoryPage = () => {
