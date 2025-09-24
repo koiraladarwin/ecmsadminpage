@@ -20,6 +20,15 @@ import AddAttendeeForm from "./features/dashboard/people/components/form/AddAtte
 import AddStaffForm from "./features/dashboard/people/components/form/AddStaffForm.jsx";
 import EnrollPage from "./features/dashboard/people/pages/EnrollPage.jsx";
 
+import SessionPage from "./features/dashboard/event/pages/SessionPage.jsx"
+import CreateSessionPage from "./features/dashboard/event/pages/CreateSessionPage.jsx"
+import SessionsAll from "./features/dashboard/event/pages/SessionsAll.jsx"
+
+import Invitations from "./features/dashboard/event/invitations/pages/Invitations.jsx";
+import CreateInvitations from "./features/dashboard/event/invitations/pages/Createinvitations.jsx";
+import ShowAllInvitations from "./features/dashboard/event/invitations/pages/ShowAllInvitations.jsx";
+import ViewGeneralInvitations from "./features/dashboard/event/invitations/pages/ViewGeneralInvitations.jsx";
+
 
 function App() {
   return (
@@ -42,6 +51,15 @@ function App() {
         <Route path="/event" element={<EventsPage />} />
         <Route path="/event/createvent" element={<CreateEventPage />} />
         <Route path="/event/category" element={<CategoryPage />} />
+
+        <Route path="/event/session" element={<SessionPage/>} />
+        <Route path="/event/createsession" element={<CreateSessionPage/>} />
+        <Route path="/event/allsession" element={<SessionsAll/>} />
+
+        <Route path="event/invitation" element={<Invitations />} />
+        <Route path="event/createinvitation" element={<CreateInvitations/>} />
+        <Route path="event/allinvitations" element={<ShowAllInvitations/>} />
+        <Route path="event/generalinvitation" element={<ViewGeneralInvitations/>} />
 
       </Route>
     </Routes>
