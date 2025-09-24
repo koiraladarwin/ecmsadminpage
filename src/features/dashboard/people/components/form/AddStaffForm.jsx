@@ -2,7 +2,7 @@ import React from 'react'
 import NormalBtn from '../NormalBtn'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
-import PeopleScreenHeader from '../PeopleScreenHeader';
+import ScreenHeader from '../PeopleScreenHeader';
 
 function AddStaffForm({ form }) {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ function AddStaffForm({ form }) {
 
   return (
     <div className='w-full lg:px-20 px-5'>
-      <PeopleScreenHeader title='Add a New Staff/Attendee' download={true} showForm={true} />
+      <ScreenHeader title='Add a New Staff/Attendee' download={true} showForm={true} />
       <div className="w-full flex justify-center items-center py-10 pb-15 ">
         <form onSubmit={e => e.preventDefault()} className="w-full bg-white p-6 sm:p-10 rounded-sm shadow-md border-[1.4px] border-bg-sidebar-bg flex flex-col gap-6">
 

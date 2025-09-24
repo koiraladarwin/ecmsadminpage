@@ -7,11 +7,11 @@ import Footer from './components/Footer';
 
 export default function Dashboard() {
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full font-poppins">
       <div className="flex-1 flex flex-col bg-gray-50 overflow-y-auto">
         <div className="flex h-full">
           <SideBar />
-          <div className="flex-1 bg-purple-200 overflow-y-auto">
+          <div className="flex-1 bg-light-background overflow-y-auto">
             <NavBar />
             <div className='h-[87vh]'>
               <Outlet />
