@@ -5,7 +5,7 @@ import Dashboard from "./features/dashboard/Dashboard";
 
 import PeoplePage from "./features/dashboard/people/pages/PeoplePage";
 import SupportPage from "./features/dashboard/support/SupportPage";
-import ReportPage from "./features/dashboard/report/pages/ReportPage";
+import ReportPage from "./features/dashboard/report/pages/InvitationReportPage.jsx";
 import SettingsPage from "./features/dashboard/settings/pages/SettingsPage";
 import HireTeamPage from "./features/dashboard/hireteam/HireTeamPage";
 
@@ -21,6 +21,10 @@ import AddStaffForm from "./features/dashboard/people/components/form/AddStaffFo
 import EnrollPage from "./features/dashboard/people/pages/EnrollPage.jsx";
 import CreateCategoryPage from "./features/dashboard/category/page/CreateCategoryPage.jsx";
 import AllCategoriesPage from "./features/dashboard/category/page/AllCategoriesPage.jsx";
+import SalesReportPage from "./features/dashboard/report/pages/SalesReportPage.jsx";
+import InvitationReportPage from "./features/dashboard/report/pages/InvitationReportPage.jsx";
+import CheckinReportPage from "./features/dashboard/report/pages/CheckInReportPage.jsx";
+
 
 
 function App() {
@@ -37,7 +41,9 @@ function App() {
         <Route path='/people/staff/addattendee' element={<AddAttendeeForm />} />
         <Route path='/people/staff/addstaff' element={<AddStaffForm />} />
         <Route path="support" element={<SupportPage />} />
-        <Route path="report/:reportId" element={<ReportPage />} />
+        <Route path="report/checkinreport" element={<CheckinReportPage />} />
+        <Route path="report/salesreport" element={<SalesReportPage />} />
+        <Route path="report/invitationreport" element={<InvitationReportPage />} />
         <Route path="settings/:settingId" element={<SettingsPage />} />
         <Route path="finance/:financeId" element={<FinancePage />} />
         <Route path="hireteam" element={<HireTeamPage />} />

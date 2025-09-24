@@ -6,7 +6,7 @@ export default function EventHeader({activeTab, setActiveTab}) {
 
   return (
     <div className="">
-      <div className="flex items-center justify-between mt-10 pl-20 pr-20">
+      <div className="flex items-center justify-between mt-10 pl-10 pr-20">
         
         <div className="flex">
           {tabs.map((tab) => (
@@ -37,7 +37,7 @@ export default function EventHeader({activeTab, setActiveTab}) {
         </button>
       </div>
 
-      <hr className="ml-20 mr-20 m-10 border-gray-400 border-1" />
+      <hr className="ml-8 mr-20 m-10 border-gray-400 border-1" />
     </div>
   );
 }
