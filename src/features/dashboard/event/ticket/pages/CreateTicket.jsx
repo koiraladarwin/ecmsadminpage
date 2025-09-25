@@ -13,7 +13,7 @@ export default function CreateTicket() {
         <hr className="ml-15 mr-15 mt-5 border-1 border-textgray" />
 
 
-        <form action="" className='box-border border-2 border-buttonpurple rounded-lg ml-15 mr-15 mb-15 mt-5 p-10 pl-20 pr-30 bg-white '>
+        <form action="" className='box-border border-2 border-buttonpurple rounded-lg ml-15 mr-15 mb-15 mt-5 p-10 px-15 lg:pr-30 bg-white '>
             <label className="label">
                 Choose an event
             </label>
@@ -22,13 +22,13 @@ export default function CreateTicket() {
             </select>
 
 
-            <div className='mt-4 grid grid-cols-3 gap-10'>
+            <div className='mt-4 grid grid-cols-1 lg:grid-cols-3  gap-10'>
               <div>
                 <label class="label">Create Ticket Type</label>
 
               <div className='flex items-center space-x-2'>
                 <input type="text"
-                  className='border'  
+                  className='border w-full'  
                 />
                 </div> 
                 </div> 
@@ -38,7 +38,7 @@ export default function CreateTicket() {
                 <label class="label">Ticket Price</label>
                 <div className='flex items-center space-x-2'>
                 <input type="text"
-                  className='border'  
+                  className='border w-full'  
                 />
                 </div> 
                 </div>
@@ -54,22 +54,17 @@ export default function CreateTicket() {
             
             </div>
 
-            <div className='mt-4 grid grid-cols-3  gap-10'>
+            <div className='mt-4 grid grid-cols-1 lg:grid-cols-3  gap-10'>
               <div className='col-span-2'>
                 <label class="label">Validity starts at....*</label>
                 <div className='flex items-center space-x-2'>
                 <input type="text"
-                  className='border'  
+                  className='border w-full'  
                 />
                 <span>at</span>
-                <input type="text" className='border' />
+                <input type="text" className='border w-full' />
 
-              </div>  
-              
-
-              <div>
-                
-            </div>            
+              </div>
               </div>
 
               <div>
@@ -77,37 +72,36 @@ export default function CreateTicket() {
               
                     <label class="label">Availability Qty</label>
 
-                    <input type="text" className="w-full" />
+                    <input type="text" className="border w-full" />
                 </div>
             
             </div>
 
-            <div className='mt-4 grid grid-cols-3 gap-10'>
+            <div className='mt-4 grid grid-cols-1 lg:grid-cols-3 gap-10'>
               <div className='col-span-2'>
                 <label class="label">Validity ends at....*</label>
 
               <div className='flex items-center space-x-2'>
                 <input type="text"
-                  className='border'  
+                  className='border w-full'  
                 />
                 <span>at</span>
-                <input type="text" className='border' />
+                <input type="text" className='border w-full' />
 
               </div> 
-
-                             
+                            
               </div>
 
               <div>
                 <label class="label">Choose Event</label>    
-                <select name="" id="" className="w-full">
+                <select name="" id="" className="border w-full">
                     <option value=""></option>
                 </select>
             </div>
             
             </div>
 
-            <div className="flex justify-between pt-6">
+            <div className="flex flex-col lg:flex-row gap-6  justify-between pt-6">
                 <div>
                     <h1 className="font-bold">Visibility</h1>
                     

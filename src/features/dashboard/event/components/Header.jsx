@@ -1,4 +1,5 @@
 import { FaPlus } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 export default function EventHeader({activeTab, setActiveTab}) {
 
@@ -6,9 +7,9 @@ export default function EventHeader({activeTab, setActiveTab}) {
 
   return (
     <div className="">
-      <div className="flex items-center justify-between mt-10 pl-10 pr-20">
+      <div className="flex items-center flex-col gap-4 lg:flex-row justify-between mt-10 pl-10 pr-20">
         
-        <div className="flex">
+        <div className="flex flex-col lg:flex-row">
           {tabs.map((tab) => (
             <button
               key={tab}
@@ -30,11 +31,13 @@ export default function EventHeader({activeTab, setActiveTab}) {
           <span>Event Categories</span>
         </div>
 
+        <NavLink to="/event/createvent">
+          <button className="bg-[#772a92] text-white px-4 py-2 rounded-3xl flex items-center gap-2">
+            <FaPlus />
+            CreateEvent
+          </button>
+        </NavLink>
         
-        <button className="bg-[#772a92] text-white px-4 py-2 rounded-3xl flex items-center gap-2">
-          <FaPlus />
-          CreateEvent
-        </button>
       </div>
 
       <hr className="ml-8 mr-20 m-10 border-gray-400 border-1" />

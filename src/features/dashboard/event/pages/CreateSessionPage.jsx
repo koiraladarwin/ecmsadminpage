@@ -14,7 +14,7 @@ export default function CreateSessionPage() {
         <hr className="ml-15 mr-15 mt-5 border-1 border-textgray" />
 
 
-        <form action="" className='box-border border-2 border-buttonpurple rounded-lg ml-15 mr-15 mb-15 mt-5 p-10 pr-30 bg-white '>
+        <form action="" className='box-border border-2 border-buttonpurple rounded-lg ml-15 mr-15 mb-15 mt-5 p-10 lg:pr-30 bg-white '>
             <label htmlFor="" class="label">
                 Add Session Name
             </label>
@@ -24,7 +24,7 @@ export default function CreateSessionPage() {
             />
 
 
-            <div className='mt-2 grid grid-cols-3 gap-10'>
+            <div className='mt-2 grid grid-cols-1 lg:grid-cols-3 gap-10'>
               <div className='col-span-2'>
                 <label class="label">Session starts at</label>
 
@@ -47,7 +47,7 @@ export default function CreateSessionPage() {
             
             </div>
 
-            <div className='mt-2 grid grid-cols-3 gap-10'>
+            <div className='mt-2 grid grid-cols-1 lg:grid-cols-3 gap-10'>
               <div className='col-span-2'>
                 <label class="label">Session Ends at</label>
 
@@ -75,7 +75,7 @@ export default function CreateSessionPage() {
               <textarea className='w-full border h-20'></textarea>
             </div>
             
-            <div className="flex space-x-5 mt-2">
+            <div className="flex flex-col gap-4 lg:flex-row space-x-5 mt-2">
               <Link to="/event/allsession" >
                 <button className='bg-buttonpurple px-8 py-1 rounded-2xl text-white'>Save</button>
               </Link>

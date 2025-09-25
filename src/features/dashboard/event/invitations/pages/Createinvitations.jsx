@@ -14,7 +14,7 @@ export default function CreateInvitations() {
         <hr className="ml-15 mr-15 mt-5 border-1 border-textgray" />
 
 
-        <form action="" className='box-border border-2 border-buttonpurple rounded-lg ml-15 mr-15 mb-15 mt-5 p-10 pl-20 pr-30 bg-white '>
+        <form action="" className='box-border border-2 border-buttonpurple rounded-lg ml-15 mr-15 mb-15 mt-5 p-10 lg:pr-30 bg-white '>
             <label className="label">
                 Choose Event
             </label>
@@ -30,11 +30,11 @@ export default function CreateInvitations() {
             </select>
 
 
-            <div className='mt-4 grid  gap-10'>
+            <div className='mt-4 gap-10'>
               <div className='col-span-2'>
                 <label class="label">Validity starts at....*</label>
 
-              <div className='flex items-center space-x-2'>
+              <div className='flex flex-col lg:flex-row  space-x-2'>
                 <input type="text"
                   className='border'  
                 />
@@ -46,11 +46,11 @@ export default function CreateInvitations() {
             
             </div>
 
-            <div className='mt-4 grid gap-10'>
+            <div className='mt-4  gap-10'>
               <div className='col-span-2'>
                 <label class="label">Validity ends at....*</label>
 
-              <div className='flex items-center space-x-2'>
+              <div className='flex flex-col lg:flex-row space-x-2'>
                 <input type="text"
                   className='border'  
                 />
@@ -63,7 +63,7 @@ export default function CreateInvitations() {
             </div>
 
             
-            <div className="flex space-x-5 mt-4">
+            <div className="flex flex-col lg:flex-row gap-4 lg:space-x-5 mt-4 sm:pr-2">
               <Link to="/event/allinvitations" >
                 <button className='bg-buttonpurple px-8 py-1 rounded-2xl text-white'>Create Invitation</button>
               </Link>

@@ -12,7 +12,7 @@ export default function ShowAllTicket()
 
     return(
         <div className="min-h-screen">
-            <div className="flex items-center justify-between pt-10 pl-20 pr-20">
+            <div className="flex items-center justify-between pt-10 px-20 flex-col lg:flex-row gap-4">
                 <div className="space-y-2">
                     <div className="flex gap-2">
                         <h1 className="text-xl">Show</h1>

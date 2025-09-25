@@ -5,7 +5,7 @@ export default function CreateEventPage() {
     <div className='flex min-h-screen bg-bglightpurple'>
       
       <div class='w-full'>
-        <div className='pt-15 pr-15 pl-15 flex justify-between text-xl font-light'>
+        <div className='pt-15 px-15 flex flex-col lg:flex-row justify-between text-xl font-light'>
           <h1>Create a New Event</h1>
 
           <div className='space-x-2 pr-2'>
@@ -21,7 +21,7 @@ export default function CreateEventPage() {
         <hr className="ml-15 mr-15 mt-5 border-1 border-textgray" />
 
 
-        <form action="" className='box-border border-2 border-buttonpurple ml-15 mr-15 mb-15 mt-5 p-10 pr-30 bg-white '>
+        <form action="" className='box-border border-2 border-buttonpurple ml-15 mr-15 mb-15 mt-5 p-10 lg:pr-30 bg-white '>
             <label htmlFor="" class="label">
                 Event Name
             </label>
@@ -30,7 +30,7 @@ export default function CreateEventPage() {
               className='border w-full'
             />
 
-            <div className='mt-2 grid grid-cols-2 gap-16'>
+            <div className='mt-2 grid grid-cols-1 lg:grid-cols-2 gap-16'>
               <div>
                 <label class="label">
                     Name of Organizer
@@ -50,7 +50,7 @@ export default function CreateEventPage() {
               
             </div>
 
-            <div className='mt-2 grid grid-cols-3 gap-10'>
+            <div className='mt-2 grid grid-cols-2 lg:grid-cols-3 gap-10'>
               <div className='col-span-2'>
                 <label class="label">Event starts at</label>
 
@@ -93,10 +93,13 @@ export default function CreateEventPage() {
              
             <hr className='mt-5 mb-5 border-1 border-textgray'/>
 
-            <div className='flex items-center space-x-2'>
-            <label class="label">Upload Event Logo</label>
-            <input type="file" className='border w-[20%]' placeholder='choose jpg, png or gif' />
-            <p className='text-sm  mt-1 text-buttonpurple'>Recommend images Size: 72dpi at least 800x1128 pixels in dimensions.</p>
+            <div className='flex flex-col lg:flex-row space-x-2 justify-left'>
+              <label class="label">Upload Event Logo</label>
+              <input type="file" className='border w-[30%]' placeholder='choose jpg, png or gif' />
+
+              <div>
+                <p className='text-sm  mt-1 text-buttonpurple '>Recommend images Size: 72dpi at least 800x1128 pixels in dimensions.</p>
+              </div>
 
             </div>
 
