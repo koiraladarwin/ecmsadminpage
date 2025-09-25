@@ -27,7 +27,7 @@ export default function SideBar() {
   }
 
   return (
-    <div className="w-64 h-[95vh] bg-sidebar-bg shadow-md overflow-hidden flex flex-col">
+    <div className="w-64 h-[95vh] bg-sidebar-bg shadow-md overflow-scroll flex flex-col">
       {/* header */}
       <div className="p-4  flex items-center justify-center">
         <h1 className="text-3xl font-semibold text-white mt-2 ">ECMS</h1>
@@ -240,7 +240,7 @@ export default function SideBar() {
                   }`
                 }
               >
-                Inivitation Report
+                Invitation Report
               </NavLink>
 
               <NavLink

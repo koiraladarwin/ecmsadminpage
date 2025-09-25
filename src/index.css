@@ -1,6 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @import "tailwindcss";
-
-
 
 *::-webkit-scrollbar {
   width: 0px;  /* Hides the vertical scrollbar */
@@ -35,9 +35,12 @@ textarea {
 
 @theme {
 
+  --font-poppins: "Poppins", sans-serif;
+
+
   --color-primary: #772A92;
   --color-primary-dark: #262042;
-
+  --color-light-background:#e1D0F0;
   --color-sidebar-bg: #262042;
   --color-sidebar-hover: #772A92;
   --color-passive-text: #B1B1B1;
@@ -53,5 +56,6 @@ textarea {
   --color-active-text:#FFFFFF;
   
   --color-green-bg: #3EBB00;
+
 }
 

@@ -20,12 +20,12 @@ export default function EventsPage() {
   })
   return (
     <>
-      <div className='flex h-full bg-[#e1d0f0]'>
+      <div className='flex h-full bg-light-background p-14'>
         <div className='w-full'>
 
           <EventHeader activeTab={activeTab} setActiveTab={setActiveTab} />
 
-          <div className='box-border m-20 p-10 border-gray-500 border-2 bg-white text-center'>
+          <div className='box-border border-gray-500  p-10 border-2 bg-white text-center'>
 
             {activeTab == null && (
               <>

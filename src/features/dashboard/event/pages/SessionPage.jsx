@@ -4,8 +4,8 @@ import { FaPlus } from "react-icons/fa";
 export default function SessionPage()
 {
     return(
-        <div className="min-h-screen">
-            <div className="flex items-center justify-between mt-10 pl-20 pr-20">
+        <div className="">
+            <div className="flex items-center justify-between pl-20 pr-20">
                 <h1 className="text-xl ">Sessions</h1>
 
                 <NavLink to="/event/createsession" >
