@@ -46,9 +46,6 @@ import TicketGeneralInvitations from "./features/dashboard/event/ticket/pages/Ti
 function App() {
   return (
     <AuthContextProvider>
-      <Routes>
-        {<Route path="/login" element={<MainPage />} />}
-
         <Routes>
           <Route path="/login" element={<MainPage />} />
           <Route path="/" element={<Dashboard />}>
