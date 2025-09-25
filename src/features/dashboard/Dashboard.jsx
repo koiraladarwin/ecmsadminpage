@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 
 export default function Dashboard() {
   return (
-    <div className="flex flex-col h-full font-poppins">
+    <div className="flex flex-col h-full font-poppins overflow-y-hidden">
       <div className="flex-1 flex flex-col bg-gray-50 overflow-y-auto">
         <div className="flex h-full">
           <SideBar />
