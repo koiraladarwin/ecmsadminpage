@@ -1,8 +1,9 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../config/firebase";
 import { signInWithGooglePopup } from "../utils/googleSignIn";
+import Swal from "sweetalert2";
 
 const AuthContext = createContext();
 
@@ -10,25 +11,24 @@ export const useAuth = () => useContext(AuthContext);
 
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(true)
   // track auth state
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      if (currentUser) navigate("/");
-      else navigate("/login");
+      setLoading(false)
     });
 
     return () => unsubscribe();
-  }, [navigate]);
+  }, []);
+
+
 
   // call from the utils
   const signInWithGoogle = async () => {
     try {
       const { user: loggedInUser } = await signInWithGooglePopup();
       setUser(loggedInUser);
-      navigate("/dashboard");
     } catch (error) {
       console.error("Google sign-in failed:", error);
       Swal.fire("Failed to sign in with Google");
@@ -36,13 +36,12 @@ export const AuthContextProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await auth.signOut();
+    await signOut(auth);
     setUser(null);
-    navigate("/login");
   };
 
   return (
-    <AuthContext.Provider value={{ user, signInWithGoogle, logout }}>
+    <AuthContext.Provider value={{ user, signInWithGoogle, logout, loading }}>
       {children}
     </AuthContext.Provider>
   );
