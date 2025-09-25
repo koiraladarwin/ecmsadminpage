@@ -1,11 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 
-import Loginpage from "./features/auth/pages/Loginpage";
 import Dashboard from "./features/dashboard/Dashboard";
 
 import PeoplePage from "./features/dashboard/people/pages/PeoplePage";
 import SupportPage from "./features/dashboard/support/SupportPage";
-import ReportPage from "./features/dashboard/report/pages/InvitationReportPage.jsx";
 import SettingsPage from "./features/dashboard/settings/pages/SettingsPage";
 import HireTeamPage from "./features/dashboard/hireteam/HireTeamPage";
 
@@ -24,17 +22,6 @@ import AllCategoriesPage from "./features/dashboard/category/page/AllCategoriesP
 import SalesReportPage from "./features/dashboard/report/pages/SalesReportPage.jsx";
 import InvitationReportPage from "./features/dashboard/report/pages/InvitationReportPage.jsx";
 import CheckinReportPage from "./features/dashboard/report/pages/CheckInReportPage.jsx";
-
-
-import SessionPage from "./features/dashboard/event/pages/SessionPage.jsx"
-import CreateSessionPage from "./features/dashboard/event/pages/CreateSessionPage.jsx"
-import SessionsAll from "./features/dashboard/event/pages/SessionsAll.jsx"
-
-import Invitations from "./features/dashboard/event/invitations/pages/Invitations.jsx";
-import CreateInvitations from "./features/dashboard/event/invitations/pages/Createinvitations.jsx";
-import ShowAllInvitations from "./features/dashboard/event/invitations/pages/ShowAllInvitations.jsx";
-import ViewGeneralInvitations from "./features/dashboard/event/invitations/pages/ViewGeneralInvitations.jsx";
-import MainPage from "./features/auth/pages/MainPage.jsx";
 
 import SessionPage from "./features/dashboard/event/pages/SessionPage.jsx"
 import CreateSessionPage from "./features/dashboard/event/pages/CreateSessionPage.jsx"
