@@ -40,12 +40,13 @@ import { AuthContextProvider, useAuth } from "./features/auth/context/AuthContex
 
 import ShowAllTicket from "./features/dashboard/event/ticket/pages/ShowAllTicket.jsx";
 import TicketGeneralInvitations from "./features/dashboard/event/ticket/pages/TicketGeneralInvitations.jsx";
+import { OrbitProgress } from "react-loading-indicators";
 
 
 
 function AppRoutes() {
   const { user, loading } = useAuth()
-  if (loading) return <div>Loading....</div>
+  if (loading) return <div className="w-full h-screen flex items-center justify-center"><OrbitProgress color="#262042" size="medium" /></div>
   return (
     <Routes>
       {user && !loading ?
