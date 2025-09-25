@@ -3,33 +3,14 @@ import { FaSearch } from 'react-icons/fa'
 import { FiPlus } from 'react-icons/fi'
 import PersonListCard from './PersonListCard'
 import { useNavigate } from 'react-router-dom'
-
-const staffDummyData = [
-  { id: 1, name: "Mr. Carlos Cole", role: "Risk Analyst", company: "Biz Tech Pvt. Ltd.", image: "/placeholder.jpg" },
-  { id: 2, name: "Ms. Sarah Lee", role: "Software Engineer", company: "Innovate Solutions", image: "/placeholder.jpg" },
-  { id: 3, name: "Mr. John Doe", role: "UI/UX Designer", company: "Pixel Studio", image: "/placeholder.jpg" },
-  { id: 4, name: "Mrs. Emily Davis", role: "Project Manager", company: "NextGen IT", image: "/placeholder.jpg" },
-  { id: 5, name: "Mr. Michael Smith", role: "HR Manager", company: "Global HR Ltd.", image: "/placeholder.jpg" },
-  { id: 6, name: "Ms. Olivia Brown", role: "Marketing Specialist", company: "Brandify Media", image: "/placeholder.jpg" },
-  { id: 7, name: "Mr. Daniel Wilson", role: "Business Analyst", company: "Growth Corp", image: "/placeholder.jpg" },
-  { id: 8, name: "Ms. Sophia Miller", role: "Data Scientist", company: "Insight Labs", image: "/placeholder.jpg" },
-  { id: 9, name: "Mr. Ethan Taylor", role: "Sales Executive", company: "MarketEdge", image: "/placeholder.jpg" },
-]
-
-const attendeeDummyData = [
-  { id: 1, name: "Mr. person1", role: "Financial Advisor", company: "Summit Capital", image: "/placeholder.jpg" },
-  { id: 2, name: "Ms. person2", role: "Frontend Developer", company: "CodeWave Solutions", image: "/placeholder.jpg" },
-  { id: 3, name: "Mr. person3", role: "Graphic Designer", company: "Creative Hive", image: "/placeholder.jpg" },
-  { id: 4, name: "Mrs. person4", role: "Operations Manager", company: "Prime Logistics", image: "/placeholder.jpg" },
-  { id: 5, name: "Mr. person5", role: "Recruitment Lead", company: "TalentWorks Ltd.", image: "/placeholder.jpg" },
-  { id: 6, name: "Ms. person6", role: "Content Strategist", company: "Storyline Media", image: "/placeholder.jpg" },
-  { id: 7, name: "Mr. person7", role: "Product Analyst", company: "VisionTech Inc.", image: "/placeholder.jpg" },
-  { id: 8, name: "Ms. person8", role: "Machine Learning Engineer", company: "AI Nexus Labs", image: "/placeholder.jpg" },
-  { id: 9, name: "Mr. person9", role: "Account Executive", company: "TradeBridge", image: "/placeholder.jpg" },
-];
-
+import useStaff from '../../../../../../hooks/Use-Staff-list'
+import useAttendee from '../../../../../../hooks/Use-attendee-list'
 
 const PeopleDisplay = ({ activeTab, setActiveTab }) => {
+
+  const staffDummyData = useStaff();
+  const attendeeDummyData = useAttendee();
+
   const dataToShow = activeTab === "staff" ? staffDummyData : attendeeDummyData
   const navigate = useNavigate()
   return (

@@ -1,4 +1,3 @@
-import { FaPlus } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Bullet from "../components/Bullet";
 export default function CreateTicket() {
