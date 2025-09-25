@@ -3,9 +3,12 @@ import { FaCalendarAlt, FaChevronDown, FaSearch } from 'react-icons/fa'
 import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
 import { useLocation } from 'react-router-dom'
 import { HiOutlineBars3CenterLeft } from "react-icons/hi2";
+import { IoLogOutOutline } from 'react-icons/io5';
+import { useAuth } from '../../auth/context/AuthContext';
 
 const NavBar = () => {
   const pathname = useLocation().pathname.split("/")[1]
+  const {logout}=useAuth()
 
   return (
     <div className="h-[8vh] bg-white px-6 py-1 flex flex-col lg:flex-row lg:justify-between gap:5 xl:gap-0 items-center sticky top-0 z-2">
@@ -65,6 +68,9 @@ const NavBar = () => {
         <div className='flex items-center gap-1 justify-between'>
           <button className="text-gray-500  font-semibold ">Admin</button>
           <FaChevronDown className='mt-1 text-gray-500' />
+        </div>
+        <div className='flex items-center gap-1 justify-between'>
+          <button className="text-sidebar-bg hover:text-slate-500  font-bold "><IoLogOutOutline size={26} onClick={logout} /></button>
         </div>
       </div>
     </div>

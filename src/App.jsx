@@ -1,11 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 
-import Loginpage from "./features/auth/pages/Loginpage";
 import Dashboard from "./features/dashboard/Dashboard";
 
 import PeoplePage from "./features/dashboard/people/pages/PeoplePage";
 import SupportPage from "./features/dashboard/support/SupportPage";
-import ReportPage from "./features/dashboard/report/pages/InvitationReportPage.jsx";
 import SettingsPage from "./features/dashboard/settings/pages/SettingsPage";
 import HireTeamPage from "./features/dashboard/hireteam/HireTeamPage";
 
@@ -35,45 +33,48 @@ import CreateInvitations from "./features/dashboard/event/invitations/pages/Crea
 import ShowAllInvitations from "./features/dashboard/event/invitations/pages/ShowAllInvitations.jsx";
 import ViewGeneralInvitations from "./features/dashboard/event/invitations/pages/ViewGeneralInvitations.jsx";
 import MainPage from "./features/auth/pages/MainPage.jsx";
+import { AuthContextProvider } from "./features/auth/context/AuthContext.jsx";
 
 
 function App() {
   return (
-    <Routes>
-      <Route path="/login" element={<MainPage />} />
+    <AuthContextProvider>
+      <Routes>
+        {<Route path="/login" element={<MainPage />} />}
 
-      <Route path="/" element={<Dashboard />}>
-        <Route index element={<Home />} />
-        <Route path="import-export" element={<ImportExportPage />} />
-        <Route path='people' element={<PeoplePage />} />
-        <Route path="people/staff" element={<StaffAttendeePage />} />
-        <Route path="people/enroll" element={<EnrollPage />} />
-        <Route path='/people/staff/addattendee' element={<AddAttendeeForm />} />
-        <Route path='/people/staff/addstaff' element={<AddStaffForm />} />
-        <Route path="support" element={<SupportPage />} />
-        <Route path="report/checkinreport" element={<CheckinReportPage />} />
-        <Route path="report/salesreport" element={<SalesReportPage />} />
-        <Route path="report/invitationreport" element={<InvitationReportPage />} />
-        <Route path="settings/:settingId" element={<SettingsPage />} />
-        <Route path="finance/:financeId" element={<FinancePage />} />
-        <Route path="hireteam" element={<HireTeamPage />} />
-        <Route path="/event" element={<EventsPage />} />
-        <Route path="/event/createvent" element={<CreateEventPage />} />
-        <Route path="/event/category" element={<CategoryPage />} />
-        <Route path="/event/category/createcategory" element={<CreateCategoryPage />} />
-        <Route path="/event/category/allcategories" element={<AllCategoriesPage />} />
+        <Route path="/" element={<Dashboard />}>
+          <Route index element={<Home />} />
+          <Route path="import-export" element={<ImportExportPage />} />
+          <Route path='people' element={<PeoplePage />} />
+          <Route path="people/staff" element={<StaffAttendeePage />} />
+          <Route path="people/enroll" element={<EnrollPage />} />
+          <Route path='/people/staff/addattendee' element={<AddAttendeeForm />} />
+          <Route path='/people/staff/addstaff' element={<AddStaffForm />} />
+          <Route path="support" element={<SupportPage />} />
+          <Route path="report/checkinreport" element={<CheckinReportPage />} />
+          <Route path="report/salesreport" element={<SalesReportPage />} />
+          <Route path="report/invitationreport" element={<InvitationReportPage />} />
+          <Route path="settings/:settingId" element={<SettingsPage />} />
+          <Route path="finance/:financeId" element={<FinancePage />} />
+          <Route path="hireteam" element={<HireTeamPage />} />
+          <Route path="/event" element={<EventsPage />} />
+          <Route path="/event/createvent" element={<CreateEventPage />} />
+          <Route path="/event/category" element={<CategoryPage />} />
+          <Route path="/event/category/createcategory" element={<CreateCategoryPage />} />
+          <Route path="/event/category/allcategories" element={<AllCategoriesPage />} />
 
-        <Route path="/event/session" element={<SessionPage />} />
-        <Route path="/event/createsession" element={<CreateSessionPage />} />
-        <Route path="/event/allsession" element={<SessionsAll />} />
+          <Route path="/event/session" element={<SessionPage />} />
+          <Route path="/event/createsession" element={<CreateSessionPage />} />
+          <Route path="/event/allsession" element={<SessionsAll />} />
 
-        <Route path="event/invitation" element={<Invitations />} />
-        <Route path="event/createinvitation" element={<CreateInvitations />} />
-        <Route path="event/allinvitations" element={<ShowAllInvitations />} />
-        <Route path="event/generalinvitation" element={<ViewGeneralInvitations />} />
+          <Route path="event/invitation" element={<Invitations />} />
+          <Route path="event/createinvitation" element={<CreateInvitations />} />
+          <Route path="event/allinvitations" element={<ShowAllInvitations />} />
+          <Route path="event/generalinvitation" element={<ViewGeneralInvitations />} />
 
-      </Route>
-    </Routes>
+        </Route>
+      </Routes>
+    </AuthContextProvider>
   );
 }
 
