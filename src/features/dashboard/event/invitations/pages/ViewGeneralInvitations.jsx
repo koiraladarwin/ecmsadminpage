@@ -1,11 +1,12 @@
 import { PiGreaterThan } from "react-icons/pi";
 import { IoSearch } from "react-icons/io5";
 import { invitation } from "../components/InvitationsDetail";
-import { GeneralInvitation } from "../components/GeneralInvitationdetail";
+import useGeneralInvitation from "../../../../../hooks/Use-generalInvitation-list"
 import GeneralInvitationCard from "../components/GeneralInvitationCard";
 
 export default function ViewGeneralInvitations()
 {
+    const GeneralInvitation = useGeneralInvitation();
     return(
         <div className="">
             <div className="flex items-center justify-between pt-10 pl-20 pr-20  gap-2 ">

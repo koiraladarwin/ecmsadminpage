@@ -1,7 +1,8 @@
 import Header from "./Header.jsx";
 import AllEventCard from "./AllEventCard.jsx";
-import { events } from "./EventsDetail.jsx";
+import useEvents from "../../../../hooks/Use-event-list.js";
 export default function UpcomingEvent(){
+    const events = useEvents();
 
     const upcomingEvent = events.filter(
         (event) => event.status?.trim().toLowerCase() === "soon");

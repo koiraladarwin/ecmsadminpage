@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { FaChevronDown, FaPlus } from "react-icons/fa";
 import AllInvitationCard from "../components/AllInvitationCard";
-import { invitation } from "../components/InvitationsDetail";
+import useInvitation from "../../../../../hooks/Use-invitation-list";
 import { useState } from "react";
 
 export default function ShowAllInvitations()
 {
+    const invitation = useInvitation();
     const [open, setOpen] = useState(false);
     const [selected, setSelected] = useState("All");
 

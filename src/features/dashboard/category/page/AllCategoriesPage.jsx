@@ -1,14 +1,20 @@
 import React from 'react'
 import CategoryHeader from '../components/CategoryHeader'
 import CategoryCard from '../components/CategoryCard'
+import useEventCategory from '../../../../hooks/Use-eventCategory-list'
+import useStaffCategory from '../../../../hooks/Use-StaffCategory-list';
+import useAttendeeCategory from '../../../../hooks/Use-attendeeCategory-list';
+import useTicketCategory from '../../../../hooks/Use-ticketCategory-list';
+import useInvitationCategory from '../../../../hooks/Use-invitationCategory-list';
 
-const eventCategories = ['Meet & Greet', 'Trade Fair', 'Conference', 'Exhibition', 'Wedding Reception', 'Workshop', 'Seminar']
-const staffCategories = ['Admin', 'Manager', 'Scanner']
-const attendeeCategories = ['INV', 'BOD', 'GST', 'VIP', 'STF', 'MEM']
-const ticketCategories = ['General Admission', 'Premium Ticket', 'Platinum Ticket', 'Diamond Ticket']
-const InvitationCategories = ['General Invitation', 'VIP Invitation', 'Guest Invitation']
+
 
 function AllCategoriesPage() {
+  const eventCategories = useEventCategory();
+  const staffCategories = useStaffCategory();
+  const attendeeCategories = useAttendeeCategory();
+  const ticketCategories = useTicketCategory();
+  const InvitationCategories = useInvitationCategory();
   return (
     <div className='px-15 pb-10'>
       <CategoryHeader title="Categories-ALL" showForm={false} />
