@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import { FaChevronDown, FaPlus } from "react-icons/fa";
 import AllSessionCard from "../components/AllSessionCard";
-import { sessions } from "../components/SessionsDetail";
+import useSession from "../../../../hooks/Use-session-list";
 import { useState } from "react";
 
 export default function SessionAll()
 {
+    const sessions = useSession();
     const [open, setOpen] = useState(false);
     const [selected, setSelected] = useState("All");
 
