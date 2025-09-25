@@ -28,12 +28,18 @@ import Invitations from "./features/dashboard/event/invitations/pages/Invitation
 import CreateInvitations from "./features/dashboard/event/invitations/pages/Createinvitations.jsx";
 import ShowAllInvitations from "./features/dashboard/event/invitations/pages/ShowAllInvitations.jsx";
 import ViewGeneralInvitations from "./features/dashboard/event/invitations/pages/ViewGeneralInvitations.jsx";
+import Ticket from "./features/dashboard/event/ticket/pages/Ticket.jsx";
+import CreateTicket from "./features/dashboard/event/ticket/pages/CreateTicket.jsx";
+
+import MainPage from "./features/auth/pages/MainPage.jsx";
+import ShowAllTicket from "./features/dashboard/event/ticket/pages/ShowAllTicket.jsx";
+import TicketGeneralInvitations from "./features/dashboard/event/ticket/pages/TicketGeneralInvitations.jsx";
 
 
 function App() {
   return (
     <Routes>
-      <Route path="/login" element={<Loginpage />} />
+      <Route path="/login" element={<MainPage/>} />
 
       <Route path="/" element={<Dashboard />}>
         <Route index element={<Home />} />
@@ -60,6 +66,13 @@ function App() {
         <Route path="event/createinvitation" element={<CreateInvitations/>} />
         <Route path="event/allinvitations" element={<ShowAllInvitations/>} />
         <Route path="event/generalinvitation" element={<ViewGeneralInvitations/>} />
+
+        <Route path="events/ticket" element={<Ticket/>} />
+        <Route path="events/createticket" element={<CreateTicket/>} />
+        <Route path="events/viewticket" element={<ShowAllTicket/>} />
+        <Route path="events/ticketgeneralinvitation" element={<TicketGeneralInvitations/>} />
+
+
 
       </Route>
     </Routes>
