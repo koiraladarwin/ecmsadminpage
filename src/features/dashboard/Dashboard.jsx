@@ -7,13 +7,13 @@ import Footer from './components/Footer';
 
 export default function Dashboard() {
   return (
-    <div className="flex flex-col h-full font-poppins overflow-scroll">
+    <div className="flex flex-col h-full font-poppins">
       <div className="flex-1 flex flex-col bg-gray-50 overflow-y-auto">
         <div className="flex h-full">
           <SideBar />
           <div className="flex-1 bg-light-background overflow-y-auto">
             <NavBar />
-            <div className='h-[87vh]'>
+            <div className='overflow-scroll h-[87vh] max-h-[87vh]'>
               <Outlet />
             </div>
           </div>
