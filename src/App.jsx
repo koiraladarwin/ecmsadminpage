@@ -23,7 +23,6 @@ import SalesReportPage from "./features/dashboard/report/pages/SalesReportPage.j
 import InvitationReportPage from "./features/dashboard/report/pages/InvitationReportPage.jsx";
 import CheckinReportPage from "./features/dashboard/report/pages/CheckInReportPage.jsx";
 
-
 import SessionPage from "./features/dashboard/event/pages/SessionPage.jsx"
 import CreateSessionPage from "./features/dashboard/event/pages/CreateSessionPage.jsx"
 import SessionsAll from "./features/dashboard/event/pages/SessionsAll.jsx"
@@ -32,15 +31,29 @@ import Invitations from "./features/dashboard/event/invitations/pages/Invitation
 import CreateInvitations from "./features/dashboard/event/invitations/pages/Createinvitations.jsx";
 import ShowAllInvitations from "./features/dashboard/event/invitations/pages/ShowAllInvitations.jsx";
 import ViewGeneralInvitations from "./features/dashboard/event/invitations/pages/ViewGeneralInvitations.jsx";
+import Ticket from "./features/dashboard/event/ticket/pages/Ticket.jsx";
+import CreateTicket from "./features/dashboard/event/ticket/pages/CreateTicket.jsx";
+
 import MainPage from "./features/auth/pages/MainPage.jsx";
+<<<<<<< HEAD
 import { AuthContextProvider } from "./features/auth/context/AuthContext.jsx";
+=======
+import ShowAllTicket from "./features/dashboard/event/ticket/pages/ShowAllTicket.jsx";
+import TicketGeneralInvitations from "./features/dashboard/event/ticket/pages/TicketGeneralInvitations.jsx";
+>>>>>>> 1c33bcbf41e896d9c51e48f599f59e02e2346d18
 
 
 function App() {
   return (
+<<<<<<< HEAD
     <AuthContextProvider>
       <Routes>
         {<Route path="/login" element={<MainPage />} />}
+=======
+    <Routes>
+      <Route path="/login" element={<MainPage/>} />
+
+>>>>>>> 1c33bcbf41e896d9c51e48f599f59e02e2346d18
 
         <Route path="/" element={<Dashboard />}>
           <Route index element={<Home />} />
@@ -72,9 +85,30 @@ function App() {
           <Route path="event/allinvitations" element={<ShowAllInvitations />} />
           <Route path="event/generalinvitation" element={<ViewGeneralInvitations />} />
 
+<<<<<<< HEAD
         </Route>
       </Routes>
     </AuthContextProvider>
+=======
+        <Route path="/event/session" element={<SessionPage/>} />
+        <Route path="/event/createsession" element={<CreateSessionPage/>} />
+        <Route path="/event/allsession" element={<SessionsAll/>} />
+
+        <Route path="event/invitation" element={<Invitations />} />
+        <Route path="event/createinvitation" element={<CreateInvitations/>} />
+        <Route path="event/allinvitations" element={<ShowAllInvitations/>} />
+        <Route path="event/generalinvitation" element={<ViewGeneralInvitations/>} />
+
+        <Route path="events/ticket" element={<Ticket/>} />
+        <Route path="events/createticket" element={<CreateTicket/>} />
+        <Route path="events/viewticket" element={<ShowAllTicket/>} />
+        <Route path="events/ticketgeneralinvitation" element={<TicketGeneralInvitations/>} />
+
+
+
+      </Route>
+    </Routes>
+>>>>>>> 1c33bcbf41e896d9c51e48f599f59e02e2346d18
   );
 }
 

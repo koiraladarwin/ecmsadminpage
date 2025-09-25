@@ -1,12 +1,12 @@
 import { FaPlus } from "react-icons/fa"
 import { Link } from 'react-router-dom'
 import EventHeader from "../components/Header.jsx"
-import { events } from "../components/EventsDetail.jsx"
+import useEvents from "../../../../hooks/Use-event-list.js";
 import AllEventCard from "../components/AllEventCard.jsx"
 import { useState } from "react";
 
 export default function EventsPage() {
-
+  const events = useEvents();
   const [activeTab, setActiveTab] = useState(null);
 
   const filteredEvents = events.filter((event) => {

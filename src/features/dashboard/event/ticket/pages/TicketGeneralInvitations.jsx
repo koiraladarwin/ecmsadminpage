@@ -1,16 +1,16 @@
 import { PiGreaterThan } from "react-icons/pi";
 import { IoSearch } from "react-icons/io5";
-import { invitation } from "../components/InvitationsDetail";
-import useGeneralInvitation from "../../../../../hooks/Use-generalInvitation-list"
+import { ticket } from "../components/TicketDetail";
+import useGeneralTicketInvitation from "../../../../../hooks/Use-generalInvitation-ticket-list";
 import GeneralInvitationCard from "../components/GeneralInvitationCard";
 
-export default function ViewGeneralInvitations()
+export default function TicketGeneralInvitations()
 {
-    const GeneralInvitation = useGeneralInvitation();
+    const GeneralInvitation = useGeneralTicketInvitation();
     return(
         <div className="">
             <div className="flex items-center justify-between pt-10 pl-20 pr-20  gap-2 ">
-                <h1 className="text-xl flex items-center gap-2">View Invitations <PiGreaterThan /> General Invitation</h1>
+                <h1 className="text-xl flex items-center gap-2">View Tickets <PiGreaterThan /> General Invitation</h1>
             </div>
                 <hr className=" mx-4 md:mx-20 my-5 border-gray-400 border-1 " />
 
@@ -18,7 +18,7 @@ export default function ViewGeneralInvitations()
 
                 <div className="flex lg:justify-between ">
                     <div>
-                        <h1 className="font-bold pt-2">General Invitation</h1>
+                        <h1 className="font-bold pt-2">General Admission</h1>
                         {/* Search bar */}
                         <div className="relative">
                             <form className="absolute flex items-center">
@@ -29,12 +29,12 @@ export default function ViewGeneralInvitations()
                     </div>
 
                     <div className="text-left md:text-right">
-                        {invitation.map((invitation,index) => (
+                        {ticket.map((ticket,index) => (
                             <div key={index} >
                                 
-                                <p>{invitation.subtitle}</p>
-                                <span>{invitation.startdate} {invitation.starttime} - {invitation.enddate} {invitation.endtime}</span>
-                                <p>Venue: {invitation.venue}</p>
+                                <p>{ticket.subtitle}</p>
+                                <span>{ticket.startdate} {ticket.starttime} - {ticket.enddate} {ticket.endtime}</span>
+                                <p>Venue: {ticket.venue}</p>
                             </div>
                         ))}
 

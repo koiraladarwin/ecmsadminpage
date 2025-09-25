@@ -1,18 +1,18 @@
 import { NavLink } from "react-router-dom";
 import { FaChevronDown, FaPlus } from "react-icons/fa";
-import AllSessionCard from "../components/AllSessionCard";
-import useSession from "../../../../hooks/Use-session-list";
+import useTicket from "../../../../../hooks/Use-ticket-list";
 import { useState } from "react";
+import TicketCard from "../components/TicketCard";
 
-export default function SessionAll()
+export default function ShowAllTicket()
 {
-    const sessions = useSession();
+    const ticket = useTicket();
     const [open, setOpen] = useState(false);
     const [selected, setSelected] = useState("All");
 
     return(
         <div className="min-h-screen">
-            <div className="flex items-center justify-between mt-10 pl-20 pr-20">
+            <div className="flex items-center justify-between pt-10 pl-20 pr-20">
                 <div className="space-y-2">
                     <div className="flex gap-2">
                         <h1 className="text-xl">Show</h1>
@@ -35,14 +35,14 @@ export default function SessionAll()
                     </div>
 
 
-                    <h1 className="text-xl ">Sessions - ALL</h1>
+                    <h1 className="text-xl ">Tickets - ALL</h1>
                 </div>
                 
 
-                <NavLink to="/event/createsession" >
+                <NavLink to="/events/createticket" >
                 <button className="bg-[#772a92] text-white px-4 py-1 rounded-3xl flex items-center gap-2 text-xl">
                 <FaPlus />
-                Add Session
+                Add Ticket
                 </button>
                 </NavLink>
             </div>
@@ -51,15 +51,17 @@ export default function SessionAll()
 
             <div className='box-border m-20 mt-5 p-10 border-buttonpurple rounded-lg border-2 bg-white text-center'>
                 <>
-                {sessions.map((session,index) => (
-                    <AllSessionCard
-                        key={index} {...session}
+                {ticket.map((ticket,index) => (
+                    <TicketCard
+                        key={index} {...ticket}
                         />
                 ))}
                     
+            <hr className="mt-10 border-gray-400 border-1" />
 
                 </>
             </div>
+
         </div>
     )
 }
