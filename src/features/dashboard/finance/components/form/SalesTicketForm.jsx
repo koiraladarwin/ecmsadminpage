@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import CustomDropdown from '../../../people/components/CustomDropDown'
 import NormalBtn from '../../../people/components/NormalBtn'
 import SalesTicketDetailList from '../financeDetail/SalesTicketDetailList'
@@ -46,7 +46,6 @@ function SalesTicketForm() {
       return
     }
     Swal.fire('Form submitted successfully!')
-    console.log(formData)
     setFormData({
       ticketType: '',
       attendee: '',
@@ -117,12 +116,19 @@ function SalesTicketForm() {
           <label className='font-bold text-sidebar-bg text-[0.95rem] md:whitespace-nowrap'>
             Upload Payment Proof
           </label>
+          <label
+            htmlFor="uploadPaymentProof"
+            className="flex items-center h-18 md:h-11 w-35 md:w-full ml-3 px-2 border-black border-solid border cursor-pointer"
+          >
+            {formData.uploadPaymentProof ? formData.uploadPaymentProof.name : 'Choose File'}
+          </label>
           <input
-            key={formData.uploadPaymentProof ? formData.uploadPaymentProof.name : Date.now()} // forces reset when key changes
+            key={formData.uploadPaymentProof ? formData.uploadPaymentProof.name : Date.now()}
+            id="uploadPaymentProof"
             type="file"
             name="uploadPaymentProof"
             accept="image/*,.pdf"
-            className="focus:outline-none h-18 md:h-10 w-35 md:w-full ml-3 px-2"
+            className="focus:outline-none h-18 md:h-10 w-35 md:w-full ml-3 px-2 hidden"
             style={{ border: 'black solid 1px' }}
             onChange={(e) => {
               const file = e.target.files[0];
