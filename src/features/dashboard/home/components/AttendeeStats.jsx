@@ -28,7 +28,7 @@ export default function AttendeeStats() {
         </h3>
       </div>
 
-      <ul className="text-md text-gray-700 bg-gray-100 mt-5 mx-4 px-4 mb-5 rounded-lg pt-5 pb-5 
+      <ul className="text-md min-h-[70%] text-gray-700 bg-gray-100 mt-5 mx-4 px-4 mb-5 rounded-lg pt-5 pb-5 
                    max-h-70 overflow-y-auto">
         {stats.map((item) => (
           <li
