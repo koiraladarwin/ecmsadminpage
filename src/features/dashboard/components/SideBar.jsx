@@ -261,16 +261,27 @@ export default function SideBar() {
 
 
         {/* setting */}
-        <div className=''>
-          <button onClick={() => handleOpen("settings")} className="flex items-center w-full px-5 py-3 font-semibold text-passive-text hover:bg-gray-100 ">
+
+        <NavLink
+            to="/settings"
+            end
+            onClick={() => handleOpen("settings")}
+            className={({ isActive }) =>
+              `flex items-center w-full px-5 py-3 font-semibold transition ${isActive
+                ? "bg-sidebar-hover text-active-text"
+                : "text-passive-text hover:bg-gray-100"
+              }`
+            }>
+
             <FiSettings className="mr-3 text-passive-text" size={18} />
             Setting
             <FiChevronRight
               className={`ml-auto transition-transform ${open == "settings" ? 'rotate-90' : ''}`}
               size={18}
             />
-          </button>
-        </div>
+          </NavLink>
+      
+
         {/* setting list */}
         {
           open == "settings" && (
