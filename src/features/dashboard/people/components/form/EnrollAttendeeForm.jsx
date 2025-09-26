@@ -4,28 +4,14 @@ import CustomDropdown from '../CustomDropDown'
 import NormalBtn from '../NormalBtn'
 import Swal from 'sweetalert2'
 import EnrollList from '../enrolldetail/EnrollList'
+import useAttendeeData from '../../../../../hooks/Use-attendeeData-list'
+import useAttendeeOption from '../../../../../hooks/Use-attendeeOption-list'
 
 function EnrollAttendeeForm() {
-  const attendeeOptions = [
-    { id: 'STF-001', name: 'Mr. Carlos Cole' },
-    { id: 'STF-002', name: 'Mr. Peter Lee' },
-  ]
-  const data = [
-    {
-      attendee: { id: 'INV-001', name: 'Mr. Lee Yng' },
-      image: "/placeholder.jpg",
-      event: 'Education Fair 2025',
-      session: 'Inauguration',
-      entry: 'Invitation'
-    },
-    {
-      attendee: { id: 'TKT-001', name: 'Mrs. Yng Thong' },
-      image: "/placeholder.jpg",
-      event: 'Teej Mela 2082',
-      session: 'Lunch',
-      entry: 'Ticket'
-    },
-  ]
+
+  const attendeeOptions = useAttendeeOption();
+  const data = useAttendeeData();
+
   const eventOptions = ['Event1', 'Event2', 'Event3']
   const sessionOptions = ['Session1', 'Session2', 'Session3']
   const entryOptions = ['Blank', 'Invitation', 'Ticket']

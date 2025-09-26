@@ -4,28 +4,12 @@ import SearchableDropdown from '../SearchableDropdown'
 import CustomDropdown from '../CustomDropDown'
 import Swal from 'sweetalert2'
 import EnrollList from '../enrolldetail/EnrollList'
+import useStaffOption from '../../../../../hooks/Use-StaffOption-list'
+import useStaffData from '../../../../../hooks/Use-staffData-list '
 
 function EnrollStaffForm() {
-  const staffOptions = [
-    { id: 'STF-001', name: 'Mr. Carlos Cole' },
-    { id: 'STF-002', name: 'Mr. Peter Lee' },
-  ]
-  const data = [
-    {
-      attendee: { id: 'INV-001', name: 'Mr. Lee Yng' },
-      image: "/placeholder.jpg",
-      event: 'Education Fair 2025',
-      session: 'Inauguration',
-      entry: 'Invitation'
-    },
-    {
-      attendee: { id: 'TKT-001', name: 'Mrs. Yng Thong' },
-      image: "/placeholder.jpg",
-      event: 'Teej Mela 2082',
-      session: 'Lunch',
-      entry: 'Ticket'
-    },
-  ]
+  const staffOptions = useStaffOption();
+  const data = useStaffData();
   const eventOptions = ['Event1', 'Event2', 'Event3']
   const sessionOptions = ['Session1', 'Session2', 'Session3']
 
