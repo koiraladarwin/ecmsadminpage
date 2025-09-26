@@ -1,9 +1,9 @@
 import React from 'react'
 
-function FilterTab({ filterByTitle1, filterByTitle2, activeTab, setActiveTab }) {
+function FilterTab({ filterByTitle1, filterByTitle2, activeTab, setActiveTab, bottomBorder = false }) {
   return (
     <div className='w-full'>
-      <div className='flex w-fit bg-white rounded-tl-xl rounded-tr-xl border border-gray-800'>
+      <div className={`flex w-fit bg-white rounded-tl-xl rounded-tr-xl ${bottomBorder ? 'border-t border-l border-r border-b-0' : 'border'} border border-gray-800`}>
         <button
           className={`px-7 py-1 font-semibold rounded-tl-xl rounded-tr-xl ${activeTab === filterByTitle1 ? 'bg-sidebar-hover text-white' : 'text-gray-700'
             }`}

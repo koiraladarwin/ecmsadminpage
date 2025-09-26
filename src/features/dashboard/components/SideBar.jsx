@@ -310,53 +310,16 @@ export default function SideBar() {
         }
 
         {/* finance */}
-        <div className=''>
-          <button onClick={() => handleOpen("finance")} className="flex items-center w-full px-5 py-3 font-semibold text-passive-text hover:bg-gray-100 ">
-            <HiOutlineHomeModern className="mr-3 text-passive-text" size={18} />
-            Finance
-            <FiChevronRight
-              className={`ml-auto transition-transform ${open == "finance" ? 'rotate-90' : ''}`}
-              size={18}
-            />
-          </button>
-        </div>
-        {/* finance list */}
-        {
-          open == "finance" && (
-            <div className="flex flex-col py-2 space-y-1">
-              <NavLink
-                to="/finance/finance1"
-                className={({ isActive }) =>
-                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                  }`
-                }
-              >
-                finance 1
-              </NavLink>
-
-              <NavLink
-                to="/finance/finance2"
-                className={({ isActive }) =>
-                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                  }`
-                }
-              >
-                finance 2
-              </NavLink>
-
-              <NavLink
-                to="/finance/finance3"
-                className={({ isActive }) =>
-                  `ps-25 pe-5 py-2 transition ${isActive ? "bg-sidebar-hover  font-semibold text-active-text" : "text-passive-text hover:bg-gray-100"
-                  }`
-                }
-              >
-                finance 3
-              </NavLink>
-            </div>
-          )
-
-        }
+        <NavLink
+          to="/finance"
+          className={({ isActive }) =>
+            `flex items-center px-5 py-3 transition ${isActive ? 'bg-sidebar-hover text-active-text  font-semibold' : 'text-passive-text hover:bg-gray-100'
+            }`
+          }
+        >
+          <HiOutlineHomeModern className="mr-3 text-passive-text" size={18} />
+          Finance
+        </NavLink>
 
         {/* hire team */}
         <NavLink

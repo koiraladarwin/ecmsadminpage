@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { RiArrowDropDownLine } from 'react-icons/ri'
 
-function CustomDropdown({ label, options, onSelect, height = false, h }) {
+function CustomDropdown({ label, options, onSelect, height = false, h, value }) {
   const [open, setOpen] = useState(false)
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(value || null)
+
+  useEffect(() => {
+    setSelected(value)
+  }, [value])
 
   const handleSelect = (option) => {
     setSelected(option)
@@ -17,7 +21,7 @@ function CustomDropdown({ label, options, onSelect, height = false, h }) {
       <label className="font-bold text-sidebar-bg mb-1 block">{label}</label>
       <div
         onClick={() => setOpen(!open)}
-        className={`border p-2 w-full ${height ? `h-${h}` : 'h-10'} flex items-center justify-between cursor-pointer bg-white`} 
+        className={`border p-2 w-full ${height ? `h-${h}` : ''} flex items-center justify-between cursor-pointer bg-white`}
       >
         {selected ? selected : `Select ${label}`}
         <RiArrowDropDownLine size={20} />
