@@ -1,4 +1,4 @@
-import ToggleDesignBtn from '../ToggleDesignBtn'
+import ToggleDesignBtn from '../form/ToggleDesignBtn'
 
 function SalesTicketDetailList({ data }) {
 
