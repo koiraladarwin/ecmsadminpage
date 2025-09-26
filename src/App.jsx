@@ -63,7 +63,7 @@ function AppRoutes() {
           <Route path="report/salesreport" element={<SalesReportPage />} />
           <Route path="report/invitationreport" element={<InvitationReportPage />} />
           <Route path="settings/:settingId" element={<SettingsPage />} />
-          <Route path="finance/:financeId" element={<FinancePage />} />
+          <Route path="finance" element={<FinancePage />} />
           <Route path="hireteam" element={<HireTeamPage />} />
           <Route path="/event" element={<EventsPage />} />
           <Route path="/event/createvent" element={<CreateEventPage />} />
