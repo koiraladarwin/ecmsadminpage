@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import Dashboard from "./features/dashboard/Dashboard";
 
@@ -35,65 +35,73 @@ import Ticket from "./features/dashboard/event/ticket/pages/Ticket.jsx";
 import CreateTicket from "./features/dashboard/event/ticket/pages/CreateTicket.jsx";
 
 import MainPage from "./features/auth/pages/MainPage.jsx";
+
+import { AuthContextProvider, useAuth } from "./features/auth/context/AuthContext.jsx";
+
 import ShowAllTicket from "./features/dashboard/event/ticket/pages/ShowAllTicket.jsx";
 import TicketGeneralInvitations from "./features/dashboard/event/ticket/pages/TicketGeneralInvitations.jsx";
+import { OrbitProgress } from "react-loading-indicators";
 
+
+
+function AppRoutes() {
+  const { user, loading } = useAuth()
+  if (loading) return <div className="w-full h-screen flex items-center justify-center"><OrbitProgress color="#262042" size="medium" /></div>
+  return (
+    <Routes>
+      {user && !loading ?
+        <Route path="/" element={<Dashboard />}>
+          <Route index element={<Home />} />
+          <Route path="import-export" element={<ImportExportPage />} />
+          <Route path='people' element={<PeoplePage />} />
+          <Route path="people/staff" element={<StaffAttendeePage />} />
+          <Route path="people/enroll" element={<EnrollPage />} />
+          <Route path='/people/staff/addattendee' element={<AddAttendeeForm />} />
+          <Route path='/people/staff/addstaff' element={<AddStaffForm />} />
+          <Route path="support" element={<SupportPage />} />
+          <Route path="report/checkinreport" element={<CheckinReportPage />} />
+          <Route path="report/salesreport" element={<SalesReportPage />} />
+          <Route path="report/invitationreport" element={<InvitationReportPage />} />
+          <Route path="settings/:settingId" element={<SettingsPage />} />
+          <Route path="finance/:financeId" element={<FinancePage />} />
+          <Route path="hireteam" element={<HireTeamPage />} />
+          <Route path="/event" element={<EventsPage />} />
+          <Route path="/event/createvent" element={<CreateEventPage />} />
+          <Route path="/event/category" element={<CategoryPage />} />
+          <Route path="/event/category/createcategory" element={<CreateCategoryPage />} />
+          <Route path="/event/category/allcategories" element={<AllCategoriesPage />} />
+
+          <Route path="/event/session" element={<SessionPage />} />
+          <Route path="/event/createsession" element={<CreateSessionPage />} />
+          <Route path="/event/allsession" element={<SessionsAll />} />
+
+          <Route path="event/invitation" element={<Invitations />} />
+          <Route path="event/createinvitation" element={<CreateInvitations />} />
+          <Route path="event/allinvitations" element={<ShowAllInvitations />} />
+          <Route path="event/generalinvitation" element={<ViewGeneralInvitations />} />
+
+          <Route path="events/ticket" element={<Ticket />} />
+          <Route path="events/createticket" element={<CreateTicket />} />
+          <Route path="events/viewticket" element={<ShowAllTicket />} />
+          <Route path="events/ticketgeneralinvitation" element={<TicketGeneralInvitations />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Route >
+        :
+        <>
+          <Route path="/login" element={<MainPage />} />
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </>
+      }
+    </Routes >
+  );
+}
 
 function App() {
   return (
-    <Routes>
-      <Route path="/login" element={<MainPage/>} />
-
-
-      <Route path="/" element={<Dashboard />}>
-        <Route index element={<Home />} />
-        <Route path="import-export" element={<ImportExportPage />} />
-        <Route path='people' element={<PeoplePage />} />
-        <Route path="people/staff" element={<StaffAttendeePage />} />
-        <Route path="people/enroll" element={<EnrollPage />} />
-        <Route path='/people/staff/addattendee' element={<AddAttendeeForm />} />
-        <Route path='/people/staff/addstaff' element={<AddStaffForm />} />
-        <Route path="support" element={<SupportPage />} />
-        <Route path="report/checkinreport" element={<CheckinReportPage />} />
-        <Route path="report/salesreport" element={<SalesReportPage />} />
-        <Route path="report/invitationreport" element={<InvitationReportPage />} />
-        <Route path="settings/:settingId" element={<SettingsPage />} />
-        <Route path="finance/:financeId" element={<FinancePage />} />
-        <Route path="hireteam" element={<HireTeamPage />} />
-        <Route path="/event" element={<EventsPage />} />
-        <Route path="/event/createvent" element={<CreateEventPage />} />
-        <Route path="/event/category" element={<CategoryPage />} />
-        <Route path="/event/category/createcategory" element={<CreateCategoryPage />} />
-        <Route path="/event/category/allcategories" element={<AllCategoriesPage />} />
-
-        <Route path="/event/session" element={<SessionPage />} />
-        <Route path="/event/createsession" element={<CreateSessionPage />} />
-        <Route path="/event/allsession" element={<SessionsAll />} />
-
-        <Route path="event/invitation" element={<Invitations />} />
-        <Route path="event/createinvitation" element={<CreateInvitations />} />
-        <Route path="event/allinvitations" element={<ShowAllInvitations />} />
-        <Route path="event/generalinvitation" element={<ViewGeneralInvitations />} />
-
-        <Route path="/event/session" element={<SessionPage/>} />
-        <Route path="/event/createsession" element={<CreateSessionPage/>} />
-        <Route path="/event/allsession" element={<SessionsAll/>} />
-
-        <Route path="event/invitation" element={<Invitations />} />
-        <Route path="event/createinvitation" element={<CreateInvitations/>} />
-        <Route path="event/allinvitations" element={<ShowAllInvitations/>} />
-        <Route path="event/generalinvitation" element={<ViewGeneralInvitations/>} />
-
-        <Route path="events/ticket" element={<Ticket/>} />
-        <Route path="events/createticket" element={<CreateTicket/>} />
-        <Route path="events/viewticket" element={<ShowAllTicket/>} />
-        <Route path="events/ticketgeneralinvitation" element={<TicketGeneralInvitations/>} />
-
-
-
-      </Route>
-    </Routes>
-  );
+    <AuthContextProvider>
+      <AppRoutes />
+    </AuthContextProvider>
+  )
 }
 
 export default App;

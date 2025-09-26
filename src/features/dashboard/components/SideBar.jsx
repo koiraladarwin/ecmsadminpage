@@ -8,6 +8,7 @@ import { HiOutlineDocumentReport } from 'react-icons/hi';
 import { RiTeamLine } from 'react-icons/ri';
 import { HiOutlineHomeModern } from 'react-icons/hi2';
 import { MdOutlineSpaceDashboard } from 'react-icons/md';
+import { useAuth } from '../../auth/context/AuthContext';
 
 const events = [
   { id: 'event-1', label: 'Event 1' },
@@ -17,6 +18,7 @@ const events = [
 
 export default function SideBar() {
   const [open, setOpen] = useState("");
+  const { user } = useAuth();
 
   const handleOpen = (input) => {
     if (input == open) {
@@ -42,7 +44,7 @@ export default function SideBar() {
           className="w-20 h-20 rounded-full border-2 border-gray-300 bg-gray-100 object-cover"
         />
         <div className="mt-3 text-center text-white text-sm font-medium">
-          Hi,Bikram!<br />
+          {user.displayName ? `Hi, ${user.displayName}` : `Hi, ${user.email.split('@')[0]}`}<br />
           <span className='text-slate-300 leading-relaxed'>Nepal Freight Forwarder Association(NEFFA)</span>
         </div>
       </div>
