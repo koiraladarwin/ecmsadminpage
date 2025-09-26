@@ -1,6 +1,4 @@
-import EventCard from "../components/EventCard";
 import useSettingsEvent from "../../../../hooks/Use-SettingsEventList";
-import StaffList from "../components/StaffList";
 import useSettingsStaff from "../../../../hooks/Use-SettingsStaff-List";
 import OnSiteCode from "../components/OnSiteCode";
 import ScannerAccess from "../components/ScannerAccess";
@@ -8,7 +6,7 @@ import { useState } from "react";
 export default function SettingsPage1()
 {
   const settingsEvent = useSettingsEvent();
-  const settingsStaff = useSettingsStaff();
+
   const [activeTab, setActiveTab] = useState("onsite");
   return(
     <div className="pt-4 ">

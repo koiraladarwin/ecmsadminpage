@@ -1,45 +1,3 @@
-// import React from 'react'
-// import useSettingsStaff from '../../../../hooks/Use-SettingsStaff-List'
-// export default function StaffList() {
-//     const staffList = useSettingsStaff();
-//   return (
-//     <div className="w-full overflow-x-auto">
-//       <table className="w-full text-left">
-
-//         <thead>
-//           <tr className="border-b-1">
-//             <th className="p-3">ID</th>
-//             <th className="p-3">Staff</th>
-//           </tr>
-//         </thead>
-
-//         <tbody>
-//           {staffList.map((item, index) => (
-//             <tr key={index}>
-//               <td className="p-3">{item.id}</td>
-//               <td className="p-3">
-//                 <div className="flex items-center gap-2">
-//                   <img
-//                     src={item.image}
-//                     alt={item.name}
-//                     className="w-8 h-8 rounded-full object-cover"
-//                   />
-//                   <span>{item.name}</span>
-//                 </div>
-//               </td>
-              
-//               <td className='underline p-1 cursor-pointer'>Sent Code</td>
-//               <td className='underline p-1 cursor-pointer'>Remove</td>
-//             </tr>
-//           ))}
-//         </tbody>
-//       </table>
-//     </div>
-//   )
-// }
-
-
-
 import React from "react";
 import useSettingsStaff from "../../../../hooks/Use-SettingsStaff-List";
 
@@ -50,12 +8,11 @@ export default function StaffList() {
     <div className="w-full overflow-x-auto">
 
       <table className="hidden lg:table w-full text-left">
-        {/* table header */}
+
         <thead>
           <tr className="border-b border-gray-300">
             <th className="p-3">ID</th>
             <th className="p-3">Staff</th>
-            <th className="p-3">Actions</th>
           </tr>
         </thead>
 
