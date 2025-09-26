@@ -5,7 +5,7 @@ export default function SessionPage()
 {
     return(
         <div className="">
-            <div className="flex items-center flex-col lg:flex-row gap-4 justify-between pl-20 pr-20">
+            <div className="flex items-center flex-col lg:flex-row gap-4 justify-between pl-20 pr-20 pt-20">
                 <h1 className="text-xl ">Sessions</h1>
 
                 <NavLink to="/event/createsession" >

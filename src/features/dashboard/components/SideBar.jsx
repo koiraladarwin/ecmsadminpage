@@ -198,17 +198,7 @@ export default function SideBar() {
 
         }
 
-        {/* support */}
-        <NavLink
-          to="/support"
-          className={({ isActive }) =>
-            `flex items-center px-5 py-3 transition ${isActive ? 'bg-sidebar-hover text-active-text  font-semibold' : 'text-passive-text hover:bg-gray-100'
-            }`
-          }
-        >
-          <TfiSupport className="mr-3 text-passive-text" size={18} />
-          Support
-        </NavLink>
+      
 
         {/* report */}
         <div className=''>
@@ -342,6 +332,17 @@ export default function SideBar() {
         >
           <RiTeamLine className="mr-3 text-passive-text" size={18} />
           Hire Team
+        </NavLink>
+  {/* support */}
+        <NavLink
+          to="/support"
+          className={({ isActive }) =>
+            `flex items-center px-5 py-3 transition ${isActive ? 'bg-sidebar-hover text-active-text  font-semibold' : 'text-passive-text hover:bg-gray-100'
+            }`
+          }
+        >
+          <TfiSupport className="mr-3 text-passive-text" size={18} />
+          Support
         </NavLink>
       </nav >
 
