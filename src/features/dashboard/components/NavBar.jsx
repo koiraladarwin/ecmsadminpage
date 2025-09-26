@@ -12,7 +12,7 @@ const NavBar = () => {
   const [showAdminDropdown, setShowAdminDropdown] = useState(false);
 
   return (
-    <div className="h-[12vh] md:h-[16vh] bg-white px-6 py-1  flex flex-col lg:flex-row lg:justify-between` gap:5 xl:gap-0 items-center sticky top-0 z-2">
+    <div className="h-[8vh] md:h-[8vh] bg-white px-6 py-1  flex flex-col lg:flex-row lg:justify-between` gap:5 xl:gap-0 items-center sticky top-0 z-2">
       <div className='h-full w-full hidden lg:flex items-center'>
         <div className="flex flex-col md:flex-row md:flex-2 items-center gap-2 md:gap-12">
           {/* My Events with icon */}
