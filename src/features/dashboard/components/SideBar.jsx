@@ -44,7 +44,7 @@ export default function SideBar() {
           className="w-20 h-20 rounded-full border-2 border-gray-300 bg-gray-100 object-cover"
         />
         <div className="mt-3 text-center text-white text-sm font-medium">
-          {user && `Hi, ${user.email.split('@')[0]}`}<br />
+          {user.displayName ? `Hi, ${user.displayName}` : `Hi, ${user.email.split('@')[0]}`}<br />
           <span className='text-slate-300 leading-relaxed'>Nepal Freight Forwarder Association(NEFFA)</span>
         </div>
       </div>

@@ -3,9 +3,20 @@ import playstore from "../../../assets/playstore.png"
 import QR from "../../../assets/QR.png"
 import loginImage from "../../../assets/loginImage.png";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function MainPage() {
     const { signInWithGoogle } = useAuth();
+    const navigate = useNavigate()
+
+    const handleGoogleSignIn = async () => {
+        try {
+            await signInWithGoogle()
+            navigate("/")
+        } catch(e) {
+            console.log(e)
+        }
+    }
 
     return (
         <div className="min-h-screen bg-bglightpurple flex md:flex-col lg:flex-row  justify-between"><br />
@@ -58,7 +69,7 @@ export default function MainPage() {
                         </span>
                         <p className="text-center text-sm mt-4 text-gray-500">By clicking Continue or the Google icon, you<br />
                             agree to ECMS's <span className="text-buttonred"> Terms of Service </span> and <span className="text-buttonred"> Privacy Policy</span>.</p>
-                        <img src={google} alt="" className="w-24 h-24 " onClick={signInWithGoogle} />
+                        <img src={google} alt="" className="w-24 h-24 " onClick={handleGoogleSignIn} />
                     </div>
 
                 </form>
