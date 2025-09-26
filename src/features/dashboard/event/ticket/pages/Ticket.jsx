@@ -5,7 +5,7 @@ export default function Ticket()
 {
     return(
         <div >
-            <div className="flex items-center justify-between pl-20 pr-20 pt-10 md:gap-2">
+            <div className="flex items-center flex-col lg:flex-row md:flex-row gap-4 justify-between px-20 pt-10 md:gap-2">
                 <h1 className="text-xl ">Tickets</h1>
 
                 <NavLink to="/events/createticket" >

@@ -27,14 +27,14 @@ export default function AllEventCard({
 
             <div className="flex-1 p-4">
 
-                <div className="flex justify-between items-start">
+                <div className="flex flex-col lg:flex-row gap-4 justify-between items-start">
 
-                    <div className="flex gap-4">
+                    <div className="flex flex-col lg:flex-row gap-8">
                     <div className="w-20 h-20">
                         <img src={loginimage} className=" object-contain" alt="" />
                     </div>
 
-                            <div className="space-y-1 flex flex-col  items-start">
+                            <div className="space-y-1 flex flex-col  text-left">
                                 <h2 className="text-2xl font-bold">{title}</h2>
                                 <div className="flex space-x-2 text-gray-600">
                                     <p>{startdate}</p>
@@ -74,7 +74,7 @@ export default function AllEventCard({
                     </div>
                 </div>
 
-                <div className="flex space-x-5 mt-3 text-left  ">                  
+                <div className="flex flex-col lg:flex-row lg:space-x-5 gap-2 mt-3 text-left  ">                  
                     <div className="border border-textgray pl-5 px-8 pb-0 rounded-lg shadow-xl text-left">
                         <h1 className="font-bold">Sessions</h1>
                         <ul className="text-sm text-gray-500 mt-2">

@@ -37,6 +37,20 @@ export default function useEvents() {
                 checkin: "256/500",
                 status: "Closed",
               },
+              {
+                title: "31st cargoday 2025", 
+                startdate: "11 Sep 2025",
+                starttime: "10:00 AM", 
+                enddate: "15 sep 2025",
+                endtime: "05:00 PM",
+                venue:"Hotel hyatt Regency, Kathmandu", 
+                organizer:"Nepal Freight & Forwarders Association (NEFFA)", 
+                session: ["Inaguration ceromony","Cargo Conference", "Lunch"],
+                invitation: 400, 
+                ticket: 450, 
+                checkin: "256/400",
+                status:"Soon"
+              }
             ]);
           }, 1000)
         );

@@ -20,7 +20,7 @@ export default function EventsPage() {
   })
   return (
     <>
-      <div className='flex h-full bg-light-background p-14'>
+      <div className='flex h-full bg-light-background p-14 '>
         <div className='w-full'>
 
           <EventHeader activeTab={activeTab} setActiveTab={setActiveTab} />

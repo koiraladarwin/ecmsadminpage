@@ -5,7 +5,7 @@ export default function Invitations()
 {
     return(
         <div >
-            <div className="flex items-center justify-between pl-20 pr-20 pt-10 md:gap-2">
+            <div className="flex flex-col lg:flex-row gap-4 items-center justify-between px-20 pt-10 md:gap-2">
                 <h1 className="text-xl ">Invitations</h1>
 
                 <NavLink to="/event/createinvitation" >

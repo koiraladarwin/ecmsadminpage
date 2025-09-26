@@ -12,7 +12,7 @@ export default function SessionAll()
 
     return(
         <div className="min-h-screen">
-            <div className="flex items-center justify-between mt-10 pl-20 pr-20">
+            <div className="flex items-center flex-col gap-4 lg:flex-row justify-between pt-10 pl-20 pr-20">
                 <div className="space-y-2">
                     <div className="flex gap-2">
                         <h1 className="text-xl">Show</h1>
