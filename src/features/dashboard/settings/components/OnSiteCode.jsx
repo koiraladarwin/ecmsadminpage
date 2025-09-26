@@ -16,8 +16,8 @@ export default function OnSiteCode()
                       <select name="" id="" className="w-full">
                         <option value=""></option>
                       </select>
-                      <button className="px-8 py-2 bg-buttonpurple text-white rounded-full ">Generate</button>
-                      <input type="text" placeholder="code" className="w-full"/>
+                      <button className="px-8 py-2 bg-buttonpurple text-white rounded-full w-40 ml-3">Generate</button>
+                      <input type="text" placeholder="code" className="w-full lg:-ml-40"/>
                     </div>
                   </form>
         
@@ -34,26 +34,7 @@ export default function OnSiteCode()
                   </div>
         
                   <div>
-        
-                    <table>
-                      <thead>
-                        <tr>
-                          <th className="p-3">ID</th>
-                          <th className="pl-50">Staff</th>           
-                        </tr>
-                        
-                      </thead>
-                    </table>
-                    <hr className="mx-2 border-2 mt-0 pt-0 border-textgray " />
-        
-                    <div>
-                      {settingsStaff.map((staff, index) => (
-                        <StaffList
-                        key={index} {...staff}
-                        />
-                        ))}
-                        
-                        </div>
+                        <StaffList/>
                   </div>
         
         
