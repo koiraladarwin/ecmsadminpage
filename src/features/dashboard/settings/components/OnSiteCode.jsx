@@ -17,7 +17,6 @@ export default function OnSiteCode()
                         <option value=""></option>
                       </select>
                       <button className="px-8 py-2 bg-buttonpurple text-white rounded-full w-40 ml-3">Generate</button>
-                      <input type="text" placeholder="code" className="w-full lg:-ml-40"/>
                     </div>
                   </form>
         
