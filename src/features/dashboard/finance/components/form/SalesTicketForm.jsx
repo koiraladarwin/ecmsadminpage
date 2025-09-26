@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import CustomDropdown from '../../../people/components/CustomDropDown'
 import NormalBtn from '../../../people/components/NormalBtn'
-import SalesTicketDetailList from './financeDetail/SalesTicketDetailList'
+import SalesTicketDetailList from '../financeDetail/SalesTicketDetailList'
 import useTicketSalesData from '../../../../../hooks/Use-sales-ticket-list'
 import usePaymentStatus from '../../../../../hooks/Use-payment-status'
 import usePaymentMethod from '../../../../../hooks/User-payment-method'
@@ -25,7 +25,7 @@ function SalesTicketForm() {
     paymentStatus: '',
     amount: '',
     paymentMethod: '',
-    uploadPaymentProof: '',
+    uploadPaymentProof: null,
   })
 
   //  dropdowns
@@ -45,15 +45,15 @@ function SalesTicketForm() {
       Swal.fire('Please Fill all the fields!')
       return
     }
-    console.log('Form Data:', formData)
     Swal.fire('Form submitted successfully!')
+    console.log(formData)
     setFormData({
       ticketType: '',
       attendee: '',
       paymentStatus: '',
       amount: '',
       paymentMethod: '',
-      uploadPaymentProof: '',
+      uploadPaymentProof: null,
     })
   }
 
@@ -114,14 +114,24 @@ function SalesTicketForm() {
           />
         </div>
         <div className='flex flex-col md:flex-row items-center flex-1'>
-          <label className='font-bold text-sidebar-bg text-md'>Upload Payment Proof</label>
+          <label className='font-bold text-sidebar-bg text-[0.95rem] md:whitespace-nowrap'>
+            Upload Payment Proof
+          </label>
           <input
-            type="text"
+            key={formData.uploadPaymentProof ? formData.uploadPaymentProof.name : Date.now()} // forces reset when key changes
+            type="file"
             name="uploadPaymentProof"
-            className='focus:outline-none h-16 md:h-10 w-35 md:w-45 ml-3 px-2'
+            accept="image/*,.pdf"
+            className="focus:outline-none h-18 md:h-10 w-35 md:w-full ml-3 px-2"
             style={{ border: 'black solid 1px' }}
-            value={formData.uploadPaymentProof}
-            onChange={handleChange}
+            onChange={(e) => {
+              const file = e.target.files[0];
+              setFormData({
+                ...formData,
+                uploadPaymentProof: file || null,
+                uploadType: file?.type || '',
+              });
+            }}
           />
         </div>
       </div>
