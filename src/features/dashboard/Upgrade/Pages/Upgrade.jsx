@@ -81,10 +81,10 @@ export default function Upgrade()
                 <div className="pt-10">
                     <h1 className="font-semibold text-2xl font-">All paid plans include:</h1>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 pt-5 pr-10 gap-10 ">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-5 gap-10 ">
                         <div>
-                            <h1 className="text-xl ">Onboarding</h1>
-                            <ul className="list-none text-textgray">
+                            <h1 className="text-xl">Onboarding</h1>
+                            <ul className="list-none text-gray-500">
                                 <li>Structured onboarding information by e-mail(from Growth)</li>
                                 <li>Phone onboarding support(from Complete)</li>
                                 <li>Event creation process for fast event creation</li>
@@ -92,8 +92,8 @@ export default function Upgrade()
                         </div>
 
                         <div>
-                            <h1 className="text-xl ">Customer Success Team</h1>
-                            <ul className="list-none text-textgray">
+                            <h1 className="text-xl">Customer Success Team</h1>
+                            <ul className="list-none text-gray-500">
                                 <li>Access to our premium support service</li>
                                 <li>Immediate call-back support for issues</li>
                                 <li>Dedicated Customer Success Manager(from Complete)</li>
@@ -101,8 +101,8 @@ export default function Upgrade()
                         </div>
 
                         <div>
-                            <h1 className="text-xl ">Data Protection & Compliance</h1>
-                            <ul className="list-none text-textgray">
+                            <h1 className="text-xl">Data Protection & Compliance</h1>
+                            <ul className="list-none text-gray-500">
                                 <li>Data encryption via SSL/TLS L2 with SHA-256</li>
                             </ul>
                         </div>
