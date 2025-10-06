@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaChevronDown, FaSearch } from 'react-icons/fa'
 import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
-import { useLocation } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import { HiOutlineBars3CenterLeft } from "react-icons/hi2";
 import { useAuth } from '../../auth/context/AuthContext';
 
@@ -44,9 +44,13 @@ const NavBar = () => {
               <span className="font-extrabold text-[0.65rem]">STANDARD</span>
             </button>
 
-            <button className="px-4 bg-sidebar-hover text-white text-[0.7rem] font-medium rounded-4xl hover:bg-purple-700">
+            <button className="px-4 bg-sidebar-hover text-white text-md font-medium rounded-4xl hover:bg-purple-700">
+            <NavLink to="pricingplan">
+
               Upgrade
+              </NavLink>
             </button>
+            
           </div>
 
 
@@ -90,8 +94,10 @@ const NavBar = () => {
               <span className="font-bold">STANDARD</span>
             </button>
 
-            <button className="px-4 bg-sidebar-hover text-white text-[0.6rem] font-medium rounded-4xl hover:bg-purple-700">
+            <button className="px-4 bg-sidebar-hover text-white text-md font-medium rounded-4xl hover:bg-purple-700">
+            <NavLink to="pricingplan">
               Upgrade
+            </NavLink>
             </button>
           </div>
           {/* admin */}
