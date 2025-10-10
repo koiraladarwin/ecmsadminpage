@@ -78,7 +78,7 @@ function CreateCategoryForm() {
       {/* description */}
       <div className='flex flex-col lg:flex-row lg:items-end w-full gap-6 py-4'>
         <div className='flex flex-col flex-1'>
-          <label className='font-bold text-sidebar-bg mb-1 block'>Description *</label>
+          <label className='font-bold text-sidebar-bg mb-1 block'>Description</label>
           <textarea
             name="description"
             value={formData.description}
