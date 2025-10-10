@@ -1,8 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { FaChevronDown, FaPlus } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import AllInvitationCard from "../components/AllInvitationCard";
 import useInvitation from "../../../../../hooks/Use-invitation-list";
-import { useState } from "react";
+
 
 export default function ShowAllInvitations()
 {
@@ -25,7 +25,7 @@ export default function ShowAllInvitations()
 
             <hr className="ml-20 mr-20 m-10 border-gray-400 border-1" />
 
-            <div className='box-border m-20 mt-5 p-10 border-buttonpurple rounded-lg border-2 bg-white text-center'>
+            <div className='md:px-5 pt-5 pb-20 m-20 mt-5 rounded-2xl bg-white text-center overflow-x-scroll'>
                 <>
                 {invitation.map((invitation,index) => (
                     <AllInvitationCard

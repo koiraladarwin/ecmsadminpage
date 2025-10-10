@@ -4,23 +4,23 @@ export default function useInvitation() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-
     const fetchEvents = async () => {
       try {
         const response = await new Promise((resolve) =>
           setTimeout(() => {
             resolve([
-            {
-                title: "General Invitation",
-                subtitle:"31st cargo Day 2025",
-                startdate: "11 Sep 2025",
-                starttime: "11:00 AM", 
-                enddate:"15 sep 2025",
-                endtime:"05:00 PM",
-                venue:"Master Hall, Hyatt Regency, Kathmandu", 
-                invitation:"150"
-            },
-                
+              {
+                eventname: "31st Cargo Day 2025",
+                startdate: "27th July 2025 ",
+                starttime: "10:00 AM to ",
+                enddate: "27 July 2025",
+                endtime: "06:00 PM",
+                venue: "Hotel Hyatt Regency Kathmandu",
+                organizer:" Nepal Freight & Forwarders Association (NEFFA)",
+                generalinvitation: "150",
+                vipinvitation:23,
+                guestinvitation:37,
+              },
             ]);
           }, 1000)
         );
