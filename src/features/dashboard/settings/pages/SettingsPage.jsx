@@ -1,7 +1,5 @@
 import useSettingsEvent from "../../../../hooks/Use-SettingsEventList";
-import useSettingsStaff from "../../../../hooks/Use-SettingsStaff-List";
 import OnSiteCode from "../components/OnSiteCode";
-import ScannerAccess from "../components/ScannerAccess";
 import { useState } from "react";
 export default function SettingsPage1()
 {
@@ -22,15 +20,6 @@ export default function SettingsPage1()
             Onsite Code
           </button>
 
-
-        <button className={`px-6 py-2 font-semibold rounded-tl-xl rounded-tr-xl ${
-            activeTab === "scanner"
-              ? "bg-sidebar-hover text-white"
-              : "text-gray-700"
-          }`}
-          onClick={() => setActiveTab("scanner")}>
-            Scanner Access
-          </button>       
       </div>
       <hr className="mx-15 border mt-0 pt-0 border-textgray " />
 
@@ -38,10 +27,6 @@ export default function SettingsPage1()
 
         {activeTab === "onsite" && (
           <OnSiteCode settingsEvent={settingsEvent}/>
-        )}
-
-        {activeTab === "scanner" && (
-          <ScannerAccess/>
         )}
       </div>
     </div>

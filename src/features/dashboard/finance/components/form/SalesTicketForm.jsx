@@ -25,7 +25,6 @@ function SalesTicketForm() {
     paymentStatus: '',
     amount: '',
     paymentMethod: '',
-    uploadPaymentProof: null,
   })
 
   //  dropdowns
@@ -40,8 +39,8 @@ function SalesTicketForm() {
   }
 
   const handleSubmit = () => {
-    const { ticketType, attendee, paymentStatus, amount, paymentMethod, uploadPaymentProof } = formData
-    if (!ticketType || !attendee || !paymentStatus || !amount || !paymentMethod || !uploadPaymentProof) {
+    const { ticketType, attendee, paymentStatus, amount, paymentMethod } = formData
+    if (!ticketType || !attendee || !paymentStatus || !amount || !paymentMethod ) {
       Swal.fire('Please Fill all the fields!')
       return
     }
@@ -52,7 +51,6 @@ function SalesTicketForm() {
       paymentStatus: '',
       amount: '',
       paymentMethod: '',
-      uploadPaymentProof: null,
     })
   }
 
@@ -110,34 +108,6 @@ function SalesTicketForm() {
             options={paymentMethodOptions}
             value={formData.paymentMethod}
             onSelect={(value) => handleSelect('paymentMethod', value)}
-          />
-        </div>
-        <div className='flex flex-col md:flex-row items-center flex-1'>
-          <label className='font-bold text-sidebar-bg text-[0.95rem] md:whitespace-nowrap'>
-            Upload Payment Proof
-          </label>
-          <label
-            htmlFor="uploadPaymentProof"
-            className="flex items-center h-18 md:h-11 w-35 md:w-full ml-3 px-2 border-black border-solid border cursor-pointer"
-          >
-            {formData.uploadPaymentProof ? formData.uploadPaymentProof.name : 'Choose File'}
-          </label>
-          <input
-            key={formData.uploadPaymentProof ? formData.uploadPaymentProof.name : Date.now()}
-            id="uploadPaymentProof"
-            type="file"
-            name="uploadPaymentProof"
-            accept="image/*,.pdf"
-            className="focus:outline-none h-18 md:h-10 w-35 md:w-full ml-3 px-2 hidden"
-            style={{ border: 'black solid 1px' }}
-            onChange={(e) => {
-              const file = e.target.files[0];
-              setFormData({
-                ...formData,
-                uploadPaymentProof: file || null,
-                uploadType: file?.type || '',
-              });
-            }}
           />
         </div>
       </div>
