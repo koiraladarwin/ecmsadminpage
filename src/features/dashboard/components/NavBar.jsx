@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { FaChevronDown, FaSearch } from 'react-icons/fa'
 import { HiOutlineQuestionMarkCircle } from 'react-icons/hi'
-import { NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { HiOutlineBars3CenterLeft } from "react-icons/hi2";
 import { useAuth } from '../../auth/context/AuthContext';
 
@@ -9,6 +9,7 @@ const NavBar = () => {
   const pathname = useLocation().pathname.split("/")[1]
   const { logout } = useAuth()
   const [showOptions, setShowOptions] = useState(false)
+  const navigate = useNavigate();
 
   return (
     <div className="h-[8vh] md:h-[8vh] bg-white px-6 py-1  flex flex-col lg:flex-row lg:justify-between` gap:5 xl:gap-0 items-center sticky top-0 z-2">
@@ -45,12 +46,12 @@ const NavBar = () => {
             </button>
 
             <button className="px-4 bg-sidebar-hover text-white text-md font-medium rounded-4xl hover:bg-purple-700">
-            <NavLink to="pricingplan">
+              <NavLink to="pricingplan">
 
-              Upgrade
+                Upgrade
               </NavLink>
             </button>
-            
+
           </div>
 
 
@@ -61,7 +62,7 @@ const NavBar = () => {
             </button>
             {/* Dropdown menu */}
             <div className="absolute top-full -left-4 w-28 shadow-lg z-50 rounded-2xl py-2 px-1 bg-gray-100 hidden group-hover:block">
-              <button className="block w-full text-left px-4 py-2 hover:bg-gray-200 rounded-sm">Profile</button>
+              <button className="block w-full text-left px-4 py-2 hover:bg-gray-200 rounded-sm" onClick={()=>{navigate("/profile")}}>Profile</button>
               <button className="block w-full text-left px-4 py-2 hover:bg-gray-200 rounded-sm text-red-500" onClick={logout}>Logout</button>
             </div>
           </div>
@@ -95,9 +96,9 @@ const NavBar = () => {
             </button>
 
             <button className="px-4 bg-sidebar-hover text-white text-md font-medium rounded-4xl hover:bg-purple-700">
-            <NavLink to="pricingplan">
-              Upgrade
-            </NavLink>
+              <NavLink to="pricingplan">
+                Upgrade
+              </NavLink>
             </button>
           </div>
           {/* admin */}
@@ -108,8 +109,8 @@ const NavBar = () => {
             </button>
             {/* Dropdown menu */}
             <div className="absolute top-full w-40 shadow-lg z-50 rounded-2xl py-2 px-3 bg-gray-100 hidden group-hover:block">
-              <button className="block w-full text-left px-4 py-2 hover:bg-gray-200 rounded-sm">Profile</button>
-              <button className="block w-full text-left px-4 py-2 hover:bg-gray-200 rounded-sm text-red-500" onClick={logout}>Logout</button>
+              <button  className="block w-full text-left px-4 py-2 hover:bg-gray-200 rounded-sm">Profile</button>
+              <button className="block w-full text-left px-4 py-2 hover:bg-gray-200 rounded-sm text-red-500">Logout</button>
             </div>
           </div>
         </div>
