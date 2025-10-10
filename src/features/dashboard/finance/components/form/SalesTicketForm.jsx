@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import CustomDropdown from '../../../people/components/CustomDropDown'
 import NormalBtn from '../../../people/components/NormalBtn'
 import SalesTicketDetailList from '../financeDetail/SalesTicketDetailList'
@@ -27,20 +27,38 @@ function SalesTicketForm() {
     paymentMethod: '',
   })
 
+  useEffect(() => {
+    if (ticketTypeOptions.length > 0) {
+      const ticket = ticketTypeOptions[0]
+      setFormData((prev) => ({
+        ...prev,
+        ticketType: ticket,
+        amount: salesData?.find(t => t.ticketType === ticket)?.amount || 'Rs. 5000'
+      }))
+    }
+  }, [ticketTypeOptions, salesData])
+
+  console.log(formData)
+
   //  dropdowns
   const handleSelect = (key, value) => {
-    setFormData({ ...formData, [key]: value })
+    let newAmount = formData.amount
+
+    if ((key === 'ticketType' || key === 'attendee') && salesData?.length) {
+      const ticket = salesData.find(
+        (item) =>
+          item.ticketType === (key === 'ticketType' ? value : formData.ticketType) &&
+          item.attendee === (key === 'attendee' ? value : formData.attendee)
+      )
+      if (ticket) newAmount = ticket.amount
+    }
+    setFormData({ ...formData, [key]: value, amount: newAmount })
   }
 
-  //  input
-  const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData({ ...formData, [name]: value })
-  }
 
   const handleSubmit = () => {
-    const { ticketType, attendee, paymentStatus, amount, paymentMethod } = formData
-    if (!ticketType || !attendee || !paymentStatus || !amount || !paymentMethod ) {
+    const { attendee, paymentStatus, paymentMethod } = formData
+    if (!attendee || !paymentStatus || !paymentMethod) {
       Swal.fire('Please Fill all the fields!')
       return
     }
@@ -59,11 +77,14 @@ function SalesTicketForm() {
       {/* Ticket Type & Attendee */}
       <div className='flex flex-col lg:flex-row lg:items-end w-full gap-6'>
         <div className='flex flex-col flex-1'>
-          <CustomDropdown
-            label='Ticket Type'
-            options={ticketTypeOptions}
+          <label className='font-bold text-sidebar-bg text-md'>Ticket Type</label>
+          <input
+            type="text"
+            className='focus:outline-none h-10 px-2'
             value={formData.ticketType}
-            onSelect={(value) => handleSelect('ticketType', value)}
+            placeholder="Ticket type"
+            style={{ border: 'black solid 1px' }}
+            readOnly
           />
         </div>
         <div className='flex flex-col flex-1'>
@@ -95,12 +116,12 @@ function SalesTicketForm() {
             style={{ border: 'black solid 1px' }}
             placeholder='Rs.4000'
             value={formData.amount}
-            onChange={handleChange}
+            readOnly
           />
         </div>
       </div>
 
-      {/* Payment Method & Upload Proof */}
+      {/* Payment Method  */}
       <div className='flex flex-col lg:flex-row lg:items-end w-full gap-6'>
         <div className='flex flex-col flex-1'>
           <CustomDropdown
