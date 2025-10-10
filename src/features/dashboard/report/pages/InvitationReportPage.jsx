@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-import { useState, useEffect, useMemo, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FaUser } from 'react-icons/fa';
 import ReportComposedChart from './components/ReportComposedChart';
-=======
-import { useState, useEffect, useMemo } from 'react';
-import { FaUser } from 'react-icons/fa';
-import ReportBarGraph from './components/ReportBarGraph';
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
 
 function CheckinReportPage() {
   const ITEMS_PER_PAGE = 25;
@@ -51,10 +45,7 @@ function CheckinReportPage() {
       id: `INV-${String(i + 1).padStart(3, '0')}`,
       fullName: `Mr. Lee Yang ${i + 1}`,
       entryType: i % 4 === 0 ? "Walk-in" : i % 4 === 1 ? "VIP" : "Invitation",
-<<<<<<< HEAD
       checkedIn: i % 3 === 0 ? true : false
-=======
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
     }));
 
     setReportData(extended);
@@ -74,13 +65,6 @@ function CheckinReportPage() {
     currentPage * ITEMS_PER_PAGE
   );
   // Prepare data for the bar chart
-<<<<<<< HEAD
-  const data = [
-    { type: "VIP", sent: 120, checkedIn: 90 },
-    { type: "Regular", sent: 300, checkedIn: 250 },
-    { type: "Guest", sent: 150, checkedIn: 110 },
-  ];
-
   const barData = useCallback(() => {
     const data = {}
     reportData.forEach(item => {
@@ -97,16 +81,6 @@ function CheckinReportPage() {
     }
     return result
   }, [reportData])
-
-=======
-  const barData = useMemo(() => {
-    const counts = reportData.reduce((acc, item) => {
-      acc[item.entryType] = (acc[item.entryType] || 0) + 1;
-      return acc;
-    }, {});
-    return Object.entries(counts).map(([type, count]) => ({ type, count }));
-  }, [reportData]);
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
 
   return (
     <div className="p-14">
@@ -191,19 +165,13 @@ function CheckinReportPage() {
         </button>
 
         {/* Event Info */}
-<<<<<<< HEAD
         <div className='flex flex-col md:flex-row border px-8 mt-6 py-6  rounded bg-gray-50'>
           <div className=" px-4 text-sm text-gray-700 flex-1">
-=======
-        <div className='flex flex-col md:flex-row border px-4 mt-6 py-4 items-center  rounded bg-gray-50'>
-          <div className='py-6 mt-8'>
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
             <img
               src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
               alt="Logo"
               className="w-30 h-30 rounded"
             />
-<<<<<<< HEAD
             <div className="font-bold text-base mt-6 mb-2 flex items-center gap-2">
               <span className='text-xl'>{selectedEvent.name}</span>
             </div>
@@ -221,26 +189,6 @@ function CheckinReportPage() {
           <div className='w-full flex-1'>
             {/* <ReportBarGraph data={barData} title="Invitation Type Graph" /> */}
             <ReportComposedChart data={barData()} title="Invitation Type Graph" />
-=======
-          </div>
-          <div className="py-6 px-4 text-sm text-gray-700 flex-1">
-            <div className="font-bold text-base mt-6 mb-2 flex items-center gap-2">
-              <span className='text-xl'>{selectedEvent.name}</span>
-            </div>
-            <div>
-              <strong>Date & Time:</strong> 27th July 2025 10:00 AM to 6:00 PM
-            </div>
-            <div>
-              <strong>Venue:</strong> Hotel Hyatt Regency Kathmandu
-            </div>
-            <div>
-              <strong>Organizer:</strong> Nepal Freight & Forwarders Association (NEFFA)
-            </div>
-          </div>
-          {/* bar graph */}
-          <div className='w-full flex-1'> 
-            <ReportBarGraph data={barData} title="Invitation Type Graph" />
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
           </div>
         </div>
 

@@ -1,10 +1,6 @@
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
-<<<<<<< HEAD
 const ReportPieChart = ({ data, title }) => {
-=======
-const ReportPieChart = ({ data,title }) => {
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
   const COLORS = ["#4CAF50", "#F44336"];
 
   return (
@@ -12,11 +8,7 @@ const ReportPieChart = ({ data,title }) => {
       <h3 className="text-lg font-bold text-gray-700">{title}</h3>
       <div className="overflow-x-auto md:overflow-x-hidden">
         <div className="w-full flex justify-center">
-<<<<<<< HEAD
           <PieChart width={350} height={320}>
-=======
-          <PieChart width={250} height={320}>
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
             <Pie
               data={data}
               cx="50%"

@@ -45,11 +45,7 @@ function CheckinReportPage() {
       ...baseData[0],
       id: `INV-${String(i + 1).padStart(3, '0')}`,
       fullName: `Mr. Lee Yang ${i + 1}`,
-<<<<<<< HEAD
       status: i % 4 === 0 ? "Checked In" : "Not Checked In",
-=======
-      status: i % 2 === 0 ? "Checked In" : "Not Checked In",
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
     }));
 
     setReportData(extended);
@@ -157,19 +153,13 @@ function CheckinReportPage() {
         </button>
 
         {/* Event Info */}
-<<<<<<< HEAD
         <div className='flex flex-col md:flex-row border px-12 mt-4 py-6  rounded bg-gray-50 overflow-x-scroll md:overflow-x-hidden '>
           <div className="text-sm  text-gray-700 flex-1 min-w-0">
-=======
-        <div className='flex flex-col md:flex-row border mt-4 px-4  rounded bg-gray-50 overflow-x-scroll md:overflow-x-hidden items-center'>
-          <div className='p-4 mt-8 flex-shrink-0 mx-auto md:mx-0'>
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
             <img
               src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
               alt="Logo"
               className="md:w-30 md:h-30 rounded w-28 h-28"
             />
-<<<<<<< HEAD
             <div className="font-bold text-base mb-2 mt-8 flex items-center gap-2">
               <span className='text-xl'>{selectedEvent.name}</span>
             </div>
@@ -183,23 +173,6 @@ function CheckinReportPage() {
               <strong>Organizer:</strong> Nepal Freight & Forwarders Association (NEFFA)
             </div>
           </div>
-=======
-          </div>
-          <div className="text-sm p-4 text-gray-700 flex-1 min-w-0">
-            <div className="font-bold text-base mb-2 mt-8 flex items-center gap-2">
-              <span className='text-xl'>{selectedEvent.name}</span>
-            </div>
-            <div>
-              <strong>Date & Time:</strong> 27th July 2025 10:00 AM to 6:00 PM
-            </div>
-            <div>
-              <strong>Venue:</strong> Hotel Hyatt Regency Kathmandu
-            </div>
-            <div>
-              <strong>Organizer:</strong> Nepal Freight & Forwarders Association (NEFFA)
-            </div>
-          </div>
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
           {/* chart */}
           <div className='p-4 flex-1 min-w-0'>
             <ReportPieChart data={checkInData} title="Check-In Status" />

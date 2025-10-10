@@ -1,15 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { FaUser } from 'react-icons/fa';
-<<<<<<< HEAD
 import ReportPieChart from './components/ReportPieChart';
 import ReportComposedChart from './components/ReportComposedChart';
-=======
-import CheckinPieChart from './components/ReportPieChart';
-import InvitationTypesBarChart from './components/ReportBarGraph';
-import { PieChart } from 'recharts';
-import ReportPieChart from './components/ReportPieChart';
-import ReportBarGraph from './components/ReportBarGraph';
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
+
 
 function SalesReportPage() {
   const ITEMS_PER_PAGE = 25;
@@ -80,11 +73,7 @@ function SalesReportPage() {
     })
     const result = []
     for (const key in data) {
-<<<<<<< HEAD
       result.push({ type: key, count: data[key], enroll: Math.floor(Math.random() * 10) })
-=======
-      result.push({ type: key, count: data[key] })
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
     }
     return result
   }, [reportData])
@@ -203,12 +192,8 @@ function SalesReportPage() {
           {/* Charts */}
           <div className="col-span-2 flex flex-col md:flex-row gap-2 overflow-x-auto md:overflow-x-visible items-center">
             <div className="w-full">
-<<<<<<< HEAD
               {/* <ReportBarGraph title="Ticket Types Status" data={barData()} /> */}
               <ReportComposedChart title="Ticket Types Status" data={barData()} barKey='count' lineKey='enroll' barName='Ticket-Type' lineName='Enrolled'/>
-=======
-              <ReportBarGraph title="Ticket Types Status" data={barData()} />
->>>>>>> 3ae9e544925e5790fa98817f482ea344a77536c3
             </div>
             <div className="w-full">
               <ReportPieChart title="Payment Status" data={paidStatus} />
