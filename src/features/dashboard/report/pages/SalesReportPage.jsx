@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react';
 import { FaUser } from 'react-icons/fa';
+import CheckinPieChart from './components/ReportPieChart';
+import InvitationTypesBarChart from './components/ReportBarGraph';
+import { PieChart } from 'recharts';
+import ReportPieChart from './components/ReportPieChart';
 
 function SalesReportPage() {
   const ITEMS_PER_PAGE = 25;
@@ -146,6 +150,7 @@ function SalesReportPage() {
         </button>
 
         {/* Event Info */}
+        <div className='flex'>
         <div className="border mt-6 p-4 rounded text-sm text-gray-700 bg-gray-50">
           <div className="font-bold text-base mb-2 flex items-center gap-2">
             <img
@@ -164,6 +169,13 @@ function SalesReportPage() {
           <div>
             <strong>Organizer:</strong> Nepal Freight & Forwarders Association (NEFFA)
           </div>
+        </div>
+        <div>
+    
+        </div>
+        <div>
+      
+        </div>
         </div>
 
         {/* Modern Report Table */}

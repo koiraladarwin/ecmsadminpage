@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { FaUser } from 'react-icons/fa';
-import CheckInPieChart from './components/CheckInPieChart';
+import ReportPieChart from './components/ReportPieChart';
 
 function CheckinReportPage() {
   const ITEMS_PER_PAGE = 25;
@@ -45,6 +45,7 @@ function CheckinReportPage() {
       ...baseData[0],
       id: `INV-${String(i + 1).padStart(3, '0')}`,
       fullName: `Mr. Lee Yang ${i + 1}`,
+      status: i % 2 === 0 ? "Checked In" : "Not Checked In",
     }));
 
     setReportData(extended);
@@ -63,6 +64,11 @@ function CheckinReportPage() {
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
+
+  const checkInData = [
+    { name: "Checked In", value: reportData.filter(d => d.status === "Checked In").length },
+    { name: "Not Checked In", value: reportData.filter(d => d.status === "Not Checked In").length },
+  ];
 
   return (
     <div className="p-14">
@@ -171,7 +177,7 @@ function CheckinReportPage() {
           </div>
           {/* chart */}
           <div className='p-4 flex-1 min-w-0'>
-            <CheckInPieChart checkedIn={45} notCheckedIn={15} />
+            <ReportPieChart data={checkInData} title="Check-In Status" />
           </div>
         </div>
 

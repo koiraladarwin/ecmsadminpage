@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { FaUser } from 'react-icons/fa';
-import InvitationTypesBarChart from './components/InvitationTypeBarGraph';
+import ReportBarGraph from './components/ReportBarGraph';
 
 function CheckinReportPage() {
   const ITEMS_PER_PAGE = 25;
@@ -32,7 +32,6 @@ function CheckinReportPage() {
         id: 'INV-001',
         fullName: 'Mr. Lee Yang',
         organization: 'XYZ Company Pvt. Ltd.',
-        entryType: 'Invitation',
         sessions: [
           { name: 'Inauguration', time: '2025-01-29 09:17:10' },
           { name: 'Lunch', time: '2025-01-29 14:28:07' },
@@ -180,7 +179,7 @@ function CheckinReportPage() {
           </div>
           {/* bar graph */}
           <div>
-            <InvitationTypesBarChart data={barData} />
+            <ReportBarGraph data={barData} title="Invitation Type Graph" />
           </div>
         </div>
 

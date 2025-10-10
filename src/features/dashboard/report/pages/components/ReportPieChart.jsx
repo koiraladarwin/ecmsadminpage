@@ -1,19 +1,14 @@
 import { PieChart, Pie, Cell, Tooltip, Legend } from "recharts";
 
-const CheckinPieChart = ({ checkedIn = 45, notCheckedIn = 15 }) => {
-  const data = [
-    { name: "Checked In", value: checkedIn },
-    { name: "Not Checked In", value: notCheckedIn },
-  ];
-
+const ReportPieChart = ({ data,title }) => {
   const COLORS = ["#4CAF50", "#F44336"];
 
   return (
     <div className="mt-6 text-center">
-      <h3 className="text-lg font-bold mb-3 text-gray-700">Check-In Status</h3>
+      <h3 className="text-lg font-bold mb-3 text-gray-700">{title}</h3>
       <div className="overflow-x-auto md: md:overflow-x-hidden">
         <div className="min-w-[300px] flex justify-center">
-          <PieChart width={320} height={260}>
+          <PieChart width={320} height={280}>
             <Pie
               data={data}
               cx="50%"
@@ -42,4 +37,4 @@ const CheckinPieChart = ({ checkedIn = 45, notCheckedIn = 15 }) => {
   );
 };
 
-export default CheckinPieChart;
+export default ReportPieChart;
