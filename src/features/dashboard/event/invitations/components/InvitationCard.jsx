@@ -10,7 +10,7 @@ function InvitationCard({ title, count, link }) {
     <div className=" flex flex-col rounded-2xl p-2 lg:px-10 lg:py-8 md:bg-white md:shadow-lg flex-1 relative">
       {/* title and three-dots btns */}
       <div className="flex justify-between items-center">
-        <p className="text-sm md:font-bold">{title}</p>
+        <p className="text-md md:font-bold">{title}</p>
 
         {/* dropdown  */}
         <div
@@ -42,10 +42,10 @@ function InvitationCard({ title, count, link }) {
       </div>
 
       {/* Count and view link */}
-      <div className="flex md:justify-between gap-6 md:pt-6 ">
-        <div className=" text-xl  md:text-3xl">{count}</div>
+      <div className="flex md:justify-center gap-6 md:pt-6 ">
+        <div className=" text-xl  md:text-4xl">{count}</div>
         <div className="flex flex-col items-center">
-          <MdRemoveRedEye size={24} />
+          <MdRemoveRedEye size={26} />
           <Link to={link}>
             <u className="cursor-pointer">view</u>
           </Link>

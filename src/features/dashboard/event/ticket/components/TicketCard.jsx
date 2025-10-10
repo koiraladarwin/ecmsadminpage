@@ -29,7 +29,7 @@ export default function TicketCard({
                 venue={venue}
                 organizer={organizer}
             />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <TicketsCard
                     count={generaladmission}
                     link="/event/ticketgeneralinvitation"

@@ -45,10 +45,10 @@ function TicketsCard({ title, count, link, price }) {
         </div>
 
         {/* Count and view */}
-        <div className="flex md:justify-between gap-6 md:pt-6">
-          <div className="text-xl md:text-3xl">{count}</div>
+        <div className="flex md:justify-center gap-6 md:pt-6">
+          <div className="text-xl md:text-4xl">{count}</div>
           <div className="flex flex-col items-center">
-            <MdRemoveRedEye size={24} />
+            <MdRemoveRedEye size={26} />
             <Link to={link}>
               <u className="cursor-pointer">view</u>
             </Link>
