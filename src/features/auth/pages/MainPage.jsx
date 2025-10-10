@@ -21,28 +21,29 @@ export default function MainPage() {
     return (
         <div className="min-h-screen bg-bglightpurple flex md:flex-col lg:flex-row  justify-between"><br />
 
-            <div className="pl-20  w-3/3 ">
-                <h1 className="text-4xl font-semibold text-buttonpurple pt-10">ECMS</h1>
+            {/* <div className=" pl-20  w-3/3 "> */}
+            <div className="w-full lg:w-1/2 text-center lg:text-left mb-10 lg:mb-0 sm:pl-4">
+                <h1 className="text-3xl md:text-4xl font-semibold text-buttonpurple pt-10">ECMS</h1>
 
-                <h2 className="text-4xl pt-20 font-semibold">The leading <br />
+                <h2 className="text-3xl md:text-4xl pt-20 font-semibold">The leading <br />
                     <span className="text-buttonpurple">event check-in</span><br />
                     management solution
 
                 </h2>
 
 
-                <p className="pt-8 text-lg text-buttonpurple">
+                <p className="pt-8 text-base md:text-lg text-buttonpurple">
                     Streamline your guest arrivals with the leading event check-in management<br /> solution. Effortless, secure, and professional QR Code check-ins to elevate<br /> every event experience.
                 </p>
 
                 <p className="mt-12 text-buttonpurple">Scan QR & Download ECMS Scan App</p>
 
-                <div className="flex gap-6 mt-4 items-center">
-                    <img src={QR} alt="QR" className="rounded-lg" />
+                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 sm:pl-4 mt-4 items-center justify-start sm:justify-center md:justify-center lg:justify-start">
+                    <img src={QR} alt="QR" className="rounded-lg " />
                     <div>
                         <p className="text-buttonpurple">Available on</p>
                         <div className="flex items-center gap-2">
-                            <img src={playstore} alt="" className="w-6 h-6" />
+                            <img src={playstore} alt="QR" className="w-6 h-6" />
                             <p>Google Play</p>
                         </div>
                     </div>
@@ -51,25 +52,24 @@ export default function MainPage() {
 
             </div>
 
-            <div className="absolute lg:w-1/3 flex justify-center lg:mt-10 ml-110">
-                <img src={loginImage} alt="" className="w-60 h-60" />
+            <div className="absolute hidden lg:w-1/3  lg:flex justify-center lg:mt-10 ml-110">
+                <img src={loginImage} alt="login illustration" className="w-60 h-60" />
             </div>
 
-            <div className=" flex justify-center lg:justify-end mr-12 mt-35 w-1/3 ">
-                <form action="" className="border-none rounded-3xl shadow-2xl w-98 h-98 bg-borderbox-bg p-5 ">
-                    <h1 className="font-semibold text-2xl text-sidebar-bg pl-5">Welcome! <br /> What's your email?</h1>
-                    <input type="email" className="border rounded-full mt-4 w-full size-12  placeholder:pl-4 focus:outline-none" placeholder="Email" />
+            <div className="w-full sm:w-[22rem] mx-auto lg:mx-0 flex justify-center sm:justify-center md:justify-center lg:justify-end lg:mr-16 mt-35 lg:w-1/3 sm:mb-10">
+
+                <form className="sm:w-[22rem] border-none rounded-3xl shadow-2xl w-82 h-78  bg-borderbox-bg p-5 py-10 text-center">
+                    <h1 className="font-semibold text-2xl text-sidebar-bg ">Welcome!</h1>
+                    <p className="text-gray-500  mt-2">sign up with</p>
+                    {/* <input type="email" className="border rounded-full mt-4 w-full size-12  placeholder:pl-4 focus:outline-none" placeholder="Email" /> */}
 
                     <div className="flex flex-col items-center">
-                        <button className="bg-buttonpurple px-10 p-2  text-white rounded-full mt-4 font-semibold " >Continue</button>
-                        <span className="flex items-center space-x-2 mt-4">
-                            <hr className="w-20" />
-                            <p className="text-textgray">or signup with </p>
-                            <hr className="w-20" />
-                        </span>
-                        <p className="text-center text-sm mt-4 text-gray-500">By clicking Continue or the Google icon, you<br />
+                        <img src={google} alt="" className="w-24 h-24 -mt-4" onClick={handleGoogleSignIn} />
+
+                        <button className="bg-buttonpurple px-16 p-2 -mt-4 text-white rounded-full font-semibold " >Continue</button>
+                        
+                        <p className="text-center text-xs mt-4 text-gray-500">By clicking Continue or the Google icon, you<br />
                             agree to ECMS's <span className="text-buttonred"> Terms of Service </span> and <span className="text-buttonred"> Privacy Policy</span>.</p>
-                        <img src={google} alt="" className="w-24 h-24 " onClick={handleGoogleSignIn} />
                     </div>
 
                 </form>
