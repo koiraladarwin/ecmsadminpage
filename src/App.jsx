@@ -42,6 +42,7 @@ import ShowAllTicket from "./features/dashboard/event/ticket/pages/ShowAllTicket
 import TicketGeneralInvitations from "./features/dashboard/event/ticket/pages/TicketGeneralInvitations.jsx";
 import { OrbitProgress } from "react-loading-indicators";
 import Upgrade from "./features/dashboard/Upgrade/Pages/Upgrade.jsx";
+import ProfilePage from "./features/dashboard/Profile/Pages/ProfilePage.jsx";
 
 
 
@@ -94,6 +95,9 @@ function AppRoutes() {
           <Route path="*" element={<Navigate to="/" replace />} />
 
           <Route path="/pricingplan" element={<Upgrade />} />
+
+          <Route path="/profile" element={<ProfilePage />} />
+
 
         </Route >
         :
