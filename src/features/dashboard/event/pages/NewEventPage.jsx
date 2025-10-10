@@ -6,16 +6,7 @@ export default function CreateEventPage() {
       
       <div class='w-full'>
         <div className='pt-15 px-15 flex flex-col lg:flex-row justify-between text-xl font-light'>
-          <h1>Create a New Event</h1>
-
-          <div className='space-x-2 pr-2'>
-            <label>Ticket</label>
-            <input type="radio" name="ticket" value="yes" className="size-4 accent-buttonpurple" />
-            <label htmlFor="">Yes</label>
-            <input type="radio" name="ticket" value="no" className="size-4 accent-buttonpurple"/>
-            <label htmlFor="">No</label>
-          </div>
-          
+          <h1>Create a New Event</h1>          
         </div>
 
         <hr className="ml-15 mr-15 mt-5 border-1 border-textgray" />
