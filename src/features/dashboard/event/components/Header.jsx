@@ -26,11 +26,6 @@ export default function EventHeader({activeTab, setActiveTab}) {
           ))}
         </div>
 
-        
-        <div>
-          <span>Event Categories</span>
-        </div>
-
         <NavLink to="/event/createvent">
           <button className="bg-[#772a92] text-white px-4 py-2 rounded-3xl flex items-center gap-2">
             <FaPlus />
