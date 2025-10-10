@@ -153,7 +153,7 @@ function CheckinReportPage() {
         </button>
 
         {/* Event Info */}
-        <div className='flex flex-col md:flex-row border mt-4 p-4 rounded bg-gray-50 overflow-x-scroll md:overflow-x-hidden  '>
+        <div className='flex flex-col md:flex-row border mt-4 px-4  rounded bg-gray-50 overflow-x-scroll md:overflow-x-hidden'>
           <div className='p-4 mt-8 flex-shrink-0 mx-auto md:mx-0'>
             <img
               src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"

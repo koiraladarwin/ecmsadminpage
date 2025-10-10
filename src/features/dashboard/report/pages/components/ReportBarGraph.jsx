@@ -3,12 +3,13 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recha
 const ReportBarGraph = ({ data,title }) => {
   const chartWidth = Math.max(data.length * 60, 400);
 
+
   return (
-    <div className="rounded p-4 mt-7 overflow-x-auto">
+    <div className="rounded py-4 px-1 mt-7 overflow-x-auto w-full">
       <h3 className="md:text-center font-bold text-lg mb-3 text-gray-700 ">{title}</h3>
-      <div style={{ width: chartWidth }}>
+      <div>
         <ResponsiveContainer width="100%" height={250}>
-          <BarChart data={data} barSize={40} barCategoryGap="20%">
+          <BarChart data={data} barSize={40} barCategoryGap="15%">
             <XAxis dataKey="type" />
             <YAxis allowDecimals={false} />
             <Tooltip />

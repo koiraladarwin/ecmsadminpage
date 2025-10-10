@@ -155,15 +155,15 @@ function CheckinReportPage() {
         </button>
 
         {/* Event Info */}
-        <div className='flex flex-col md:flex-row border mt-6  rounded bg-gray-50'>
-          <div className='p-6 mt-8'>
+        <div className='flex flex-col md:flex-row border px-4 mt-6  rounded bg-gray-50'>
+          <div className='py-6 mt-8'>
             <img
               src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
               alt="Logo"
-              className="w-40 h-40 rounded"
+              className="w-30 h-30 rounded"
             />
           </div>
-          <div className="p-6 text-sm text-gray-700  ">
+          <div className="py-6 px-4 text-sm text-gray-700 flex-1">
             <div className="font-bold text-base mt-6 mb-2 flex items-center gap-2">
               <span className='text-xl'>{selectedEvent.name}</span>
             </div>
@@ -178,7 +178,7 @@ function CheckinReportPage() {
             </div>
           </div>
           {/* bar graph */}
-          <div>
+          <div className='w-full flex-1'> 
             <ReportBarGraph data={barData} title="Invitation Type Graph" />
           </div>
         </div>

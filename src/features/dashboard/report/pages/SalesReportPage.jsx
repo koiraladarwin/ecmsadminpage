@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FaUser } from 'react-icons/fa';
 import CheckinPieChart from './components/ReportPieChart';
 import InvitationTypesBarChart from './components/ReportBarGraph';
 import { PieChart } from 'recharts';
 import ReportPieChart from './components/ReportPieChart';
+import ReportBarGraph from './components/ReportBarGraph';
 
 function SalesReportPage() {
   const ITEMS_PER_PAGE = 25;
@@ -48,8 +49,9 @@ function SalesReportPage() {
       ...baseData[0],
       id: `INV-${String(i + 1).padStart(3, '0')}`,
       fullName: `Mr. Lee Yang ${i + 1}`,
+      ticketType: i % 2 == 0 ? "Type 1" : i % 3 == 0 ? "Type 3" : "Type 2",
+      paidStatus: i % 4 == 0 ? true : false
     }));
-
     setReportData(extended);
   }, []); const handleGenerate = () => {
     console.log('Generate report with:', {
@@ -60,6 +62,29 @@ function SalesReportPage() {
     });
     setCurrentPage(1);
   };
+
+  const barData = useCallback(() => {
+    const data = {}
+    reportData.forEach(item => {
+      const ticketType = item.ticketType
+      if (!data[ticketType]) {
+        data[ticketType] = 1
+      } else {
+        data[ticketType] = data[ticketType] + 1
+      }
+    })
+    const result = []
+    for (const key in data) {
+      result.push({ type: key, count: data[key] })
+    }
+    return result
+  }, [reportData])
+
+
+  const paidStatus = [
+    { name: "Paid", value: reportData.filter(d => d.paidStatus).length },
+    { name: "Unpaid", value: reportData.filter(d => !d.paidStatus).length },
+  ];
 
   const totalPages = Math.ceil(reportData.length / ITEMS_PER_PAGE);
   const paginatedData = reportData.slice(
@@ -150,33 +175,34 @@ function SalesReportPage() {
         </button>
 
         {/* Event Info */}
-        <div className='flex'>
-        <div className="border mt-6 p-4 rounded text-sm text-gray-700 bg-gray-50">
-          <div className="font-bold text-base mb-2 flex items-center gap-2">
+        <div className="grid-cols-3 md:grid border mt-6 bg-gray-50 p-4 rounded">
+          {/* Event Info */}
+          <div className="flex-shrink-0 flex flex-col items-center md:items-start p-4 md:col-span-1 ">
             <img
               src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
               alt="Logo"
-              className="w-20 h-20"
+              className="w-30 h-30 rounded mb-4"
             />
-            <span className='text-xl'>{selectedEvent.name}</span>
+            <div className="text-sm text-gray-700">
+              <div className="font-bold text-xl mb-2">{selectedEvent.name}</div>
+              <div><strong>Date & Time:</strong> 27th July 2025 10:00 AM to 6:00 PM</div>
+              <div><strong>Venue:</strong> Hotel Hyatt Regency Kathmandu</div>
+              <div><strong>Organizer:</strong> Nepal Freight & Forwarders Association (NEFFA)</div>
+            </div>
           </div>
-          <div>
-            <strong>Date & Time:</strong> 27th July 2025 10:00 AM to 6:00 PM
-          </div>
-          <div>
-            <strong>Venue:</strong> Hotel Hyatt Regency Kathmandu
-          </div>
-          <div>
-            <strong>Organizer:</strong> Nepal Freight & Forwarders Association (NEFFA)
+
+          {/* Charts */}
+          <div className="col-span-2 flex flex-col md:flex-row gap-2 overflow-x-auto md:overflow-x-visible items-center">
+            <div className="w-full">
+              <ReportBarGraph title="Ticket Types Status" data={barData()} />
+            </div>
+            <div className="w-full">
+              <ReportPieChart title="Payment Status" data={paidStatus} />
+            </div>
           </div>
         </div>
-        <div>
-    
-        </div>
-        <div>
-      
-        </div>
-        </div>
+
+
 
         {/* Modern Report Table */}
         <div className="mt-6 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">

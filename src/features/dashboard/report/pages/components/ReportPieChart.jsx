@@ -5,10 +5,10 @@ const ReportPieChart = ({ data,title }) => {
 
   return (
     <div className="mt-6 text-center">
-      <h3 className="text-lg font-bold mb-3 text-gray-700">{title}</h3>
-      <div className="overflow-x-auto md: md:overflow-x-hidden">
-        <div className="min-w-[300px] flex justify-center">
-          <PieChart width={320} height={280}>
+      <h3 className="text-lg font-bold text-gray-700">{title}</h3>
+      <div className="overflow-x-auto md:overflow-x-hidden">
+        <div className="w-full flex justify-center">
+          <PieChart width={250} height={320}>
             <Pie
               data={data}
               cx="50%"
