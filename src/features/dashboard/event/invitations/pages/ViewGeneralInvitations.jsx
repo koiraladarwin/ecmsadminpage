@@ -6,10 +6,9 @@ import GeneralInvitation from "../components/GeneralInvitation";
 import { useState } from "react";
 import VipInvitation from "../components/VipInvitation";
 import GuestInvitation from "../components/GuestInvitation";
+
 export default function ViewGeneralInvitations()
 {
-    // const GeneralInvitation = useGeneralInvitation();
-
     const [activeTab, setActiveTab] = useState("generalinvitation");
     return(
         <div className="">
@@ -46,43 +45,7 @@ export default function ViewGeneralInvitations()
 
                 </div>
 
-                {/* <div className="w-fit bg-white flex items-center mt-6  rounded-tl-xl rounded-tr-xl border-l border-t border-r border-gray-800 border-solid">
-                    <button className={`px-5 py-2 font-semibold rounded-tl-xl rounded-tr-xl ${
-                        activeTab === "generalinvitation"
-                        ? "bg-sidebar-hover text-white"
-                        : "text-gray-700"   
-                    }`}
-                    onClick={() => setActiveTab("generalinvitation")}>
-                        General Invitation
-                    </button>
-
-
-
-                    <button className={`px-5 py-2 font-semibold rounded-tl-xl rounded-tr-xl ${
-                        activeTab === "vipinvitation"
-                        ? "bg-sidebar-hover text-white"
-                        : "text-gray-700"   
-                    }`}
-                    onClick={() => setActiveTab("vipinvitation")}>
-                        VIP Invitation
-                    </button>
-
-
-
-                    <button className={`px-5 py-2 font-semibold rounded-tl-xl rounded-tr-xl ${
-                        activeTab === "guestinvitation"
-                        ? "bg-sidebar-hover text-white"
-                        : "text-gray-700"   
-                    }`}
-                    onClick={() => setActiveTab("guestinvitation")}>
-                        Guest Invitation
-                    </button>
-
-                    
-
-                </div> */}
-
-                <div className="w-fit bg-white flex items-center mt-6  rounded-tl-xl rounded-tr-xl border-l border-t border-r border-gray-800 border-solid">
+                <div className="w-fit bg-white flex flex-wrap sm:flex-col md:flex-col lg:flex-row items-stretch mt-6  rounded-tl-xl rounded-tr-xl border-l border-t border-r border-gray-800 border-solid overflow-x-auto md:overflow-visible scrollbar-hide">
                     {
                         [
                             {id: "generalinvitation", label: "General Invitation"},
