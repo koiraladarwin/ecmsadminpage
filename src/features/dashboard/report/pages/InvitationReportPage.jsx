@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { FaUser } from 'react-icons/fa';
+import InvitationTypesBarChart from './components/InvitationTypeBarGraph';
 
 function CheckinReportPage() {
   const ITEMS_PER_PAGE = 25;
@@ -44,6 +45,7 @@ function CheckinReportPage() {
       ...baseData[0],
       id: `INV-${String(i + 1).padStart(3, '0')}`,
       fullName: `Mr. Lee Yang ${i + 1}`,
+      entryType: i % 4 === 0 ? "Walk-in" : i % 4 === 1 ? "VIP" : "Invitation",
     }));
 
     setReportData(extended);
@@ -62,6 +64,14 @@ function CheckinReportPage() {
     (currentPage - 1) * ITEMS_PER_PAGE,
     currentPage * ITEMS_PER_PAGE
   );
+  // Prepare data for the bar chart
+  const barData = useMemo(() => {
+    const counts = reportData.reduce((acc, item) => {
+      acc[item.entryType] = (acc[item.entryType] || 0) + 1;
+      return acc;
+    }, {});
+    return Object.entries(counts).map(([type, count]) => ({ type, count }));
+  }, [reportData]);
 
   return (
     <div className="p-14">
@@ -146,64 +156,72 @@ function CheckinReportPage() {
         </button>
 
         {/* Event Info */}
-        <div className="border mt-6 p-4 rounded text-sm text-gray-700 bg-gray-50">
-          <div className="font-bold text-base mb-2 flex items-center gap-2">
+        <div className='flex flex-col md:flex-row border mt-6  rounded bg-gray-50'>
+          <div className='p-6 mt-8'>
             <img
               src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
               alt="Logo"
-              className="w-20 h-20"
+              className="w-30 h-30"
             />
-            <span className='text-xl'>{selectedEvent.name}</span>
           </div>
-          <div>
-            <strong>Date & Time:</strong> 27th July 2025 10:00 AM to 6:00 PM
+          <div className="p-6 text-sm text-gray-700  ">
+            <div className="font-bold text-base mt-6 mb-2 flex items-center gap-2">
+              <span className='text-xl'>{selectedEvent.name}</span>
+            </div>
+            <div>
+              <strong>Date & Time:</strong> 27th July 2025 10:00 AM to 6:00 PM
+            </div>
+            <div>
+              <strong>Venue:</strong> Hotel Hyatt Regency Kathmandu
+            </div>
+            <div>
+              <strong>Organizer:</strong> Nepal Freight & Forwarders Association (NEFFA)
+            </div>
           </div>
+          {/* bar graph */}
           <div>
-            <strong>Venue:</strong> Hotel Hyatt Regency Kathmandu
-          </div>
-          <div>
-            <strong>Organizer:</strong> Nepal Freight & Forwarders Association (NEFFA)
+            <InvitationTypesBarChart data={barData} />
           </div>
         </div>
 
         {/* Modern Report Table */}
         <div className="mt-6 overflow-x-auto rounded-xl border border-gray-200 shadow-sm">
-         <table className="min-w-full text-sm text-gray-800">
-          <thead className="bg-gray-50 text-xs font-semibold text-gray-500 uppercase tracking-wide">
-            <tr>
-              <th className="px-4 py-3 text-left">ID</th>
-              <th className="px-4 py-3 text-left">Full Name</th>
-              <th className="px-4 py-3 text-left">Company/Organization</th>
-              <th className="px-4 py-3 text-left">Entry</th>
-              <th className="px-4 py-3 text-left">Sessions</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100 bg-white">
-            {paginatedData.map((entry) => (
-              <tr
-                key={entry.id}
-                className="hover:bg-gray-50 hover:shadow-sm transition duration-150"
-              >
-                <td className="px-4 py-3">{entry.id}</td>
-                <td className="px-4 py-3 ">
-                  <div className="flex gap-2">
-                  <FaUser className="text-purple-600" /> {entry.fullName}
-                  </div>
-                </td>
-                <td className="px-4 py-3">{entry.organization}</td>
-                <td className="px-4 py-3">{entry.entryType}</td>
-                <td className="px-4 py-3 space-y-1">
-                  {entry.sessions.map((session, index) => (
-                    <div key={index} className="text-gray-700">
-                      <span className="font-medium">{session.name}</span> —{' '}
-                      <span className="text-gray-500">{session.time}</span>
-                    </div>
-                  ))}
-                </td>
+          <table className="min-w-full text-sm text-gray-800">
+            <thead className="bg-gray-50 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+              <tr>
+                <th className="px-4 py-3 text-left">ID</th>
+                <th className="px-4 py-3 text-left">Full Name</th>
+                <th className="px-4 py-3 text-left">Company/Organization</th>
+                <th className="px-4 py-3 text-left">Entry</th>
+                <th className="px-4 py-3 text-left">Sessions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>        </div>        {/* Pagination */}
+            </thead>
+            <tbody className="divide-y divide-gray-100 bg-white">
+              {paginatedData.map((entry) => (
+                <tr
+                  key={entry.id}
+                  className="hover:bg-gray-50 hover:shadow-sm transition duration-150"
+                >
+                  <td className="px-4 py-3">{entry.id}</td>
+                  <td className="px-4 py-3 ">
+                    <div className="flex gap-2">
+                      <FaUser className="text-purple-600" /> {entry.fullName}
+                    </div>
+                  </td>
+                  <td className="px-4 py-3">{entry.organization}</td>
+                  <td className="px-4 py-3">{entry.entryType}</td>
+                  <td className="px-4 py-3 space-y-1">
+                    {entry.sessions.map((session, index) => (
+                      <div key={index} className="text-gray-700">
+                        <span className="font-medium">{session.name}</span> —{' '}
+                        <span className="text-gray-500">{session.time}</span>
+                      </div>
+                    ))}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>        </div>        {/* Pagination */}
         <div className="mt-4 flex justify-center items-center gap-2 text-sm">
           {Array.from({ length: totalPages }, (_, i) => (
             <button
