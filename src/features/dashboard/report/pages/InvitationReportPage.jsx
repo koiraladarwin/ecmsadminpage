@@ -1,6 +1,6 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FaUser } from 'react-icons/fa';
-import ReportBarGraph from './components/ReportBarGraph';
+import ReportComposedChart from './components/ReportComposedChart';
 
 function CheckinReportPage() {
   const ITEMS_PER_PAGE = 25;
@@ -45,6 +45,7 @@ function CheckinReportPage() {
       id: `INV-${String(i + 1).padStart(3, '0')}`,
       fullName: `Mr. Lee Yang ${i + 1}`,
       entryType: i % 4 === 0 ? "Walk-in" : i % 4 === 1 ? "VIP" : "Invitation",
+      checkedIn: i % 3 === 0 ? true : false
     }));
 
     setReportData(extended);
@@ -64,13 +65,22 @@ function CheckinReportPage() {
     currentPage * ITEMS_PER_PAGE
   );
   // Prepare data for the bar chart
-  const barData = useMemo(() => {
-    const counts = reportData.reduce((acc, item) => {
-      acc[item.entryType] = (acc[item.entryType] || 0) + 1;
-      return acc;
-    }, {});
-    return Object.entries(counts).map(([type, count]) => ({ type, count }));
-  }, [reportData]);
+  const barData = useCallback(() => {
+    const data = {}
+    reportData.forEach(item => {
+      const entryType = item.entryType
+      if (!data[entryType]) {
+        data[entryType] = 1
+      } else {
+        data[entryType] = data[entryType] + 1
+      }
+    })
+    const result = []
+    for (const key in data) {
+      result.push({ type: key, sent: data[key], checkedIn: reportData.filter(data => data.checkedIn && data.entryType == key).length })
+    }
+    return result
+  }, [reportData])
 
   return (
     <div className="p-14">
@@ -149,21 +159,19 @@ function CheckinReportPage() {
 
         <button
           onClick={handleGenerate}
-          className="bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700"
+          className="bg-purple-600 text-white px-6 py-2  rounded hover:bg-purple-700"
         >
           Generate
         </button>
 
         {/* Event Info */}
-        <div className='flex flex-col md:flex-row border px-4 mt-6 py-4 items-center  rounded bg-gray-50'>
-          <div className='py-6 mt-8'>
+        <div className='flex flex-col md:flex-row border px-8 mt-6 py-6  rounded bg-gray-50'>
+          <div className=" px-4 text-sm text-gray-700 flex-1">
             <img
               src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
               alt="Logo"
               className="w-30 h-30 rounded"
             />
-          </div>
-          <div className="py-6 px-4 text-sm text-gray-700 flex-1">
             <div className="font-bold text-base mt-6 mb-2 flex items-center gap-2">
               <span className='text-xl'>{selectedEvent.name}</span>
             </div>
@@ -178,8 +186,9 @@ function CheckinReportPage() {
             </div>
           </div>
           {/* bar graph */}
-          <div className='w-full flex-1'> 
-            <ReportBarGraph data={barData} title="Invitation Type Graph" />
+          <div className='w-full flex-1'>
+            {/* <ReportBarGraph data={barData} title="Invitation Type Graph" /> */}
+            <ReportComposedChart data={barData()} title="Invitation Type Graph" />
           </div>
         </div>
 
