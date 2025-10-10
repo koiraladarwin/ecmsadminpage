@@ -177,7 +177,7 @@ function SalesReportPage() {
         {/* Event Info */}
         <div className="grid-cols-3 md:grid border mt-6 bg-gray-50 p-4 rounded">
           {/* Event Info */}
-          <div className="flex-shrink-0 flex flex-col items-center md:items-start p-4 md:col-span-1 ">
+          <div className="flex-shrink-0 flex flex-col items-center md:items-start px-4 md:col-span-1 ">
             <img
               src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
               alt="Logo"

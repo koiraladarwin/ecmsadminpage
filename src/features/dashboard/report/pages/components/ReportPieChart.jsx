@@ -4,7 +4,7 @@ const ReportPieChart = ({ data,title }) => {
   const COLORS = ["#4CAF50", "#F44336"];
 
   return (
-    <div className="mt-6 text-center">
+    <div className="text-center">
       <h3 className="text-lg font-bold text-gray-700">{title}</h3>
       <div className="overflow-x-auto md:overflow-x-hidden">
         <div className="w-full flex justify-center">

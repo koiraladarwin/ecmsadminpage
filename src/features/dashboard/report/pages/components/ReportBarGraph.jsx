@@ -5,10 +5,10 @@ const ReportBarGraph = ({ data,title }) => {
 
 
   return (
-    <div className="rounded py-4 px-1 mt-7 overflow-x-auto w-full">
+    <div className="rounded px-1 overflow-x-auto w-full">
       <h3 className="md:text-center font-bold text-lg mb-3 text-gray-700 ">{title}</h3>
       <div>
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={300}>
           <BarChart data={data} barSize={40} barCategoryGap="15%">
             <XAxis dataKey="type" />
             <YAxis allowDecimals={false} />
