@@ -161,7 +161,7 @@ function CheckinReportPage() {
             <img
               src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
               alt="Logo"
-              className="w-30 h-30"
+              className="w-40 h-40 rounded"
             />
           </div>
           <div className="p-6 text-sm text-gray-700  ">
