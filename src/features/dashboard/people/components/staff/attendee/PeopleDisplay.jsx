@@ -46,7 +46,6 @@ const PeopleDisplay = ({ activeTab, setActiveTab }) => {
             />
             <FaSearch className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400" />
           </div>
-          <span className='underline'>Download QR</span>
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4 px-2 gap-5'>
           {dataToShow.map((person) => (
