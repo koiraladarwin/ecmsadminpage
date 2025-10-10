@@ -12,7 +12,7 @@ export default function ShowAllInvitations()
         <div className="min-h-screen">
             <div className="flex flex-col md:flex-row gap-4 items-center justify-between pt-10 px-20">
                 <div className="space-y-2">
-                    <h1 className="text-xl ">Invitations - ALL</h1>
+                    <h1 className="text-xl ">Invitations</h1>
                 </div>
                 
                 <NavLink to="/event/createinvitation" >

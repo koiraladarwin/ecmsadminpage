@@ -13,7 +13,7 @@ export default function ShowAllTicket()
         <div className="min-h-screen">
             <div className="flex items-center justify-between pt-10 px-20 flex-col lg:flex-row gap-4">
                 <div className="space-y-2">
-                    <h1 className="text-xl ">Tickets - ALL</h1>
+                    <h1 className="text-xl ">Tickets</h1>
                 </div>
                 
 

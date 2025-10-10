@@ -13,7 +13,7 @@ export default function SessionAll()
         <div className="min-h-screen">
             <div className="flex items-center flex-col gap-4 lg:flex-row justify-between pt-10 pl-20 pr-20">
                 <div className="space-y-2">
-                    <h1 className="text-xl ">Sessions - ALL</h1>
+                    <h1 className="text-xl ">Sessions</h1>
                 </div>              
 
                 <NavLink to="/event/createsession" >
