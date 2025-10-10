@@ -147,14 +147,16 @@ function CheckinReportPage() {
         </button>
 
         {/* Event Info */}
-        <div className='flex border mt-6 p-4 rounded bg-gray-50  '>
-          <div className="text-sm p-4 text-gray-700">
-            <div className="font-bold text-base mb-2 flex items-center gap-2">
-              <img
-                src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
-                alt="Logo"
-                className="w-20 h-20"
-              />
+        <div className='flex flex-col md:flex-row border mt-4 p-4 rounded bg-gray-50 overflow-x-scroll md:overflow-x-hidden  '>
+          <div className='p-4 mt-8 flex-shrink-0 mx-auto md:mx-0'>
+            <img
+              src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
+              alt="Logo"
+              className="md:w-30 md:h-30 rounded w-28 h-28"
+            />
+          </div>
+          <div className="text-sm p-4 text-gray-700 flex-1 min-w-0">
+            <div className="font-bold text-base mb-2 mt-8 flex items-center gap-2">
               <span className='text-xl'>{selectedEvent.name}</span>
             </div>
             <div>
@@ -168,7 +170,7 @@ function CheckinReportPage() {
             </div>
           </div>
           {/* chart */}
-          <div>
+          <div className='p-4 flex-1 min-w-0'>
             <CheckInPieChart checkedIn={45} notCheckedIn={15} />
           </div>
         </div>
