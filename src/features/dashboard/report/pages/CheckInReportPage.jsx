@@ -45,7 +45,7 @@ function CheckinReportPage() {
       ...baseData[0],
       id: `INV-${String(i + 1).padStart(3, '0')}`,
       fullName: `Mr. Lee Yang ${i + 1}`,
-      status: i % 2 === 0 ? "Checked In" : "Not Checked In",
+      status: i % 4 === 0 ? "Checked In" : "Not Checked In",
     }));
 
     setReportData(extended);
@@ -147,21 +147,19 @@ function CheckinReportPage() {
 
         <button
           onClick={handleGenerate}
-          className="bg-purple-600 text-white px-6 py-2 rounded hover:bg-purple-700"
+          className="bg-purple-600 text-white  px-8 py-2 rounded hover:bg-purple-700"
         >
           Generate
         </button>
 
         {/* Event Info */}
-        <div className='flex flex-col md:flex-row border mt-4 px-4  rounded bg-gray-50 overflow-x-scroll md:overflow-x-hidden items-center'>
-          <div className='p-4 mt-8 flex-shrink-0 mx-auto md:mx-0'>
+        <div className='flex flex-col md:flex-row border px-12 mt-4 py-6  rounded bg-gray-50 overflow-x-scroll md:overflow-x-hidden '>
+          <div className="text-sm  text-gray-700 flex-1 min-w-0">
             <img
               src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
               alt="Logo"
               className="md:w-30 md:h-30 rounded w-28 h-28"
             />
-          </div>
-          <div className="text-sm p-4 text-gray-700 flex-1 min-w-0">
             <div className="font-bold text-base mb-2 mt-8 flex items-center gap-2">
               <span className='text-xl'>{selectedEvent.name}</span>
             </div>

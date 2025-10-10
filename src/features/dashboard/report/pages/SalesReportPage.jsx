@@ -1,10 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { FaUser } from 'react-icons/fa';
-import CheckinPieChart from './components/ReportPieChart';
-import InvitationTypesBarChart from './components/ReportBarGraph';
-import { PieChart } from 'recharts';
 import ReportPieChart from './components/ReportPieChart';
-import ReportBarGraph from './components/ReportBarGraph';
+import ReportComposedChart from './components/ReportComposedChart';
 
 function SalesReportPage() {
   const ITEMS_PER_PAGE = 25;
@@ -75,7 +72,7 @@ function SalesReportPage() {
     })
     const result = []
     for (const key in data) {
-      result.push({ type: key, count: data[key] })
+      result.push({ type: key, count: data[key], enroll: Math.floor(Math.random() * 10) })
     }
     return result
   }, [reportData])
@@ -194,7 +191,8 @@ function SalesReportPage() {
           {/* Charts */}
           <div className="col-span-2 flex flex-col md:flex-row gap-2 overflow-x-auto md:overflow-x-visible items-center">
             <div className="w-full">
-              <ReportBarGraph title="Ticket Types Status" data={barData()} />
+              {/* <ReportBarGraph title="Ticket Types Status" data={barData()} /> */}
+              <ReportComposedChart title="Ticket Types Status" data={barData()} barKey='count' lineKey='enroll' barName='Ticket-Type' lineName='Enrolled'/>
             </div>
             <div className="w-full">
               <ReportPieChart title="Payment Status" data={paidStatus} />
