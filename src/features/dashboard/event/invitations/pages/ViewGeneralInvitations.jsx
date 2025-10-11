@@ -1,16 +1,19 @@
-import { PiGreaterThan } from "react-icons/pi";
 import { IoSearch } from "react-icons/io5";
 import { invitation } from "../components/InvitationsDetail";
 import useGeneralInvitation from "../../../../../hooks/Use-generalInvitation-list"
 import GeneralInvitationCard from "../components/GeneralInvitationCard";
+import GeneralInvitation from "../components/GeneralInvitation";
+import { useState } from "react";
+import VipInvitation from "../components/VipInvitation";
+import GuestInvitation from "../components/GuestInvitation";
 
 export default function ViewGeneralInvitations()
 {
-    const GeneralInvitation = useGeneralInvitation();
+    const [activeTab, setActiveTab] = useState("generalinvitation");
     return(
         <div className="">
             <div className="flex items-center justify-between pt-10 px-20  gap-2 ">
-                <h1 className="text-xl flex items-center gap-2">View Invitations <PiGreaterThan /> General Invitation</h1>
+                <h1 className="text-xl flex items-center gap-2">View Invitations</h1>
             </div>
                 <hr className=" mx-4 md:mx-20 my-5 border-gray-400 border-1 " />
 
@@ -41,15 +44,35 @@ export default function ViewGeneralInvitations()
                     </div>
 
                 </div>
-                <hr className="border-1 border-textgray mt-1" />
 
+                <div className="w-fit bg-white flex flex-wrap sm:flex-col md:flex-col lg:flex-row items-stretch mt-6  rounded-tl-xl rounded-tr-xl border-l border-t border-r border-gray-800 border-solid overflow-x-auto md:overflow-visible scrollbar-hide">
+                    {
+                        [
+                            {id: "generalinvitation", label: "General Invitation"},
+                            {id: "vipinvitation", label: "VIP Invitation"},
+                            {id: "guestinvitation", label: "Guest Invitation"},
+                        ].map((tab) => (
+                            <button 
+                                key={tab.id}
+                                className={`px-5 py-2 font-semibold rounded-tl-xl border-r rounded-t-xl ${
+                                    activeTab === tab.id 
+                                    ? "bg-sidebar-hover text-white"
+                                    : "text-gray-700"   
+                                }`}
+                                onClick={() => setActiveTab(tab.id)}
+                            >
+                                {tab.label}
+                            </button>
+                        ))
+                    }
+                </div>
+        
+                <hr className="border-1 border-textgray" />
 
-                <div className="grid lg:grid-cols-3  grid-cols-1 mt-6 gap-6">
-                    {GeneralInvitation.map((general,index) => (
-                        <GeneralInvitationCard
-                            key={index} {...general}              
-                        />
-                    ))}
+                <div>
+                    {activeTab === "generalinvitation" && <GeneralInvitation/>}  
+                    {activeTab === "vipinvitation" && <VipInvitation/>}  
+                    {activeTab === "guestinvitation" && <GuestInvitation/>}  
                 </div>
 
             </div>
