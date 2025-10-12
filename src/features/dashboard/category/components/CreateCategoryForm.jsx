@@ -70,7 +70,7 @@ function CreateCategoryForm() {
       Swal.fire('Please fill all the fields!')
       return
     }
-    await addCategory(formData, false)
+    await addCategory(formData)
     Swal.fire('Form submitted successfully!')
     setFormData({ category: '', tag: '', description: '' })
   }
