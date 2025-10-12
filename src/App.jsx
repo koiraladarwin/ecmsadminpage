@@ -91,7 +91,7 @@ function AppRoutes() {
           <Route path="events/ticket" element={<Ticket />} />
           <Route path="events/createticket" element={<CreateTicket />} />
           <Route path="events/viewticket" element={<ShowAllTicket />} />
-          <Route path="events/ticketgeneralinvitation" element={<TicketGeneralInvitations />} />
+          <Route path="events/ticketgeneraladmission" element={<TicketGeneralInvitations />} />
           <Route path="*" element={<Navigate to="/" replace />} />
 
           <Route path="/pricingplan" element={<Upgrade />} />
