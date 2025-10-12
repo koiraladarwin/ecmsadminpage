@@ -26,8 +26,8 @@ function CreateCategoryForm() {
   }
 
   const handleSubmit = () => {
-    const { category, tag, description } = formData
-    if (!category || !tag || !description) {
+    const { category, tag } = formData
+    if (!category || !tag) {
       Swal.fire('Please fill all the fields!')
       return
     }
@@ -37,8 +37,8 @@ function CreateCategoryForm() {
   }
 
   const handleSave = () => {
-    const { category, tag, description } = formData
-    if (!category || !tag || !description) {
+    const { category, tag } = formData
+    if (!category || !tag) {
       Swal.fire('Please fill all the fields!')
       return
     }
