@@ -36,7 +36,6 @@ function CreateCategoryForm() {
     onSuccess: async (res) => {
       Swal.fire(`${formData.category} created successfully!`)
       setFormData({ category: '', tag: '', description: '' })
-      navigate('/event/category/allcategories')
     },
     onError: (err) => {
       console.error(err)
@@ -65,13 +64,13 @@ function CreateCategoryForm() {
     setFormData({ ...formData, [name]: value })
   }
 
-  const handleSubmit = async() => {
+  const handleSubmit = async () => {
     const { category, tag } = formData
     if (!category || !tag.trim()) {
       Swal.fire('Please fill all the fields!')
       return
     }
-    await addCategory(formData)
+    await addCategory(formData, false)
     Swal.fire('Form submitted successfully!')
     setFormData({ category: '', tag: '', description: '' })
   }
@@ -83,6 +82,8 @@ function CreateCategoryForm() {
       return
     }
     await addCategory(formData)
+    navigate('/event/category/allcategories')
+
   }
 
   return (
@@ -106,6 +107,7 @@ function CreateCategoryForm() {
             onSelect={(value) => handleSelect('category', value)}
             height={true}
             h={15}
+            value={formData.category}
           />
         </div>
 
