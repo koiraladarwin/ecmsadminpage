@@ -65,13 +65,13 @@ function CreateCategoryForm() {
     setFormData({ ...formData, [name]: value })
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     const { category, tag } = formData
     if (!category || !tag.trim()) {
       Swal.fire('Please fill all the fields!')
       return
     }
-    console.log('Form Data:', formData)
+    await addCategory(formData)
     Swal.fire('Form submitted successfully!')
     setFormData({ category: '', tag: '', description: '' })
   }
