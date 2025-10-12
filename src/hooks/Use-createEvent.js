@@ -1,21 +1,19 @@
 import { useMutation } from "@tanstack/react-query";
 import axiosInstance from "../api";
-import {getAuth} from "firebase/auth";
+import { useAuthHeader } from "../features/auth/context/useAuthHeader";
 
 export const useCreateEvent = () => {
-    const auth = getAuth();
+    const headers = useAuthHeader();
 
     return useMutation({mutationFn: async(eventData) => {
-        const user = auth.currentUser;
-        if(!user) throw new Error("User not authenticated");
 
-        const token = await user.getIdToken();
+        if(!headers.Authorization) throw new Error("User not authenticated");
 
-        axiosInstance.post("/event", eventData, {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
+        const response =  await axiosInstance.post("/event", eventData,{
+            headers,
         });
+
+        return response.data;
     }
     });
 };
