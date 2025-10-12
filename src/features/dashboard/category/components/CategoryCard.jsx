@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom';
 import TitleCard from './TitleCard'
 import { OrbitProgress } from 'react-loading-indicators'
 
 function CategoryCard({ isLoading, data, categoryTitle }) {
+  const hasNoData = !isLoading && data?.length === 0;
 
   return (
     <>
@@ -23,9 +25,18 @@ function CategoryCard({ isLoading, data, categoryTitle }) {
               />
             </div>
           }
-          {data?.map((item, index) => (
+          {hasNoData ? <div className="flex flex-col justify-center items-center h-full text-gray-500 gap-2 mt-6">
+            <p>No Data Found for this Category</p>
+            <Link
+              to="/event/category/createcategory"
+              className="text-purple-600 hover:text-purple-800 font-medium underline"
+            >
+              + Create Category
+            </Link>
+          </div> : <>{data?.map((item, index) => (
             <div key={index} className="rounded py-1 pl-10  ">{item.tag}</div>
-          ))}
+          ))} </>}
+
         </div>
       </div>
     </>
