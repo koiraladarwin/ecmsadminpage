@@ -1,31 +1,15 @@
-import { useEffect, useState } from "react";
+import { api, setToken } from "../axios/Axios";
+import { useQuery } from "@tanstack/react-query";
+import { useAuth } from "../features/auth/context/AuthContext";
 
 export default function useInvitationCategory() {
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-
-    const fetchEvents = async () => {
-      try {
-        const response = await new Promise((resolve) =>
-          setTimeout(() => {
-            resolve([
-            
-                'General Invitation', 'VIP Invitation', 'Guest Invitation'
-                              
-            ]);
-          }, 1000)
-        );
-
-        setEvents(response);
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      }
-    };
-
-    fetchEvents();
-  }, []);
-
-  return events;
+  const { firebaseToken } = useAuth();
+  return useQuery({
+    queryKey: ["inviteeCategory"],
+    queryFn: async () => {
+      setToken(firebaseToken);
+      const response = await api.get("/inviteecategories");
+      return response.data;
+    },
+  });
 }
-
