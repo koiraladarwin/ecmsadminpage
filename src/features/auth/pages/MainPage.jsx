@@ -66,7 +66,7 @@ export default function MainPage() {
                     <div className="flex flex-col items-center">
                         <img src={google} alt="" className="w-24 h-24 -mt-4" onClick={handleGoogleSignIn} />
 
-                        <button className="bg-buttonpurple px-16 p-2 -mt-4 text-white rounded-full font-semibold " >Continue</button>
+                        <button className="bg-buttonpurple px-16 p-2 -mt-4 text-white rounded-full font-semibold " type="button" onClick={handleGoogleSignIn} >Continue</button>
                         
                         <p className="text-center text-xs mt-4 text-gray-500">By clicking Continue or the Google icon, you<br />
                             agree to ECMS's <span className="text-buttonred"> Terms of Service </span> and <span className="text-buttonred"> Privacy Policy</span>.</p>
