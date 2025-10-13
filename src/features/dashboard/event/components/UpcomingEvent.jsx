@@ -2,9 +2,11 @@ import Header from "./Header.jsx";
 import AllEventCard from "./AllEventCard.jsx";
 import useEvents from "../../../../hooks/Use-event-list.js";
 import { useEffect } from "react";
+import UseEventsDetails from "../../../../hooks/Use-eventDetails-list.js";
 export default function UpcomingEvent(){
 
-    const {data: events, isLoading, isError} = useEvents();
+    // const {data: events, isLoading, isError} = useEvents();
+    const {data: events, isLoading, isError} = UseEventsDetails();
     
     if(isLoading) return(
         <div className="flex justfy-center items-center min-h-screen">

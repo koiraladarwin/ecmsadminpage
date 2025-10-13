@@ -1,11 +1,11 @@
 import AllEventCard from "./AllEventCard.jsx";
 import Header from "./Header.jsx";
 import useEvents from "../../../../hooks/Use-event-list.js";
+import UseEventsDetails from "../../../../hooks/Use-eventDetails-list.js";
 export default function MyallEvent()
 {
-    // const events = useEvents();
-
-    const {data: events, isLoading, isError} = useEvents();
+    // const {data: events, isLoading, isError} = useEvents();
+    const {data: events, isLoading, isError} = UseEventsDetails();
 
     if(isLoading) return(
         <div className="flex justify-center items-center min-h-screen">
