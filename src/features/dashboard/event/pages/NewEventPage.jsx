@@ -7,7 +7,6 @@ export default function CreateEventPage() {
   const [formData, setFormData] = useState({
     name:"",
     event_organizer: "",
-    venue: "",
     location: "",
     description: "",
     event_category_id: "",
@@ -38,8 +37,8 @@ export default function CreateEventPage() {
     if (!formData.event_organizer.trim())
       newErrors.event_organizer = "Organizer name is required";
 
-    if (!formData.venue.trim()) 
-      newErrors.venue = "Venue is required";
+    if (!formData.location.trim()) 
+      newErrors.location = "Venue is required";
 
     if (!formData.startDate) 
       newErrors.startDate = "Start date is required";
@@ -64,15 +63,12 @@ export default function CreateEventPage() {
 
     const payload = {
       name: formData.name,
-      event_organizer: formData.event_organizer,
-      venue: formData.venue,
-      location: formData.location,
-      description: formData.description,
       event_category_id: formData.event_category_id || null,
-      // startDate: formData.startDate,
-      startTime: `${formData.startDate}T${formData.startTime}:00Z`,
-      // endDate: formData.endDate,
-      endTime: `${formData.endDate}T${formData.endTime}:00Z`,
+      description: formData.description,
+      start_time: `${formData.startDate}T${formData.startTime}:00Z`,
+      end_time: `${formData.endDate}T${formData.endTime}:00Z`,
+      location: formData.location,
+      event_organizer: formData.event_organizer,
     };
 
     mutation.mutate(payload, {
@@ -131,10 +127,10 @@ export default function CreateEventPage() {
                   Event Venue
                 </label>
                 <input 
-                  name="venue"
+                  name="location"
                   type="text" 
                   className='border w-full'
-                  value={formData.venue}
+                  value={formData.location}
                   onChange={handleChange}
                  />
                  {errors.venue && <p className="text-red-500 text-sm">{errors.venue}</p>}
