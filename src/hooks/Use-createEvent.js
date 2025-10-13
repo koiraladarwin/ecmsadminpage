@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import api from "../axios/Axios";
+import {api} from "../axios/Axios";
 import { useAuthHeader } from "../features/auth/context/useAuthHeader";
 
 export const useCreateEvent = () => {
