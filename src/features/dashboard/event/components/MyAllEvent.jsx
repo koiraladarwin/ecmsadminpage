@@ -8,7 +8,7 @@ export default function MyallEvent()
     const {data: events, isLoading, isError} = useEvents();
 
     if(isLoading) return(
-        <div className="flex justfy-center items-center min-h-screen">
+        <div className="flex justify-center items-center min-h-screen">
             <OrbitProgress
                 variant="split-disc"
                 dense
