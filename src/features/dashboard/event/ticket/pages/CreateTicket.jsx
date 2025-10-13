@@ -66,15 +66,6 @@ export default function CreateTicket() {
 
               </div>
               </div>
-
-              <div>
-
-              
-                    <label class="label">Availability Qty</label>
-
-                    <input type="text" className="border w-full" />
-                </div>
-            
             </div>
 
             <div className='mt-4 grid grid-cols-1 lg:grid-cols-3 gap-10'>
@@ -114,9 +105,6 @@ export default function CreateTicket() {
                     
                     
                   </div>
-                <div className="mr-12">
-                    <button className="border rounded-full bg-sidebar-bg text-white font-bold px-6 py-2">Upload QR</button>
-                </div>
             </div>
 
             
