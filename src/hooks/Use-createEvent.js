@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import axiosInstance from "../api";
+import api from "../axios/Axios";
 import { useAuthHeader } from "../features/auth/context/useAuthHeader";
 
 export const useCreateEvent = () => {
@@ -9,7 +9,7 @@ export const useCreateEvent = () => {
 
         if(!headers.Authorization) throw new Error("User not authenticated");
 
-        const response =  await axiosInstance.post("/event", eventData,{
+        const response =  await api.post("/event", eventData,{
             headers,
         });
 
