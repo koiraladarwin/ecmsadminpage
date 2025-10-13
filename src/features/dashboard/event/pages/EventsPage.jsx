@@ -5,10 +5,12 @@ import useEvents from "../../../../hooks/Use-event-list.js";
 import AllEventCard from "../components/AllEventCard.jsx"
 import { useState } from "react";
 import { OrbitProgress } from "react-loading-indicators";
+import UseEventsDetails from "../../../../hooks/Use-eventDetails-list.js";
 export default function EventsPage() {
 
   const [activeTab, setActiveTab] = useState(null);
-  const {data: events, isLoading, isError} = useEvents();
+  // const {data: events, isLoading, isError} = useEvents();
+  const {data: events, isLoading, isError} = UseEventsDetails();
 
   if(isLoading) return(
         <div className="flex justify-center items-center min-h-screen">
