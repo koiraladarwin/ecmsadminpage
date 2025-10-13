@@ -1,31 +1,15 @@
-import { useEffect, useState } from "react";
+import { api, setToken } from "../axios/Axios";
+import { useQuery } from "@tanstack/react-query";
+import { useAuth } from "../features/auth/context/AuthContext";
 
 export default function useTicketCategory() {
-  const [events, setEvents] = useState([]);
-
-  useEffect(() => {
-
-    const fetchEvents = async () => {
-      try {
-        const response = await new Promise((resolve) =>
-          setTimeout(() => {
-            resolve([
-            
-                'General Admission', 'Premium Ticket', 'Platinum Ticket', 'Diamond Ticket'
-                              
-            ]);
-          }, 1000)
-        );
-
-        setEvents(response);
-      } catch (error) {
-        console.error("Error fetching events:", error);
-      }
-    };
-
-    fetchEvents();
-  }, []);
-
-  return events;
+  const { firebaseToken } = useAuth();
+  return useQuery({
+    queryKey: ["ticketCategory"],
+    queryFn: async () => {
+      setToken(firebaseToken);
+      const response = await api.get("/ticketcategories");
+      return response.data;
+    },
+  });
 }
-

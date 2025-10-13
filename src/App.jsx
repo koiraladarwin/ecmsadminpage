@@ -43,11 +43,12 @@ import TicketGeneralInvitations from "./features/dashboard/event/ticket/pages/Ti
 import { OrbitProgress } from "react-loading-indicators";
 import Upgrade from "./features/dashboard/Upgrade/Pages/Upgrade.jsx";
 import ProfilePage from "./features/dashboard/Profile/Pages/ProfilePage.jsx";
-
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 
 function AppRoutes() {
   const { user, loading } = useAuth()
+
   if (loading) return <div className="w-full h-screen flex items-center justify-center"><OrbitProgress color="#262042" size="medium" /></div>
   return (
     <Routes>
@@ -111,10 +112,13 @@ function AppRoutes() {
 }
 
 function App() {
+  const queryClient = new QueryClient()
   return (
-    <AuthContextProvider>
-      <AppRoutes />
-    </AuthContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthContextProvider>
+        <AppRoutes />
+      </AuthContextProvider>
+    </QueryClientProvider>
   )
 }
 
