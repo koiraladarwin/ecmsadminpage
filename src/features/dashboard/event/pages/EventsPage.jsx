@@ -6,10 +6,17 @@ import AllEventCard from "../components/AllEventCard.jsx"
 import { useState } from "react";
 
 export default function EventsPage() {
-  const events = useEvents();
-  const [activeTab, setActiveTab] = useState(null);
 
-  const filteredEvents = events.filter((event) => {
+  const [activeTab, setActiveTab] = useState(null);
+  const {data: events, isLoading, isError} = useEvents();
+
+  if(isLoading) return <p>Loading events</p>
+  if(isError) return <p>Failed to load events</p>
+
+  
+  const eventList = Array.isArray(events) ? events : [];
+
+  const filteredEvents = eventList.filter((event) => {
     if (activeTab === "ALL") return true;
     if (activeTab === "PAST") return event.status?.toLowerCase() === "closed";
     if (activeTab === "ONGOING") return event.status?.toLowerCase() === "online";
