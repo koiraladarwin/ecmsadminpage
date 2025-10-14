@@ -17,7 +17,7 @@ export default function TicketForm() {
   const { data: allEvents, isLoading: allEventsLoading } = useAllEvents()
   const eventOptions = allEvents?.map(event => ({ label: event.name, value: event.id }))
   const ticketOptions = ticketCategory?.map(ticket => ({ label: ticket.tag, value: ticket.id }))
-  const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm()
+  const { register, handleSubmit, formState: { errors }, watch } = useForm()
 
 
   const mutation = useMutation({
@@ -80,7 +80,6 @@ export default function TicketForm() {
       start_time: startTime,
       end_time: endTime
     };
-    console.log('payload', payload)
     await createTicket(payload)
     setFormData({
       event: "",
