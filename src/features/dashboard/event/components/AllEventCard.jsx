@@ -1,17 +1,18 @@
 import loginimage from "../../../../assets/login.png"
 export default function AllEventCard({
-    title, 
-    startdate, 
-    starttime,
-    enddate,
-    endtime, 
-    venue, 
-    organizer, 
-    session = [],
-    invitation, 
-    ticket, 
-    checkin, 
-    status
+    name, 
+    start_date, 
+    start_time,
+    end_date,
+    end_time, 
+    location, 
+    event_organizer, 
+    session_names = [],
+    invitation_count, 
+    ticket_count, 
+    checked_in_count, 
+    status,
+    image
 })
 {
     const statusColor = status === "Online" ? "bg-green-500" : status === "Soon" ? "bg-blue-500" :"bg-red-500";
@@ -31,23 +32,23 @@ export default function AllEventCard({
 
                     <div className="flex flex-col lg:flex-row gap-8">
                     <div className="w-20 h-20">
-                        <img src={loginimage} className=" object-contain" alt="" />
+                        <img src={image || loginimage} className=" object-contain" alt="" />
                     </div>
 
                             <div className="space-y-1 flex flex-col  text-left">
-                                <h2 className="text-2xl font-bold">{title}</h2>
+                                <h2 className="text-2xl font-bold">{name}</h2>
                                 <div className="flex space-x-2 text-gray-600">
-                                    <p>{startdate}</p>
-                                    <p>{starttime}</p>
+                                    <p>{start_date}</p>
+                                    <p>{start_time}</p>
                                     <p>-</p>
-                                    <p>{enddate}</p>
-                                    <p>{endtime}</p>
+                                    <p>{end_date}</p>
+                                    <p>{end_time}</p>
                                 </div>
                                 <p className="text-sm">
-                                    <span className="font-semibold">Venue: </span>{venue}
+                                    <span className="font-semibold">Venue: </span>{location}
                                 </p>
                                 <p className="text-sm">
-                                    <span className="font-semibold">Event Organizer: </span>{organizer}
+                                    <span className="font-semibold">Event Organizer: </span>{event_organizer}
                                 </p>
                             </div>
 
@@ -78,7 +79,7 @@ export default function AllEventCard({
                     <div className="border border-textgray pl-5 px-8 pb-0 rounded-lg shadow-xl text-left">
                         <h1 className="font-bold">Sessions</h1>
                         <ul className="text-sm text-gray-500 mt-2">
-                            {session.map((s,index) => (
+                            {session_names.map((s,index) => (
                                 <li key={index}>{s}</li>
                             ))}
                         </ul>
@@ -86,15 +87,15 @@ export default function AllEventCard({
 
                     <div className="border border-textgray pl-5 px-8 pb-0 rounded-lg shadow-xl text-left">
                         <h1>Invitations</h1>
-                        <p className="mt-2 text-sm text-gray-500 text-center">{invitation}</p>
+                        <p className="mt-2 text-sm text-gray-500 text-center">{invitation_count}</p>
                     </div>
                     <div className="border border-textgray pl-5 px-8 pb-0 rounded-lg shadow-xl text-left">
                         <h1>Check-ins</h1>
-                        <p className="mt-2 text-sm text-gray-500 text-center">{checkin}</p>
+                        <p className="mt-2 text-sm text-gray-500 text-center">{checked_in_count}</p>
                     </div>
                     <div className="border border-textgray pl-5 px-8 pb-0 rounded-lg shadow-xl text-left">
                         <h1>Tickets</h1>
-                        <p className="mt-2 text-sm text-gray-500 text-center">{ticket}</p>
+                        <p className="mt-2 text-sm text-gray-500 text-center">{ticket_count}</p>
                     </div>
 
                 </div>
