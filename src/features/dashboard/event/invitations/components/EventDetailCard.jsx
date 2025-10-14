@@ -32,7 +32,15 @@ export function formatDateTimeRange(startISO, endISO) {
 }
 
 function EventDetailCard(props) {
-  const { img, name, start_time, end_time, location, event_organizer } = props;
+  const { 
+    img, 
+    name, 
+    start_date, 
+    start_time, 
+    end_date, 
+    end_time, 
+    location, 
+    event_organizer } = props;
 
 
   return (
