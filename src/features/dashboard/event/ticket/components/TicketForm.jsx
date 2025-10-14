@@ -15,6 +15,7 @@ export default function TicketForm() {
   const { data: ticketCategory } = useTicketCategory()
   const { data: allEvents } = useAllEvents()
   const eventOptions = allEvents?.map(event => ({ label: event.name, value: event.id }))
+  const ticketOptions = ticketCategory?.map(ticket => ({ label: ticket.tag, value: ticket.id }))
 
 
   const mutation = useMutation({
@@ -23,7 +24,7 @@ export default function TicketForm() {
       return api.post('/ticket', data)
     },
     onSuccess: async (res) => {
-      Swal.fire(`${formData.ticketType} created successfully!`)
+      Swal.fire(`${formData.ticketType.label} ticket created successfully!`)
     },
     onError: (err) => {
       console.error(err)
@@ -41,12 +42,14 @@ export default function TicketForm() {
     event: "",
     ticketType: "",
     price: "",
+    name: "",
     discount: "",
     validityStartDate: "",
     validityStartTime: "",
     validityEndDate: "",
     validityEndTime: "",
   });
+  console.log(formData)
 
   const handleSelect = (key, value) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
@@ -70,23 +73,18 @@ export default function TicketForm() {
       return;
     }
 
-    const selectedCategory = ticketCategory?.find(c => c.tag.toLowerCase() === formData.ticketType.toLowerCase());
-    if (!selectedCategory) {
-      Swal.fire("No ticket category available!");
-      return;
-    }
-
     const startTime = new Date(`${formData.validityStartDate}T${formData.validityStartTime}`).toISOString();
     const endTime = new Date(`${formData.validityEndDate}T${formData.validityEndTime}`).toISOString();
 
     const payload = {
-      ticket_category_id: selectedCategory.id,
+      ticket_category_id: formData.ticketType.value,
       event_id: formData.event.value,
       price: priceValue,
-      name: formData.ticketType,
+      name: formData.name,
       start_time: startTime,
       end_time: endTime
     };
+    console.log('payload', payload)
     await createTicket(payload)
     setFormData({
       event: "",
@@ -97,6 +95,7 @@ export default function TicketForm() {
       validityStartTime: "",
       validityEndDate: "",
       validityEndTime: "",
+      name: "",
     })
     navigate("/events/viewticket");
   };
@@ -105,29 +104,41 @@ export default function TicketForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="border-2 border-buttonpurple rounded-lg mx-2 sm:mx-4 lg:mx-15 my-5 p-4 sm:p-6 lg:p-10 bg-white shadow-lg space-y-6"
+      className="border-2 border-buttonpurple rounded-lg mx-2 sm:mx-4 lg:mx-15 my-5 p-4 sm:p-6 lg:p-10 bg-white shadow-lg space-y-6 "
     >
-      <div className="flex flex-col">
-        <CustomDropdown
-          label="Choose an Event"
-          options={eventOptions}
-          value={formData.event}
-          onSelect={(value) => handleSelect("event", value)}
-          className="w-full"
-          isLoading={isLoading}
-        />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="flex flex-col">
+          <CustomDropdown
+            label="Choose an Event"
+            options={eventOptions}
+            value={formData.event}
+            onSelect={(value) => handleSelect("event", value)}
+            className="w-full"
+            isLoading={isLoading}
+          />
+        </div>
+        <div className="flex flex-col ">
+          <CustomDropdown
+            label="Create Ticket Type"
+            options={ticketOptions}
+            value={formData.ticketType}
+            onSelect={(value) => handleSelect("ticketType", value)}
+            className="w-full"
+            isLoading={isLoading}
+          />
+        </div>
       </div>
 
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="flex flex-col">
-          <label className="font-semibold mb-2">Create Ticket Type</label>
+          <label className="font-semibold mb-2">Ticket Name</label>
           <input
             type="text"
-            name="ticketType"
-            value={formData.ticketType}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
-            className="border w-full px-3 py-2  focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="border w-full px-3 py-2 h-10 focus:outline-none focus:ring-2 focus:ring-purple-500"
             style={{ border: 'solid 1px black' }}
           />
         </div>
@@ -139,7 +150,7 @@ export default function TicketForm() {
             name="price"
             value={formData.price}
             onChange={handleChange}
-            className="border w-full px-3 py-2  focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="border w-full px-3 py-2 h-10 focus:outline-none focus:ring-2 focus:ring-purple-500"
             style={{ border: 'solid 1px black' }}
           />
         </div>
@@ -151,7 +162,7 @@ export default function TicketForm() {
             name="discount"
             value={formData.discount}
             onChange={handleChange}
-            className="border w-full px-3 py-2  focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="border w-full px-3 py-2 h-10  focus:outline-none focus:ring-2 focus:ring-purple-500"
             style={{ border: 'solid 1px black' }}
           />
         </div>
@@ -167,7 +178,7 @@ export default function TicketForm() {
               name="validityStartDate"
               value={formData.validityStartDate}
               onChange={handleChange}
-              className="border flex-1 px-3 py-2  focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="border flex-1 px-3 py-2 h-10  focus:outline-none focus:ring-2 focus:ring-purple-500"
               style={{ border: 'solid 1px black' }}
             />
             <span className="self-center text-center">at</span>
@@ -176,7 +187,7 @@ export default function TicketForm() {
               name="validityStartTime"
               value={formData.validityStartTime}
               onChange={handleChange}
-              className="border flex-1 px-3 py-2  focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="border flex-1 px-3 py-2 h-10 focus:outline-none focus:ring-2 focus:ring-purple-500"
               style={{ border: 'solid 1px black' }}
             />
           </div>
@@ -193,7 +204,7 @@ export default function TicketForm() {
               name="validityEndDate"
               value={formData.validityEndDate}
               onChange={handleChange}
-              className="border flex-1 px-3 py-2  focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="border flex-1 px-3 py-2 h-10 focus:outline-none focus:ring-2 focus:ring-purple-500"
               style={{ border: 'solid 1px black' }}
             />
             <span className="self-center text-center">at</span>
@@ -202,7 +213,7 @@ export default function TicketForm() {
               name="validityEndTime"
               value={formData.validityEndTime}
               onChange={handleChange}
-              className="border flex-1 px-3 py-2  focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="border flex-1 px-3 py-2 h-10  focus:outline-none focus:ring-2 focus:ring-purple-500"
               style={{ border: 'solid 1px black' }}
             />
           </div>

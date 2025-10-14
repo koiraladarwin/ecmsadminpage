@@ -27,7 +27,7 @@ function CustomDropdown({ label, options, onSelect, height = false, h, value,isL
       </div>
 
       {open && (
-        <ul className="absolute right-[-60px] top-[50px] rounded-lg z-2 w-fit shadow-lg b bg-gray-50 px-5  py-3 mt-1 overflow-y-auto">
+        <ul className="absolute right-[-60px] top-[50px] rounded-lg z-2 w-fit shadow-lg b bg-gray-50 px-5  py-3 mt-1 max-h-55 overflow-y-auto">
           {
             isLoading ? <span className='py-1 px-2'>Loading...</span>
             :

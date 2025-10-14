@@ -1,5 +1,39 @@
+export function formatDateTimeRange(startISO, endISO) {
+  if (!startISO || !endISO) return "";
+
+  const startDate = new Date(startISO);
+  const endDate = new Date(endISO);
+
+  // Format dates
+  const startDateStr = startDate.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+  const endDateStr = endDate.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  // Format times
+  const startTimeStr = startDate.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+  const endTimeStr = endDate.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+
+  return `${startDateStr} ${startTimeStr} to ${endDateStr} ${endTimeStr}`;
+}
+
+
 function EventDetailCard(props) {
-  const { img, eventname, startdate, starttime, enddate, endtime, venue, organizer } = props;
+  const { img, eventname, starttime, endtime, venue, organizer } = props;
 
   return (
     <div className="flex flex-col lg:flex-row md:bg-slate-50 p-4 rounded-lg items-start gap-12 md:shadow-lg">
@@ -12,7 +46,7 @@ function EventDetailCard(props) {
         />
       </div>
 
-      {/* Event Details */}
+ 
       <div className="text-sm flex flex-col justify-start gap-3 w-full">
         {/* Exact Name */}
         <div className="flex flex-col lg:flex-row  lg:items-start lg:gap-10">
@@ -24,7 +58,7 @@ function EventDetailCard(props) {
         <div className="flex flex-col lg:flex-row lg:items-start lg:gap-9">
           <span className="font-bold md:block">Date & Time:</span>
           <span className="text-gray-700">
-            {startdate} {starttime} - {enddate} {endtime}
+            {formatDateTimeRange(starttime, endtime)}
           </span>
         </div>
 

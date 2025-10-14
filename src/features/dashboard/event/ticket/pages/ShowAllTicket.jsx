@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 import useTicket from "../../../../../hooks/Use-ticket-list";
 import TicketCard from "../components/TicketCard";
+import { OrbitProgress } from "react-loading-indicators";
 
 export default function ShowAllTicket() {
-    const ticket = useTicket();
-
+    const { data: eventTickets, isLoading: eventTicketsLoading } = useTicket();
 
     return (
         <div className="min-h-screen">
@@ -26,13 +26,20 @@ export default function ShowAllTicket() {
             <hr className="ml-20 mr-20 m-10 border-gray-400 border-1" />
 
             <div className='box-border m-20 mt-5 px-5 pt-5 pb-30 border-buttonpurple rounded-lg border-2 bg-white text-center overflow-x-scroll'>
-                <>
-                    {ticket.map((ticket, index) => (
-                        <TicketCard
-                            key={index} {...ticket}
-                        />
-                    ))}
-                </>
+                {eventTicketsLoading ?
+                    <>
+                        <div className="flex justify-center items-center w-full">
+                            <OrbitProgress color="#800080" size="medium" text="" textColor="" />
+                        </div>
+                    </> :
+                    <>
+                        {eventTickets?.map((ticket, index) => (
+                            <TicketCard
+                                key={index} {...ticket}
+                            />
+                        ))}
+                    </>
+                }
             </div>
 
         </div>

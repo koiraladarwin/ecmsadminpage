@@ -49,7 +49,7 @@ function TicketsCard({ title, count, link, price }) {
           <div className="text-xl md:text-4xl">{count}</div>
           <div className="flex flex-col items-center">
             <MdRemoveRedEye size={26} />
-            <Link to="/events/ticketgeneraladmission">
+            <Link to={link}>
               <u className="cursor-pointer">view</u>
             </Link>
           </div>
