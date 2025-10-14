@@ -3,7 +3,7 @@ export default function CreateTicket() {
   return (
     <div className='flex min-h-screen bg-bglightpurple'>
 
-      <div class='w-full'>
+      <div className='w-full'>
         <div className='pt-15 pr-15 pl-15 flex justify-between text-xl '>
           <h1>Add a new Ticket</h1>
 

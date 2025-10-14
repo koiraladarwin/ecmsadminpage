@@ -8,14 +8,16 @@ import { useMutation } from "@tanstack/react-query";
 import useTicketCategory from "../../../../../hooks/Use-ticketCategory-list";
 import useAllEvents from "../../../../../hooks/Use-events";
 import { api, setToken } from "../../../../../axios/Axios";
+import { useForm } from "react-hook-form";
 
 export default function TicketForm() {
   const navigate = useNavigate();
   const { firebaseToken } = useAuth();
-  const { data: ticketCategory } = useTicketCategory()
-  const { data: allEvents } = useAllEvents()
+  const { data: ticketCategory, isLoading: ticketCategoryLoading } = useTicketCategory()
+  const { data: allEvents, isLoading: allEventsLoading } = useAllEvents()
   const eventOptions = allEvents?.map(event => ({ label: event.name, value: event.id }))
   const ticketOptions = ticketCategory?.map(ticket => ({ label: ticket.tag, value: ticket.id }))
+  const { register, handleSubmit, formState: { errors }, setValue, watch } = useForm()
 
 
   const mutation = useMutation({
@@ -38,6 +40,7 @@ export default function TicketForm() {
   const { mutateAsync: createTicket, isLoading } = mutation;
 
 
+
   const [formData, setFormData] = useState({
     event: "",
     ticketType: "",
@@ -49,7 +52,7 @@ export default function TicketForm() {
     validityEndDate: "",
     validityEndTime: "",
   });
-  console.log(formData)
+
 
   const handleSelect = (key, value) => {
     setFormData((prev) => ({ ...prev, [key]: value }));
@@ -60,17 +63,10 @@ export default function TicketForm() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!formData.validityStartDate || !formData.validityEndDate || !formData.validityStartTime || !formData.validityEndTime) {
-      Swal.fire('Fill the Compulsory Fields!!!')
+  const onSubmit = async (e) => {
+    if (!formData.validityStartDate || !formData.validityEndDate || !formData.validityStartTime || !formData.validityEndTime || !formData.event || !formData.ticketType || !formData.price.trim() || !formData.name.trim()) {
+      Swal.fire('Please fill the required Fields!!!')
       return
-    }
-
-    const priceValue = parseFloat(formData.price);
-    if (isNaN(priceValue) || priceValue < 0) {
-      Swal.fire("Price must be a positive number!");
-      return;
     }
 
     const startTime = new Date(`${formData.validityStartDate}T${formData.validityStartTime}`).toISOString();
@@ -79,7 +75,7 @@ export default function TicketForm() {
     const payload = {
       ticket_category_id: formData.ticketType.value,
       event_id: formData.event.value,
-      price: priceValue,
+      price: parseFloat(formData.price),
       name: formData.name,
       start_time: startTime,
       end_time: endTime
@@ -103,7 +99,7 @@ export default function TicketForm() {
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       className="border-2 border-buttonpurple rounded-lg mx-2 sm:mx-4 lg:mx-15 my-5 p-4 sm:p-6 lg:p-10 bg-white shadow-lg space-y-6 "
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -114,7 +110,7 @@ export default function TicketForm() {
             value={formData.event}
             onSelect={(value) => handleSelect("event", value)}
             className="w-full"
-            isLoading={isLoading}
+            isLoading={allEventsLoading}
           />
         </div>
         <div className="flex flex-col ">
@@ -124,7 +120,7 @@ export default function TicketForm() {
             value={formData.ticketType}
             onSelect={(value) => handleSelect("ticketType", value)}
             className="w-full"
-            isLoading={isLoading}
+            isLoading={ticketCategoryLoading}
           />
         </div>
       </div>
@@ -136,35 +132,65 @@ export default function TicketForm() {
           <input
             type="text"
             name="name"
+            {...register("name", {
+              required: "Ticket name is required",
+              pattern: {
+                value: /^[A-Za-z\s]+$/,
+                message: "Ticket name can only contain letters"
+              }
+            })}
             value={formData.name}
             onChange={handleChange}
             className="border w-full px-3 py-2 h-10 focus:outline-none focus:ring-2 focus:ring-purple-500"
             style={{ border: 'solid 1px black' }}
           />
+          {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
         </div>
 
         <div className="flex flex-col">
           <label className="font-semibold mb-2">Ticket Price</label>
           <input
             type="text"
+            {...register("price", {
+              required: "Price is required",
+              validate: (value) =>
+                !isNaN(parseFloat(value)) && parseFloat(value) > 0 ? true : "Price must be a positive number"
+            })}
             name="price"
             value={formData.price}
             onChange={handleChange}
             className="border w-full px-3 py-2 h-10 focus:outline-none focus:ring-2 focus:ring-purple-500"
             style={{ border: 'solid 1px black' }}
           />
+          {errors.price && <p className="text-red-500 text-sm mt-1">{errors.price.message}</p>}
         </div>
 
         <div className="flex flex-col">
           <label className="font-semibold mb-2">Discount (if any)</label>
           <input
             type="text"
+            {...register("discount", {
+              validate: (value) => {
+                if (value === "") return true;
+                const discountValue = parseFloat(value);
+                const priceValue = parseFloat(watch("price"));
+
+                if (isNaN(discountValue) || discountValue < 0) {
+                  return "Discount must be a positive number";
+                }
+                if (!isNaN(priceValue) && discountValue > priceValue) {
+                  return "Discount cannot be greater than the Price";
+                }
+                return true;
+              }
+            })}
             name="discount"
             value={formData.discount}
             onChange={handleChange}
             className="border w-full px-3 py-2 h-10  focus:outline-none focus:ring-2 focus:ring-purple-500"
             style={{ border: 'solid 1px black' }}
           />
+          {errors.discount && <p className="text-red-500 text-sm mt-1">{errors.discount.message}</p>}
         </div>
       </div>
 
@@ -242,9 +268,10 @@ export default function TicketForm() {
       <div className="flex justify-start  mt-6">
         <button
           className="bg-buttonpurple px-6 sm:px-8 py-2 rounded-2xl text-white font-bold hover:bg-purple-700 transition"
-          onClick={handleSubmit}
+          type="submit"
+          disabled={isLoading}
         >
-          Create Ticket
+          {isLoading ? "Creating..." : "Create Ticket"}
         </button>
       </div>
     </form>
