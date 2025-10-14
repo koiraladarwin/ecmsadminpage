@@ -8,7 +8,7 @@ export default function UseEvents()
 
   return useQuery(
     {
-      queryKey: ["eventswithdetails"],
+      queryKey: ["events"],
       queryFn: async() => {
         if(!headers.Authorization) throw new Error("User not authenticated");
 

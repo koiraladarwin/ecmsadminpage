@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useCreateEvent } from "../../../../hooks/Use-createEvent";
+import useEventCategory from "../../../../hooks/Use-eventCategory-list";
 
 export default function CreateEventPage() {
 
@@ -17,6 +18,8 @@ export default function CreateEventPage() {
   });
 
   const [errors, setErrors] = useState({});
+
+  const {data: categories = [], isLoading: categoriesLoading} = useEventCategory();
 
   const mutation = useCreateEvent();
 
@@ -179,6 +182,13 @@ export default function CreateEventPage() {
               >
                 
                 <option value="">Select Category</option>
+                {
+                  categories.map(cat => (
+                    <option key={cat.id} value={cat.id}>
+                      {cat.tag}
+                    </option>
+                  ))
+                }
               </select>
             </div>
             
