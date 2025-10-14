@@ -11,7 +11,7 @@ export default function TicketCard({
     return (
         <>
             {hasTickets && (
-                <div className="flex justify-between flex-col gap-2 lg:flex-col box-border p-2 m-2 border-none rounded-lg md:shadow-2xl px-4 py-6  ">
+                <div className="flex justify-between flex-col gap-2 lg:flex-col box-border p-2 m-2 border-none rounded-xl md:shadow-2xl px-4 py-6  my-10 ">
                     <EventDetailCard
                         img={img}
                         name={event.name}

@@ -33,9 +33,9 @@ export default function ShowAllTicket() {
                         </div>
                     </> :
                     <>
-                        {eventTickets?.map((ticket, index) => (
+                        {eventTickets?.map((ticket) => (
                             <TicketCard
-                                key={index} {...ticket}
+                                key={ticket.event.id} {...ticket}
                             />
                         ))}
                     </>
