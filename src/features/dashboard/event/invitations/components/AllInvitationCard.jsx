@@ -2,14 +2,14 @@ import img from '../../../../../../src/assets/cargoDay.png'
 import EventDetailCard from "./EventDetailCard";
 import InvitationCard from "./InvitationCard";
 export default function AllInvitationCard({
-    eventname,
-    startdate,
-    starttime,
-    enddate,
-    endtime,
-    venue,
+    name,
+    start_date,
+    start_time,
+    end_date,
+    end_time,
+    location,
     generalinvitation,
-    organizer,
+    event_organizer,
     vipinvitation,
     guestinvitation,
 }) {
@@ -19,13 +19,13 @@ export default function AllInvitationCard({
             <div className="flex justify-between flex-col gap-2 lg:flex-col box-border p-2 m-2 border-none rounded-lg md:shadow-2xl px-6 py-4  ">
                 <EventDetailCard
                     img={img}
-                    eventname={eventname}
-                    startdate={startdate}
-                    starttime={starttime}
-                    enddate={enddate}
-                    endtime={endtime}
-                    venue={venue}
-                    organizer={organizer}
+                    name={name}
+                    start_date={start_date}
+                    start_time={start_time}
+                    end_date={end_date}
+                    end_time={end_time}
+                    location={location}
+                    event_organizer={event_organizer}
                 />
                 <div className="flex flex-col md:flex-row gap-4">
                     <InvitationCard

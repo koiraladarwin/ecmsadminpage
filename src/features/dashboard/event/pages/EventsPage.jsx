@@ -10,6 +10,7 @@ import { getEventStatus } from "../components/EventStatus.js";
 export default function EventsPage() {
 
   const [activeTab, setActiveTab] = useState(null);
+
   const {data: events, isLoading, isError} = UseEventsDetails();
 
   if(isLoading) return(
