@@ -10,7 +10,7 @@ function Button({ text, type, navigate }) {
   }
   return (
     <div>
-      <button className={`flex items-center gap-2 px-4 py-1  rounded-full hover:bg-gray-400 transition ${styles[type]}`} onClick={() => navigate?.("/people/staff")}>
+      <button className={`flex items-center gap-2 px-4 py-1  rounded-full hover:bg-gray-400 transition ${styles[type]}`} onClick={() => navigate?.("/people/staff/addstaff")}>
         <FiPlus size={18} />
         {text}
       </button>

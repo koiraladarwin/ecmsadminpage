@@ -56,8 +56,8 @@ function AppRoutes() {
         <Route path="/" element={<Dashboard />}>
           <Route index element={<Home />} />
           <Route path="import-export" element={<ImportExportPage />} />
-          <Route path='people' element={<PeoplePage />} />
-          <Route path="people/staff" element={<StaffAttendeePage />} />
+          <Route path='/people' element={<PeoplePage />} />
+          <Route path="people/staffattendee" element={<StaffAttendeePage />} />
           <Route path="people/enroll" element={<EnrollPage />} />
           <Route path='/people/staff/addattendee' element={<AddAttendeeForm />} />
           <Route path='/people/staff/addstaff' element={<AddStaffForm />} />
