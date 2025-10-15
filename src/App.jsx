@@ -5,7 +5,7 @@ import Dashboard from "./features/dashboard/Dashboard";
 import PeoplePage from "./features/dashboard/people/pages/PeoplePage";
 import SupportPage from "./features/dashboard/support/SupportPage";
 import SettingsPage from "./features/dashboard/settings/pages/SettingsPage";
-import HireTeamPage from "./features/dashboard/hireteam/HireTeamPage";
+import HireTeamPage from "./features/dashboard/hireteam/pages/HireTeamPage.jsx";
 
 import EventsPage from "./features/dashboard/event/pages/EventsPage.jsx";
 import FinancePage from "./features/dashboard/finance/pages/FinancePage";
@@ -92,7 +92,7 @@ function AppRoutes() {
           <Route path="events/ticket" element={<Ticket />} />
           <Route path="events/createticket" element={<CreateTicket />} />
           <Route path="events/viewticket" element={<ShowAllTicket />} />
-          <Route path="events/ticketgeneraladmission" element={<TicketGeneralInvitations />} />
+          <Route path="events/:eventId/:ticketId" element={<TicketGeneralInvitations />} />
           <Route path="*" element={<Navigate to="/" replace />} />
 
           <Route path="/pricingplan" element={<Upgrade />} />
