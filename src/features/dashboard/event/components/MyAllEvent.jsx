@@ -29,16 +29,14 @@ export default function MyallEvent()
             <p className="mt-2">Create a new event to see it here.</p>
         </div>
     );
-    const filteredEvents = events.filter(
-        (event) => event.status?.trim().toLowerCase() !== "soon"
-    );
+
     return(
         <div className="min-h-screen">
             <Header />
             <div className=" box-border border-2 border-textgray rounded-lg shadow-2xl p-10 m-10 bg-white" >
                 
                 <div className="space-y-2">
-                    {filteredEvents.map((event, index) => (
+                    {events.map((event, index) => (
                         <AllEventCard 
                             key={index} {...event}
                             
