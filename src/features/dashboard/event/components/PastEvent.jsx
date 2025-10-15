@@ -2,6 +2,8 @@ import Header from "./Header.jsx";
 import AllEventCard from "./AllEventCard.jsx";
 import useEvents from "../../../../hooks/Use-event-list.js";
 import UseEventsDetails from "../../../../hooks/Use-eventDetails-list.js";
+import { getEventStatus } from "./EventStatus.js";
+
 
 export default function PastEvent(){
 
@@ -30,9 +32,11 @@ export default function PastEvent(){
             <p className="mt-2">Create a new event to see it here.</p>
         </div>
     );
+    
+    const pastEvent = events.filter((event) => 
+    getEventStatus(event.start_time, event.end_time) === "Offline"
+    );
 
-    const pastEvent = events.filter(
-        (event) => event.status?.trim().toLowerCase() === "closed");
     return (
         <div className="min-h-screen">
             <Header />

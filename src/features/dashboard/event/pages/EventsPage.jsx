@@ -1,15 +1,16 @@
 import { FaPlus } from "react-icons/fa"
 import { Link } from 'react-router-dom'
 import EventHeader from "../components/Header.jsx"
-import useEvents from "../../../../hooks/Use-event-list.js";
 import AllEventCard from "../components/AllEventCard.jsx"
 import { useState } from "react";
 import { OrbitProgress } from "react-loading-indicators";
 import UseEventsDetails from "../../../../hooks/Use-eventDetails-list.js";
+import { getEventStatus } from "../components/EventStatus.js";
+
 export default function EventsPage() {
 
   const [activeTab, setActiveTab] = useState(null);
-  // const {data: events, isLoading, isError} = useEvents();
+
   const {data: events, isLoading, isError} = UseEventsDetails();
 
   if(isLoading) return(
@@ -33,10 +34,12 @@ export default function EventsPage() {
   const eventList = Array.isArray(events) ? events : [];
 
   const filteredEvents = eventList.filter((event) => {
+  const status = getEventStatus(event.start_time, event.end_time);
+
     if (activeTab === "ALL") return true;
-    if (activeTab === "PAST") return event.status?.toLowerCase() === "closed";
-    if (activeTab === "ONGOING") return event.status?.toLowerCase() === "online";
-    if (activeTab === "UPCOMING") return event.status?.toLowerCase() === "soon";
+    if (activeTab === "PAST") return status === "Offline";
+    if (activeTab === "ONGOING") return status === "Online";
+    if (activeTab === "UPCOMING") return status === "Soon";
 
     return true;
 

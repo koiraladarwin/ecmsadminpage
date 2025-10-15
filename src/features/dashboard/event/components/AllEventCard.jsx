@@ -1,4 +1,7 @@
-import loginimage from "../../../../assets/login.png"
+import loginimage from "../../../../assets/login.png";
+import { useMemo } from "react";
+import { getEventStatus } from "./EventStatus";
+
 export default function AllEventCard({
     name, 
     start_date, 
@@ -11,10 +14,11 @@ export default function AllEventCard({
     invitation_count, 
     ticket_count, 
     checked_in_count, 
-    status,
     image
 })
 {
+    const status = useMemo(() => getEventStatus(start_time, end_time), [start_time,end_time]);
+    
     const statusColor = status === "Online" ? "bg-green-500" : status === "Soon" ? "bg-blue-500" :"bg-red-500";
 
     return(

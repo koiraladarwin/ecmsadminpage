@@ -3,10 +3,15 @@ import AllEventCard from "./AllEventCard.jsx";
 import useEvents from "../../../../hooks/Use-event-list.js";
 import { OrbitProgress } from "react-loading-indicators";
 import UseEventsDetails from "../../../../hooks/Use-eventDetails-list.js";
+import UseEventsDetails from "../../../../hooks/Use-eventDetails-list.js";
+import { getEventStatus } from "./EventStatus.js";
 
 export default function OngoingEvent(){
     
     // const {data: events, isLoading, isError} = useEvents();
+
+
+
     const {data: events, isLoading, isError} = UseEventsDetails();
     
     if(isLoading) return(
@@ -31,9 +36,11 @@ export default function OngoingEvent(){
             <p className="mt-2">Create a new event to see it here.</p>
         </div>
     );
-    
-    const ongoingEvent = events.filter(
-        (event) => event.status?.trim().toLowerCase() === "online");
+
+    const ongoingEvent = events.filter(event => 
+    getEventStatus(event.start_time, event.end_time) === "Online"
+);
+
     return (
         <div className="min-h-screen">
             <Header />

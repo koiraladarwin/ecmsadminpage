@@ -42,7 +42,6 @@ function EventDetailCard(props) {
     location, 
     event_organizer } = props;
 
-
   return (
     <div className="flex flex-col lg:flex-row md:bg-slate-50 p-4 rounded-lg items-start gap-12 md:shadow-lg">
       {/* Event Image */}
@@ -54,7 +53,7 @@ function EventDetailCard(props) {
         />
       </div>
 
-      {/* Event Details */}
+ 
       <div className="text-sm flex flex-col justify-start gap-3 w-full">
         {/* Exact Name */}
         <div className="flex flex-col lg:flex-row  lg:items-start lg:gap-10">

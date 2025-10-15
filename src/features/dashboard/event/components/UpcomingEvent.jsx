@@ -3,9 +3,10 @@ import AllEventCard from "./AllEventCard.jsx";
 import useEvents from "../../../../hooks/Use-event-list.js";
 import { useEffect } from "react";
 import UseEventsDetails from "../../../../hooks/Use-eventDetails-list.js";
+import { getEventStatus } from "./EventStatus.js";
+
 export default function UpcomingEvent(){
 
-    // const {data: events, isLoading, isError} = useEvents();
     const {data: events, isLoading, isError} = UseEventsDetails();
     
     if(isLoading) return(
@@ -32,7 +33,7 @@ export default function UpcomingEvent(){
     );
 
     const upcomingEvent = events.filter(
-        (event) => event.status?.trim().toLowerCase() === "soon");
+        (event) => getEventStatus(event.start_time, event.end_time) === "Soon");
     return (
         <div className="min-h-screen">
             <Header />
