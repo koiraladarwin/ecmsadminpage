@@ -7,7 +7,6 @@ import { getEventStatus } from "./EventStatus.js";
 
 export default function UpcomingEvent(){
 
-    // const {data: events, isLoading, isError} = useEvents();
     const {data: events, isLoading, isError} = UseEventsDetails();
     
     if(isLoading) return(

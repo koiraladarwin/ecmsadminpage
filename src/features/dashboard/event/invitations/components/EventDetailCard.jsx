@@ -32,7 +32,15 @@ export function formatDateTimeRange(startISO, endISO) {
 }
 
 function EventDetailCard(props) {
-  const { img, name, start_time, end_time, location, event_organizer } = props;
+  const { 
+    img, 
+    name, 
+    start_date, 
+    start_time, 
+    end_date, 
+    end_time, 
+    location, 
+    event_organizer } = props;
 
   return (
     <div className="flex flex-col lg:flex-row md:bg-slate-50 p-4 rounded-lg items-start gap-12 md:shadow-lg">
