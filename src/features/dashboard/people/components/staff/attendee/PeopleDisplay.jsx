@@ -188,8 +188,8 @@ const PeopleDisplay = ({ activeTab, setActiveTab }) => {
             <input
               type="text"
               placeholder={`${activeTab === 'staff' ? 'Search for staff' : 'Search for attendee'}`}
-              className="rounded-xs focus:outline-none text-md"
-              style={{ padding: '2px 15px 2px 10px', border: '1.9px solid rgba(128,128,128,0.3)' }}
+              className="rounded-xs focus:outline-none text-md "
+              style={{ padding: '2px 26px 2px 10px', border: '1.9px solid rgba(128,128,128,0.3)' }}
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
