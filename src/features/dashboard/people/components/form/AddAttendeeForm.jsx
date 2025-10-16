@@ -1,27 +1,77 @@
-import React from 'react'
 import NormalBtn from '../NormalBtn'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 import ScreenHeader from '../PeopleScreenHeader';
+import { useMutation } from '@tanstack/react-query';
+import { api, setToken } from '../../../../../axios/Axios';
+import useAttendeeCategory from '../../../../../hooks/Use-attendeeCategory-list';
+import Swal from 'sweetalert2';
+import { useAuth } from '../../../../auth/context/AuthContext';
+import { OrbitProgress } from 'react-loading-indicators';
 
-function AddAttendeeForm({ form }) {
+function AddAttendeeForm() {
   const navigate = useNavigate();
+  const { firebaseToken } = useAuth()
   const { register, handleSubmit, formState: { errors } } = useForm()
+  const { data: attendeeCategory, isLoading: attendeeCategoryLoading } = useAttendeeCategory()
 
-  const onSave = async (data) => {
-    navigate("/people/staff", { state: { data: "attendee" } })
+  const mutation = useMutation({
+    mutationFn: (data) => {
+      setToken(firebaseToken)
+      return api.post('/attendee', data)
+    },
+    onSuccess: async () => {
+      await Swal.fire(`Attendee created successfully!`)
+    },
+    onError: (err) => {
+      console.error(err)
+      if (err?.response?.status === 400) Swal.fire('Please enter valid inputs')
+      else if (err?.response?.status === 401) Swal.fire('Unauthorized! Please login again')
+      else if (err?.response?.status === 500) Swal.fire('Server error! Try again later')
+      else if (err?.response?.status === 409) Swal.fire('Attendee with this email already exists!!');
+      else Swal.fire('Something went wrong! Please try again later')
+    }
+  })
+  const { mutateAsync: createAttendee, isPending } = mutation;
+
+  const onSave = async (data, navigationLink) => {
+    function normalizeText(str) {
+      return (str || '').trim().replace(/\s{2,}/g, ' ');
+    }
+
+    const payload = {
+      full_name: normalizeText(data.fullName),
+      company: normalizeText(data.company),
+      position: normalizeText(data.designation),
+      image_url: "",
+      phone_number: data.mobile.trim(),
+      attendee_category_id: data.tag,
+      gmail: data.email.trim(),
+
+    };
+    console.log('payload', payload)
+    try {
+      await createAttendee(payload)
+      await new Promise((res) => setTimeout(res, 500))
+      navigate(navigationLink, { state: "attendee" })
+    }
+    catch (error) {
+      Swal.fire('Something went wrong, Please try again later!!')
+      console.error('Failed to create attendee', error);
+    }
   };
 
-  const onSaveAndNew = (data) => {
-    navigate("/people");
-  };
 
   return (
     <div className='w-full lg:px-20 px-5'>
       <ScreenHeader title='Add a New Staff/Attendee' download={true} showForm={true} />
       <div className="w-full flex justify-center items-center py-10 pb-15">
         <form onSubmit={e => e.preventDefault()} className="w-full bg-white p-6 sm:p-10 rounded-lg shadow-md border-[1.4px] border-bg-sidebar-bg flex flex-col gap-6">
-
+          {
+            isPending && <div className='absolute inset-0 bg-gray-100 opacity-25 z-50 flex items-center justify-center'>
+              <OrbitProgress color="#800080" size="medium" />
+            </div>
+          }
           {/* Attendee Type */}
           <div className="flex flex-col md:flex-row gap-6 justify-end">
             <label className="flex items-center gap-2">
@@ -86,10 +136,18 @@ function AddAttendeeForm({ form }) {
                 {...register("tag", { required: "Tag is required" })}
                 className="border rounded-sm p-2 mt-1 w-full focus:outline-none"
               >
-                <option value="">Select tag</option>
-                <option value="tag-1">TAG1</option>
-                <option value="tag-2">TAG2</option>
-                <option value="tag-3">TAG3</option>
+
+                {
+                  attendeeCategoryLoading ? <option disabled>Loading...</option> :
+                    <>
+                      <option value="">Select tag</option>
+                      {attendeeCategory?.map(category => (
+                        <option key={category.id} value={category.id}>
+                          {category.tag}
+                        </option>
+                      ))}
+                    </>
+                }
               </select>
               {errors.tag && <p className="text-red-500 text-sm mt-1">{errors.tag.message}</p>}
             </div>
@@ -169,8 +227,8 @@ function AddAttendeeForm({ form }) {
 
           {/* btns */}
           <div className='flex gap-6 flex-col md:flex-row'>
-            <NormalBtn text="Save" type='primary' onClick={handleSubmit(onSave)} />
-            <NormalBtn text="Save & Add New" type='primary' onClick={handleSubmit(onSaveAndNew)} />
+            <NormalBtn text={isPending ? "Saving..." : "Save"} type='primary' onClick={handleSubmit((data) => onSave(data, "/people/staffattendee"))} disabled={isPending} />
+            <NormalBtn text={isPending ? "Saving...." : "Save & Add New"} type='primary' onClick={handleSubmit((data) => onSave(data, "/people"))} disabled={isPending} />
           </div>
         </form>
       </div>

@@ -1,17 +1,23 @@
-import React from 'react'
 import { FaSearch } from 'react-icons/fa'
 import { FiPlus } from 'react-icons/fi'
 import PersonListCard from './PersonListCard'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import useStaff from '../../../../../../hooks/Use-Staff-list'
 import useAttendee from '../../../../../../hooks/Use-attendee-list'
+import { OrbitProgress } from 'react-loading-indicators'
+import { useEffect } from 'react'
 
 const PeopleDisplay = ({ activeTab, setActiveTab }) => {
 
-  const staffDummyData = useStaff();
-  const attendeeDummyData = useAttendee();
+  const { data: totalAttendees, isLoading: totalAttendeesLoading } = useAttendee()
+  const { data: totalStaff, isLoading: totalStaffLoading } = useStaff()
+  const { state } = useLocation()
 
-  const dataToShow = activeTab === "staff" ? staffDummyData : attendeeDummyData
+  useEffect(() => {
+    if (state) setActiveTab(state)
+  }, [state])
+
+  const dataToShow = activeTab === "staff" ? totalStaff : totalAttendees
   const navigate = useNavigate()
   return (
     <div className='w-full'>
@@ -48,9 +54,14 @@ const PeopleDisplay = ({ activeTab, setActiveTab }) => {
           </div>
         </div>
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-4 px-2 gap-5'>
-          {dataToShow.map((person) => (
-            <PersonListCard key={person.id} person={person} />
-          ))}
+          {
+            totalAttendeesLoading || totalStaffLoading ? <div className='col-span-full flex justify-center items-center '><OrbitProgress color="#800080" size="medium" /></div> :
+              <>
+                {dataToShow?.map((person) => (
+                  <PersonListCard key={person.id} person={person} activeTab={activeTab} />
+                ))}
+              </>
+          }
         </div>
       </div>
     </div>
