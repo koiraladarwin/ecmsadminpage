@@ -158,7 +158,7 @@ const PeopleDisplay = ({ activeTab, setActiveTab }) => {
               <>
                 <label className={'flex items-center gap-1 px-2 h-[25px] pe-5 font-semibold rounded-full transition text-xs text-black bg-white border border-gray-800 border-solid cursor-pointer'} htmlFor='csv'>
                   <FiPlus size={12} />
-                  <p className='hidden md:block'>
+                  <p className='hidden lg:block'>
                     Import <span className='text-[10px]'>(csv file only)</span>
                   </p>
                   <input type="file" accept='.csv' id='csv' className='hidden' onChange={handleCsvFile} />
