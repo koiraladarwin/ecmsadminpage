@@ -14,10 +14,10 @@ const PersonListCard = ({ person, activeTab }) => {
           alt={name}
           className="w-14 h-14 rounded-full border-2 border-sidebar-hover object-cover "
         />
-        <div className="flex flex-col">
+        <div className="flex flex-col flex-1 min-w-0">
           <div className="flex flex-col -space-y-1">
             <span className="text-xs font-semibold break-words">{name}</span>
-            <span className="text-gray-800/50 font-semibold text-xs pt-1">{person?.position}</span>
+            <span className="text-gray-800/50 font-semibold text-xs pt-1 break-words">{person?.position}</span>
           </div>
           <span className="text-xs font-medium text-gray-500">{person?.company}</span>
           <div className="flex flex-col  text-gray-500 text-xs mt-1 break-words">
@@ -27,7 +27,7 @@ const PersonListCard = ({ person, activeTab }) => {
 
         </div>
       </div>
-      <div className="py-3 flex justify-center">
+      <div className="py-3 flex md:justify-center items-start md:px-0 px-8">
         <div className="w-fit flex gap-2">
           <IoEye className="text-2xl text-gray-800/30 cursor-pointer" />
           <LiaWhatsapp className="text-2xl text-gray-800/30 cursor-pointer" />
