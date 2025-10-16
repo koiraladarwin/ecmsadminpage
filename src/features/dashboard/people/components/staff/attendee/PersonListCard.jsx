@@ -7,12 +7,12 @@ const PersonListCard = ({ person, activeTab }) => {
   const gmail = activeTab === "staff" ? person?.staff_gmail : person?.gmail
   const number = activeTab === "staff" ? person?.phone : person?.phone_number
   return (
-    <div className="w-full flex flex-col rounded-xl shadow-md shadow-black/10 pt-5 border border-gray-800/10 border-solid">
-      <div className="flex flex-col md:flex-row gap-3 border-b-2 border-gray-800/10 border-solid ps-5 pb-5">
+    <div className="w-full flex flex-col rounded-xl shadow-md shadow-black/10 pt-5 border border-gray-800/10 border-solid ">
+      <div className="flex flex-col md:flex-row gap-3 border-b-2 border-gray-800/10 border-solid ps-5 pb-5 flex-1">
         <img
           src={person?.image || '/placeholder.jpg'}
           alt={name}
-          className="w-14 h-14 rounded-full border-2 border-sidebar-hover object-cover "
+          className="w-14 h-14 rounded-full border-2 border-sidebar-hover object-cover  "
         />
         <div className="flex flex-col flex-1 min-w-0">
           <div className="flex flex-col -space-y-1">
