@@ -172,7 +172,7 @@ const PeopleDisplay = ({ activeTab, setActiveTab }) => {
           csvLoading && <div className='absolute inset-0 bg-gray-200/25 z-50 flex pt-60 justify-center'>
             <div>
               <div className="flex items-center gap-6">
-                <span className="font-bold text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 animate-pulse scale-105 drop-shadow-md">
+                <span className="font-bold text-sm lg:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 animate-pulse scale-105 drop-shadow-md">
                   Importing CSV files
                 </span>
                 <ThreeDot
