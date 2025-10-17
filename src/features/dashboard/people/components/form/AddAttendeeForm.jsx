@@ -47,9 +47,7 @@ function AddAttendeeForm() {
       phone_number: data.mobile.trim(),
       attendee_category_id: data.tag,
       gmail: data.email.trim(),
-
     };
-    console.log('payload', payload)
     try {
       await createAttendee(payload)
       await new Promise((res) => setTimeout(res, 500))
