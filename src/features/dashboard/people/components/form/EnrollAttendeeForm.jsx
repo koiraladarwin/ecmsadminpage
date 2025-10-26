@@ -21,11 +21,11 @@ function EnrollAttendeeForm() {
   })
   const { firebaseToken } = useAuth()
   const queryClient = useQueryClient();
-  const {data:enrolledAttendees,isLoading:enrollLoading} = useAttendeeData();
+  const { data: enrolledAttendees, isLoading: enrollLoading } = useAttendeeData();
   const { data: allEvents } = useEventsWithSessionsAndTickets()
-  const { data: totalAttendees } = useAttendee()
+  const { data: totalAttendees ,isLoading:totalAttendeesLoading} = useAttendee()
   const eventOptions = allEvents?.map(event => ({ label: event.name, id: event.id }))
-  const attendeeOptions = totalAttendees?.map(att => ({ id: att.id, name: att.full_name })) || []
+  const attendeeOptions = totalAttendees?.length ? totalAttendees?.map(att => ({ id: att.id, name: att.full_name })) : [{ id: null, name: 'No attendees available', disabled: true }]
   const [filteredSession, setFilteredSessions] = useState([])
   const [filteredTickets, setFilteredTickets] = useState([])
 
@@ -130,6 +130,8 @@ function EnrollAttendeeForm() {
             value={formData.attendee}
             options={attendeeOptions}
             onSelect={(attendee) => handleSelect('attendee', attendee)}
+            disabled={!totalAttendees || !totalAttendees?.length}
+            isLoading={totalAttendeesLoading}
           />
         </div>
         <div className='flex flex-col flex-1'>

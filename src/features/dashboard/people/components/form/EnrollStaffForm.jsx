@@ -20,11 +20,11 @@ function EnrollStaffForm() {
   })
   const { firebaseToken } = useAuth()
   const queryClient = useQueryClient();
-  const {data:enrolledStaffData,isLoading:enrollLoading} = useStaffData();
+  const { data: enrolledStaffData, isLoading: enrollLoading } = useStaffData();
   const { data: allEvents } = useEventsWithSessionsAndTickets()
-  const { data: totalStaff } = useStaff()
+  const { data: totalStaff, isLoading: totalStaffsLoading } = useStaff()
   const eventOptions = allEvents?.map(event => ({ label: event.name, id: event.id }))
-  const staffOptions = totalStaff?.map(staff => ({ id: staff.id, name: staff.name })) || []
+  const staffOptions = totalStaff?.length ? totalStaff?.map(staff => ({ id: staff.id, name: staff.name })) : [{ id: null, name: 'No staff available', disabled: true }]
   const [filteredSession, setFilteredSessions] = useState([])
 
   const mutation = useMutation({
@@ -109,7 +109,8 @@ function EnrollStaffForm() {
 
       <div className='flex flex-col lg:flex-row lg:items-end w-full gap-8'>
         <div className='flex flex-col flex-1'>
-          <SearchableDropdown label='Staffs' value={formData.staff} options={staffOptions} onSelect={(staff) => handleSelect('staff', staff)} />
+          <SearchableDropdown label='Staffs' value={formData.staff} options={staffOptions} onSelect={(staff) => handleSelect('staff', staff)} disabled={!totalStaff || totalStaff.length === 0}
+            isLoading={totalStaffsLoading} />
         </div>
 
         <div className='flex flex-col flex-1'>
@@ -137,7 +138,7 @@ function EnrollStaffForm() {
         </div>
 
       </div>
-      <EnrollList data={enrolledStaffData} type="staff" isLoading={enrollLoading}/>
+      <EnrollList data={enrolledStaffData} type="staff" isLoading={enrollLoading} />
     </div>
   )
 }

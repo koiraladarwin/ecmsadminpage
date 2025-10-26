@@ -5,7 +5,7 @@ function EnrollList({ data, type, isLoading }) {
   return (
     <div className="w-full overflow-x-auto relative ">
       {
-        showLoader && <div className='absolute inset-0 bg-gray-100 opacity-25 z-50 flex items-center justify-center  min-h-35 '>
+        showLoader && <div className='absolute inset-0 bg-gray-50 z-50 flex items-center justify-center  min-h-35 '>
           <OrbitProgress color="#800080" size="medium" />
         </div>
       }
@@ -19,8 +19,8 @@ function EnrollList({ data, type, isLoading }) {
             {type === 'attendee' && <th className="p-3">Entry</th>}
           </tr>
         </thead>
-        <tbody>
-          {data?.map((item, index) => (
+        < tbody >
+          {data?.length > 0 ? data.map((item, index) => (
             <tr key={index}>
               <td className="p-3">{item.auto_id}</td>
               <td className="p-3">
@@ -39,10 +39,16 @@ function EnrollList({ data, type, isLoading }) {
               <td className='underline p-1 cursor-pointer'>Modify</td>
               <td className='underline p-1 cursor-pointer'>Remove</td>
             </tr>
-          ))}
+          )) :
+            <tr>
+              <td colSpan={type === "attendee" ? 7 : 6} className="text-center text-gray-700 py-5">
+                No any Enrollment
+              </td>
+            </tr>
+          }
         </tbody>
       </table>
-    </div>
+    </div >
   )
 }
 
