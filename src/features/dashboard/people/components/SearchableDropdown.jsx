@@ -1,11 +1,17 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-function SearchableDropdown({ label, options, onSelect }) {
+function SearchableDropdown({ label, options, onSelect ,value}) {
   const [search, setSearch] = useState('')
   const [open, setOpen] = useState(false)
-  const [selected, setSelected] = useState(null)
+  const [selected, setSelected] = useState(value || null)
+  
 
-  const filterOptions = options.filter((option) => option.name.toLowerCase().includes(search.toLowerCase()))
+  const filterOptions = options?.filter((option) => option?.name.toLowerCase().includes(search.toLowerCase()))
+
+  useEffect(() => {
+    setSelected(value)
+    setSearch('') 
+  }, [value])
 
   const handleSearch = (e) => {
     setSearch(e.target.value)
@@ -33,14 +39,14 @@ function SearchableDropdown({ label, options, onSelect }) {
       {
         open &&
         <>
-          <ul className='absolute right-[-120px] top-[50px] rounded-lg z-2 w-fit  shadow-lg b bg-gray-50 px-5  py-3 mt-1 overflow-y-auto'>
+          <ul className='absolute right-[-120px] top-[50px] rounded-lg z-2 w-fit  shadow-lg b bg-gray-50 px-5  py-3 mt-1 overflow-y-auto max-h-70'>
             {filterOptions.length > 0 ? (
-              filterOptions.map((option, i) => (
+              filterOptions.map((option) => (
                 <li
-                  key={i}
+                  key={option.id}
                   className='p-2 hover:bg-gray-200 cursor-pointer'
                   onClick={() => handleSelect(option)}>
-                  {option.id} {option.name}
+                  {option.name}
                 </li>
               ))
             ) : (

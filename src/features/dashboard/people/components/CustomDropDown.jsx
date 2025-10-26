@@ -10,6 +10,7 @@ function CustomDropdown({ label, options, onSelect, height = false, h, value,isL
   }, [value])
 
   const handleSelect = (option) => {
+    if(option.disabled) return
     setSelected(option)
     setOpen(false)
     if (onSelect) onSelect(option)
@@ -31,13 +32,13 @@ function CustomDropdown({ label, options, onSelect, height = false, h, value,isL
           {
             isLoading ? <span className='py-1 px-2'>Loading...</span>
             :
-          options.map((option, i) => (
+          options?.map((option, i) => (
             <li
               key={i}
               onClick={() => handleSelect(option)}
               className="p-2 hover:bg-gray-100 cursor-pointer"
             >
-              {option.label ? option.label : option}
+              {option?.label ? option?.label : option}
             </li>
           ))}
         </ul>
