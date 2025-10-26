@@ -1,7 +1,14 @@
-function EnrollList({ data, type }) {
+import { OrbitProgress } from "react-loading-indicators"
+
+function EnrollList({ data, type, isLoading }) {
   return (
-    <div className="w-full overflow-x-auto ">
-      <table className="w-full text-left">
+    <div className="w-full overflow-x-auto relative ">
+          {
+          isLoading && <div className='absolute inset-0 bg-gray-100 opacity-25 z-50 flex items-center justify-center  min-h-35 '>
+            <OrbitProgress color="#800080" size="medium" />
+          </div>
+        }
+      <table className="w-full text-left ">
         <thead>
           <tr className="border-b-1">
             <th className="p-3">ID</th>
@@ -11,7 +18,6 @@ function EnrollList({ data, type }) {
             {type === 'attendee' && <th className="p-3">Entry</th>}
           </tr>
         </thead>
-
         <tbody>
           {data?.map((item, index) => (
             <tr key={index}>

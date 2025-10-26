@@ -21,8 +21,7 @@ function EnrollAttendeeForm() {
   })
   const { firebaseToken } = useAuth()
   const queryClient = useQueryClient();
-  const data = useAttendeeData();
-  const enrolledData = data?.data || [];
+  const {data:enrolledAttendees,isLoading:enrollLoading} = useAttendeeData();
   const { data: allEvents } = useEventsWithSessionsAndTickets()
   const { data: totalAttendees } = useAttendee()
   const eventOptions = allEvents?.map(event => ({ label: event.name, id: event.id }))
@@ -164,7 +163,7 @@ function EnrollAttendeeForm() {
       </div>
 
       <NormalBtn text={isPending ? 'Enrolling...' : 'Enroll'} type='primary' onClick={handleSubmit} disabled={isPending} />
-      <EnrollList data={enrolledData} type="attendee" />
+      <EnrollList data={enrolledAttendees} type="attendee" isLoading={enrollLoading} />
     </div>
   )
 }

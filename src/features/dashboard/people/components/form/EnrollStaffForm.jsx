@@ -20,8 +20,7 @@ function EnrollStaffForm() {
   })
   const { firebaseToken } = useAuth()
   const queryClient = useQueryClient();
-  const data = useStaffData();
-  const enrolledData = data?.data || [];
+  const {data:enrolledStaffData,isLoading:enrollLoading} = useStaffData();
   const { data: allEvents } = useEventsWithSessionsAndTickets()
   const { data: totalStaff } = useStaff()
   const eventOptions = allEvents?.map(event => ({ label: event.name, id: event.id }))
@@ -138,7 +137,7 @@ function EnrollStaffForm() {
         </div>
 
       </div>
-      <EnrollList data={enrolledData} type="staff" />
+      <EnrollList data={enrolledStaffData} type="staff" isLoading={enrollLoading}/>
     </div>
   )
 }
