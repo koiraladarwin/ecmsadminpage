@@ -1,13 +1,14 @@
 import { OrbitProgress } from "react-loading-indicators"
 
 function EnrollList({ data, type, isLoading }) {
+  const showLoader = isLoading || !data;
   return (
     <div className="w-full overflow-x-auto relative ">
-          {
-          isLoading && <div className='absolute inset-0 bg-gray-100 opacity-25 z-50 flex items-center justify-center  min-h-35 '>
-            <OrbitProgress color="#800080" size="medium" />
-          </div>
-        }
+      {
+        showLoader && <div className='absolute inset-0 bg-gray-100 opacity-25 z-50 flex items-center justify-center  min-h-35 '>
+          <OrbitProgress color="#800080" size="medium" />
+        </div>
+      }
       <table className="w-full text-left ">
         <thead>
           <tr className="border-b-1">
