@@ -136,13 +136,24 @@ export default function CreateSessionPage() {
                 />
                 <span>at</span>
 
-                <input 
-                  type="time" 
-                  className='border w-full'
-                  name="start_time"
-                  value={formData.start_time}
-                  onChange={handleChange}
-               />
+              
+              <DatePicker 
+                selected={formData.start_time ? new Date(`1970-01-01T${formData.start_time}:00`) : null}
+                onChange={(date) => {
+                if(date) {
+                    const hours = date.getHours().toString().padStart(2, "0");
+                    const minutes = date.getMinutes().toString().padStart(2, "0");
+                    setFormData(prev => ({ ...prev, start_time: `${hours}:${minutes}` }));
+                  }
+                }}
+                showTimeSelect
+                showTimeSelectOnly
+                timeIntervals={15}
+                timeCaption="Time"
+                dateFormat="HH:mm"
+                placeholderText="Start Time"
+                className="border w-full"
+              />
 
               </div>
               {(errors.start_date || errors.start_time) && (
@@ -190,13 +201,24 @@ export default function CreateSessionPage() {
                   placeholderText="End Date"  
                 />
                 <span>at</span>
-                <input 
-                  type="time" 
-                  className='border w-full'
-                  name="end_time"
-                  value={formData.end_time}
-                  onChange={handleChange}
-                  />
+
+                  <DatePicker 
+                    selected={formData.end_time ? new Date(`1970-01-01T${formData.end_time}:00`) : null}
+                    onChange={(date) => {
+                    if(date) {
+                      const hours = date.getHours().toString().padStart(2, "0");
+                      const minutes = date.getMinutes().toString().padStart(2, "0");
+                      setFormData(prev => ({ ...prev, end_time: `${hours}:${minutes}` }));
+                    }
+                  }}
+                  showTimeSelect
+                  showTimeSelectOnly
+                  timeIntervals={15}
+                  timeCaption="Time"
+                  dateFormat="HH:mm"
+                  placeholderText="End Time"
+                  className="border w-full"
+                />
 
               </div>
               {(errors.end_date || errors.end_time) && (
