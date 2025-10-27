@@ -27,13 +27,15 @@ export default function ShowAllInvitations() {
 
         const invitations = invitation.map(item => {
             const standard = item.invitation.filter(
-                inv => inv.invitee_category_tag?.toLowerCase() === "standard").length;
-                
+                inv => ["standard", "general invitation", "general"].includes(inv.invitee_category_tag?.toLowerCase())
+            ).length;
+
             const vip = item.invitation.filter(
                 inv => inv.invitee_category_tag?.toLowerCase() === "vip").length;
-                
+
             const guest = item.invitation.filter(
-                inv => inv.invitee_category_tag?.toLowerCase() === "guest").length;
+                inv => ["guest", "guest invitation"].includes(inv.invitee_category_tag?.toLowerCase())
+            ).length;
 
             return {
                 ...item.event,
