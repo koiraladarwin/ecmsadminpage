@@ -24,7 +24,7 @@ function EnrollList({ data, type, isLoading }) {
             <tr key={index}>
               <td className="p-3">{item.auto_id}</td>
               <td className="p-3">
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 pr-6">
                   <img
                     src={'/placeholder.jpg' || item.attendee_image}
                     alt={item.attendee_name}
