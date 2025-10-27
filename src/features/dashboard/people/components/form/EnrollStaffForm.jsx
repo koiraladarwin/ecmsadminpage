@@ -45,7 +45,7 @@ function EnrollStaffForm() {
       console.error(err)
       if (err?.response?.status === 400) Swal.fire('Please enter valid inputs')
       else if (err?.response?.status === 401) Swal.fire('Unauthorized! Please login again')
-      else if (err?.response?.status === 500) Swal.fire('Server error! Try again later')
+      else if (err?.response?.status === 500) Swal.fire('Enrollment Failed! Please Try again later')
       else if (err?.response?.status === 409) Swal.fire('Staff already enrolled!!');
       else Swal.fire('Something went wrong! Please try again later')
     }
