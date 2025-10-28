@@ -7,7 +7,8 @@ import SupportPage from "./features/dashboard/support/SupportPage";
 import SettingsPage from "./features/dashboard/settings/pages/SettingsPage";
 import HireTeamPage from "./features/dashboard/hireteam/pages/HireTeamPage.jsx";
 
-import EventsPage from "./features/dashboard/event/pages/EventsPage.jsx";
+import EventPg from "./features/dashboard/event/pages/EventPg.jsx";
+
 import FinancePage from "./features/dashboard/finance/pages/FinancePage";
 import ImportExportPage from "./features/dashboard/importexport/Importexport";
 import CategoryPage from "./features/dashboard/category/page/Category";
@@ -74,7 +75,8 @@ function AppRoutes() {
           <Route path="settings/:settingId" element={<SettingsPage />} />
           <Route path="finance" element={<FinancePage />} />
           <Route path="hireteam" element={<HireTeamPage />} />
-          <Route path="/event" element={<EventsPage />} />
+          
+          <Route path="/event" element={<EventPg />} />
           <Route path="/event/createvent" element={<CreateEventPage />} />
           <Route path="/event/category" element={<CategoryPage />} />
           <Route path="/event/category/createcategory" element={<CreateCategoryPage />} />
