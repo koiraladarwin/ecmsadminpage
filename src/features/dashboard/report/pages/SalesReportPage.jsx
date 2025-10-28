@@ -98,7 +98,7 @@ function SalesReportPage() {
           <div>
             <label className="block font-medium mb-1">Choose Event</label>
             <select
-              className="w-full border px-3 py-2 rounded"
+              className="w-full border px-3 py-2 rounded focus:outline-none"
               value={selectedEvent?.id || ''}
               onChange={(e) =>
                 setSelectedEvent(events.find((ev) => ev.id === e.target.value))
@@ -119,7 +119,7 @@ function SalesReportPage() {
           <div>
             <label className="block font-medium mb-1">Choose Session</label>
             <select
-              className="w-full border px-3 py-2 rounded"
+              className="w-full border px-3 py-2 rounded focus:outline-none "
               value={selectedSession}
               onChange={(e) => setSelectedSession(e.target.value)}
             >
@@ -135,7 +135,7 @@ function SalesReportPage() {
           <div>
             <label className="block font-medium mb-1">Status</label>
             <select
-              className="w-full border px-3 py-2 rounded"
+              className="w-full border px-3 py-2 rounded focus:outline-none"
               value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value)}
             >
@@ -151,7 +151,7 @@ function SalesReportPage() {
           <div>
             <label className="block font-medium mb-1">Sort by</label>
             <select
-              className="w-full border px-3 py-2 rounded"
+              className="w-full border px-3 py-2 rounded focus:outline-none"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
             >
