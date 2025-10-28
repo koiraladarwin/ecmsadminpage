@@ -93,7 +93,7 @@ function SalesReportPage() {
       <div className="bg-white p-10 border-2">
         {/* Filters */}
         <h1 className='text-2xl mb-4 textBold'>Sales Report</h1>
-        <div className="grid md:grid-cols-4 gap-4 mb-4">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 mb-4">
           {/* Event */}
           <div>
             <label className="block font-medium mb-1">Choose Event</label>
@@ -174,7 +174,7 @@ function SalesReportPage() {
 
         {/* Event Info */}
         {reportData.length > 0 &&
-          <div className="grid-cols-3 md:grid border mt-6 bg-gray-50 p-4 rounded">
+          <div className="lg:grid-cols-3 md:grid-cols-1 md:grid md:border mt-6 md:bg-gray-50 p-4 rounded">
             {/* Event Info */}
             <div className="flex-shrink-0 flex flex-col items-center md:items-start px-4 md:col-span-1 ">
               <img
@@ -191,7 +191,7 @@ function SalesReportPage() {
             </div>
 
             {/* Charts */}
-            <div className="col-span-2 flex flex-col md:flex-row gap-2 overflow-x-auto md:overflow-x-visible items-center">
+            <div className="col-span-2 flex flex-col lg:flex-row gap-2 overflow-x-auto md:overflow-x-visible items-center">
               <div className="w-full">
                 {/* <ReportBarGraph title="Ticket Types Status" data={barData()} /> */}
                 <ReportComposedChart title="Ticket Types Status" data={barData()} barKey='count' lineKey='enroll' barName='Ticket-Type' lineName='Enrolled' />
