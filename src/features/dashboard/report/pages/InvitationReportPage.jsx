@@ -31,16 +31,22 @@ function CheckinReportPage() {
   const handleGenerate = () => {
     Swal.fire('Report Generated')
     if (!selectedEvent) return;
-    const filteredAttendeesData = enrolledAttendees?.filter((att) => att.event_id === selectedEvent.id && att.type === 'invitation')
+    const filteredAttendeesData = enrolledAttendees?.filter((att) => att.event_id === selectedEvent.id && att.type === 'invitation').filter((item, index, self) => index === self.findIndex(o => o.attendee_id === item.attendee_id))
     const finalReportData = filteredAttendeesData.map((att) => ({
       id: att.auto_id,
       fullname: att.attendee_name,
       organization: selectedEvent.event_organizer,
       entry: att.entry,
-      sessions: selectedEvent?.session?.map(sess => ({
-        name: sess.name,
-        time: sess.start_time
-      }))
+      sessions: enrolledAttendees?.map(attendee => {
+        if(attendee.attendee_id == att.attendee_id && attendee.event_id == selectedEvent.id) {
+          const session = selectedEvent?.session.find(sess => {return sess.name.toLowerCase() == attendee.session_name.toLowerCase()})
+            return {
+              name: session.name,
+              time: session.start_time
+            }
+        }
+        return null
+      }).filter(item => item != null)
     }))
     setReportData(finalReportData)
     setCurrentPage(1);
@@ -206,7 +212,7 @@ function CheckinReportPage() {
                   </td>
                 </tr>
               ) :
-                paginatedData.map((entry,index) => (
+                paginatedData.map((entry, index) => (
                   <tr
                     key={index}
                     className="hover:bg-gray-50 hover:shadow-sm transition duration-150"
