@@ -82,7 +82,7 @@ function CheckinReportPage() {
       <div className="bg-white p-10 border-2">
         {/* Filters */}
         <h1 className='text-2xl mb-4 textBold'>Invitation Report</h1>
-        <div className="grid md:grid-cols-4 gap-4 mb-4">
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4 sm:grid-cols-1 mb-4">
           {/* Event */}
           <div>
             <label className="block font-medium mb-1">Choose Event</label>
@@ -164,12 +164,12 @@ function CheckinReportPage() {
 
         {/* Event Info */}
         {reportData.length > 0 &&
-          <div className='flex flex-col md:flex-row border px-8 mt-6 py-6  rounded bg-gray-50'>
+          <div className='flex flex-col lg:flex-row md:border md:px-8 mt-6 md:py-6 py-10  rounded md:bg-gray-50'>
             <div className=" px-4 text-sm text-gray-700 flex-1">
               <img
                 src="https://guestpix.com/wp-content/uploads/woocommerce-placeholder-600x600.png"
                 alt="Logo"
-                className="w-30 h-30 rounded"
+                className="w-30 h-30 rounded md"
               />
               <div className="font-bold text-base mt-6 mb-2 flex items-center gap-2">
                 <span className='text-xl'> {selectedEvent ? selectedEvent.name : "-"}</span>
