@@ -12,14 +12,25 @@ const ReportComposedChart = ({ title, data, barKey = "sent", lineKey = "checkedI
               data={data}
               margin={{ top: 20, right: 0, left: 0, bottom: 10 }}
             >
-              <XAxis dataKey="type" />
+              <XAxis dataKey="type"
+                interval={0}
+                tick={({ x, y, payload }) => (
+                  <text x={x} y={y + 10} textAnchor="middle">
+                    {payload.value.split(" ").map((line, index) => (
+                      <tspan key={index} x={x} dy={index === 0 ? 0 : 14}>
+                        {line}
+                      </tspan>
+                    ))}
+                  </text>
+                )}
+              />
               <YAxis />
               <Tooltip cursor={false} />
               <Legend
                 verticalAlign="bottom"
                 align="center"
                 wrapperStyle={{
-                  paddingTop: 10,
+                  paddingTop: 20,
                   marginLeft: 25,
                   fontSize: "16px",
                   color: "#555",
