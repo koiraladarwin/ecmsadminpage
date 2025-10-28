@@ -23,7 +23,7 @@ import SalesReportPage from "./features/dashboard/report/pages/SalesReportPage.j
 import InvitationReportPage from "./features/dashboard/report/pages/InvitationReportPage.jsx";
 import CheckinReportPage from "./features/dashboard/report/pages/CheckInReportPage.jsx";
 
-import SessionPage from "./features/dashboard/event/pages/SessionPage.jsx"
+import SessionPg from "./features/dashboard/event/pages/Session.jsx"
 import CreateSessionPage from "./features/dashboard/event/pages/CreateSessionPage.jsx"
 import SessionsAll from "./features/dashboard/event/pages/SessionsAll.jsx"
 
@@ -80,7 +80,7 @@ function AppRoutes() {
           <Route path="/event/category/createcategory" element={<CreateCategoryPage />} />
           <Route path="/event/category/allcategories" element={<AllCategoriesPage />} />
 
-          <Route path="/event/session" element={<SessionPage />} />
+          <Route path="/event/session" element={<SessionPg />} />
           <Route path="/event/createsession" element={<CreateSessionPage />} />
           <Route path="/event/allsession" element={<SessionsAll />} />
 
