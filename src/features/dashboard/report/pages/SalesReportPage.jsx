@@ -69,7 +69,8 @@ function SalesReportPage() {
     })
     const result = []
     for (const key in data) {
-      result.push({ type: key, count: data[key], enroll: Math.floor(Math.random() * 10) })
+      result.push({ type: key, count: data[key], enroll: data[key] })
+
     }
     return result
   }, [reportData])
