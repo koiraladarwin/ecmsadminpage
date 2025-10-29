@@ -7,7 +7,8 @@ import SupportPage from "./features/dashboard/support/SupportPage";
 import SettingsPage from "./features/dashboard/settings/pages/SettingsPage";
 import HireTeamPage from "./features/dashboard/hireteam/pages/HireTeamPage.jsx";
 
-import EventsPage from "./features/dashboard/event/pages/EventsPage.jsx";
+import EventPg from "./features/dashboard/event/pages/EventPg.jsx";
+
 import FinancePage from "./features/dashboard/finance/pages/FinancePage";
 import ImportExportPage from "./features/dashboard/importexport/Importexport";
 import CategoryPage from "./features/dashboard/category/page/Category";
@@ -28,6 +29,7 @@ import CreateSessionPage from "./features/dashboard/event/pages/CreateSessionPag
 import SessionsAll from "./features/dashboard/event/pages/SessionsAll.jsx"
 
 import Invitations from "./features/dashboard/event/invitations/pages/Invitations.jsx";
+import InvitationPg from "./features/dashboard/event/invitations/pages/InvitationPg.jsx";
 import CreateInvitations from "./features/dashboard/event/invitations/pages/Createinvitations.jsx";
 import ShowAllInvitations from "./features/dashboard/event/invitations/pages/ShowAllInvitations.jsx";
 import ViewGeneralInvitations from "./features/dashboard/event/invitations/pages/ViewGeneralInvitations.jsx";
@@ -74,7 +76,8 @@ function AppRoutes() {
           <Route path="settings/:settingId" element={<SettingsPage />} />
           <Route path="finance" element={<FinancePage />} />
           <Route path="hireteam" element={<HireTeamPage />} />
-          <Route path="/event" element={<EventsPage />} />
+
+          <Route path="/event" element={<EventPg />} />
           <Route path="/event/createvent" element={<CreateEventPage />} />
           <Route path="/event/category" element={<CategoryPage />} />
           <Route path="/event/category/createcategory" element={<CreateCategoryPage />} />
@@ -84,10 +87,10 @@ function AppRoutes() {
           <Route path="/event/createsession" element={<CreateSessionPage />} />
           <Route path="/event/allsession" element={<SessionsAll />} />
 
-          <Route path="event/invitation" element={<Invitations />} />
+          <Route path="event/invitation" element={<InvitationPg />} />
           <Route path="event/createinvitation" element={<CreateInvitations />} />
           <Route path="event/allinvitations" element={<ShowAllInvitations />} />
-          <Route path="event/generalinvitation" element={<ViewGeneralInvitations />} />
+          <Route path="event/:eventId/invitations/:inviteeId" element={<ViewGeneralInvitations />} />
 
           <Route path="events/ticket" element={<Ticket />} />
           <Route path="events/createticket" element={<CreateTicket />} />

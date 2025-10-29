@@ -1,17 +1,49 @@
 import { IoSearch } from "react-icons/io5";
-import { invitation } from "../components/InvitationsDetail";
 import useGeneralInvitation from "../../../../../hooks/Use-generalInvitation-list"
 import GeneralInvitationCard from "../components/GeneralInvitationCard";
 import GeneralInvitation from "../components/GeneralInvitation";
-import { useState } from "react";
-import VipInvitation from "../components/VipInvitation";
-import GuestInvitation from "../components/GuestInvitation";
+import { useEffect, useState } from "react";
+import useInvitation from "../../../../../hooks/Use-invitation-list";
+import useAllAttendee from "../../../../../hooks/Use-attendee";
+import { useNavigate, useParams } from "react-router-dom";
+import AllAttendeeCard from "../components/AttendeeCard";
+import { formatDateTimeRange } from "../components/EventDetailCard";
 
 export default function ViewGeneralInvitations()
 {
-    const [activeTab, setActiveTab] = useState("generalinvitation");
+    const navigate = useNavigate();
+    const {data: eventInvitationDetails, isLoading: eventInvitationLoading} = useInvitation();
+    const {data: allAttendees, isLoading: attendeesLoading} = useAllAttendee();
+    const {eventId, inviteeId} = useParams();
+
+    const currentEvent = eventInvitationDetails?.find(item => item.event.id === eventId);
+    const invitations = currentEvent?.invitation || [];
+
+    const categories = ["general", "vip", "guest"];
+
+    const [activeTab, setActiveTab] = useState(inviteeId?.toLowerCase() || "general");
+
+    useEffect(() => {
+        if(inviteeId && categories.includes(inviteeId.toLowerCase()))
+        {
+            setActiveTab(inviteeId.toLowerCase());
+        }
+    },[inviteeId]);
+
+    const activeInvitations = invitations.filter(inv=> inv.invitee_category_tag?.toLowerCase().includes(activeTab));
+
+
+    const attendees = 
+        activeInvitations.flatMap(inv =>
+            (inv.attendees || []).map(item => {
+            const attendeeData = allAttendees?.find(a => a.id === item.attendee_id);
+            return attendeeData || null;
+        })
+    ).filter(Boolean) || [];
+
+
     return(
-        <div className="">
+        <div>
             <div className="flex items-center justify-between pt-10 px-20  gap-2 ">
                 <h1 className="text-xl flex items-center gap-2">View Invitations</h1>
             </div>
@@ -32,14 +64,15 @@ export default function ViewGeneralInvitations()
                     </div>
 
                     <div className="text-left lg:text-right">
-                        {invitation.map((invitation,index) => (
-                            <div key={index} >
-                                
-                                <p>{invitation.subtitle}</p>
-                                <span>{invitation.startdate} {invitation.starttime} - {invitation.enddate} {invitation.endtime}</span>
-                                <p>Venue: {invitation.venue}</p>
+                        {currentEvent ? (
+                            <div >
+                                <p>{currentEvent?.event?.name}</p>
+                                <span>{formatDateTimeRange(currentEvent.event?.start_time, currentEvent.event?.end_time)}</span>
+                                <p>Venue: {currentEvent?.event?.location}</p>
                             </div>
-                        ))}
+                        ) : <p>No Invitaions selected</p>
+                            
+                        }
 
                     </div>
 
@@ -47,21 +80,22 @@ export default function ViewGeneralInvitations()
 
                 <div className="w-fit bg-white flex flex-wrap sm:flex-col md:flex-col lg:flex-row items-stretch mt-6  rounded-tl-xl rounded-tr-xl border-l border-t border-r border-gray-800 border-solid overflow-x-auto md:overflow-visible scrollbar-hide">
                     {
-                        [
-                            {id: "generalinvitation", label: "General Invitation"},
-                            {id: "vipinvitation", label: "VIP Invitation"},
-                            {id: "guestinvitation", label: "Guest Invitation"},
-                        ].map((tab) => (
+                        
+                        categories.map((tab) => (
                             <button 
-                                key={tab.id}
+                                key={tab}
                                 className={`px-5 py-2 font-semibold rounded-tl-xl border-r rounded-t-xl ${
-                                    activeTab === tab.id 
+                                    activeTab === tab 
                                     ? "bg-sidebar-hover text-white"
                                     : "text-gray-700"   
                                 }`}
-                                onClick={() => setActiveTab(tab.id)}
+                                onClick={() => {
+                                    setActiveTab(tab);
+                                    navigate(`/event/${eventId}/invitations/${tab}`);
+                                }
+                                }
                             >
-                                {tab.label}
+                                {tab.toUpperCase()}
                             </button>
                         ))
                     }
@@ -70,9 +104,13 @@ export default function ViewGeneralInvitations()
                 <hr className="border-1 border-textgray" />
 
                 <div>
-                    {activeTab === "generalinvitation" && <GeneralInvitation/>}  
-                    {activeTab === "vipinvitation" && <VipInvitation/>}  
-                    {activeTab === "guestinvitation" && <GuestInvitation/>}  
+                
+                    {attendees.length > 0 ? (
+                    <AllAttendeeCard attendees={attendees} isLoading={attendeesLoading} />
+                        ) : (
+                            <p className="text-gray-500 p-4 text-center">No attendees found for this category.</p>
+                        )}
+                    
                 </div>
 
             </div>
