@@ -1,6 +1,7 @@
 import ToggleDesignBtn from '../form/ToggleDesignBtn'
 
-function SalesTicketDetailList({ data }) {
+
+function SalesTicketDetailList({ data, onStatusChange }) {
 
   return (
     <div className="w-full overflow-x-auto">
@@ -20,24 +21,38 @@ function SalesTicketDetailList({ data }) {
 
         {/*table body */}
         <tbody className='text-[0.85rem] '>
-          {data?.map((item, index) => (
-            <tr key={index} className='border-b-1 '>
-              <td className="px-1 py-2">{item.ticket.id}</td>
-              <td className="px-1 py-2">{item.ticket.type}</td>
+          {data?.map((item) => (
+            <tr key={`${item.ticket_id}-${item.attendee_id}`} className='border-b-1 '>
+              <td className="px-1 py-2">{item.attendee_tag}-{item.auto_id}</td>
+              <td className="px-1 py-2">{item.ticket_name}</td>
               <td className="px-1 py-2">
                 <div className="flex items-center gap-2">
                   <img
                     src={item.image}
-                    alt={item.fullname}
+                    alt={item.name}
                     className="w-8 h-8 rounded-full object-cover"
                   />
-                  <span>{item.fullname}</span>
+                  <span>{item.name}</span>
                 </div>
               </td>
               <td className="px-1 py-2">{item.company}</td>
-              <td className="px-1 py-2">{item.phone}</td>
+              <td className="px-1 py-2">{item.phone_number}</td>
               <td className="px-1 py-2">{item.amount}</td>
-              <td className="px-1 py-2"><ToggleDesignBtn status={item.status} /></td>
+              <td className="px-1 py-2">
+
+                <ToggleDesignBtn 
+
+                  status={item.status}
+                  name={item.name}
+                  attendee_id={item.attendee_id}
+                  ticket_id={item.ticket_id}
+                  
+                  onStatusChange={(ticketId, newStatus) => 
+                    onStatusChange(ticketId, item.attendee_id, newStatus)
+                  }
+                />
+                
+              </td>
             </tr>
           ))}
         </tbody>
