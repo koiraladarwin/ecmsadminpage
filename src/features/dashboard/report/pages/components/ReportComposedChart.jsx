@@ -1,24 +1,36 @@
 import { ComposedChart, Bar, Line, XAxis, YAxis, Tooltip, Legend, LabelList, ResponsiveContainer, } from "recharts";
 
 const ReportComposedChart = ({ title, data, barKey = "sent", lineKey = "checkedIn", barName = "Invitation Sent", lineName = "Checked-In" }) => {
+  const minChartWidth = Math.max(data.length * 100, 250);
   return (
     <div className="p-4 ">
       <h2 className="text-lg font-bold text-gray-700 mb-4 text-center">{title}</h2>
       <div className="w-full overflow-x-auto">
-        <div style={{ minWidth: `${data.length * 100}px`, height: 300 }}>
+        <div style={{ minWidth: `${minChartWidth}px`, height: 300 }}>
           <ResponsiveContainer width="100%" height="100%">
             <ComposedChart
               data={data}
-              margin={{ top: 20, right: 30, left: 10, bottom: 10 }}
+              margin={{ top: 20, right: 0, left: 0, bottom: 10 }}
             >
-              <XAxis dataKey="type" />
+              <XAxis dataKey="type"
+                interval={0}
+                tick={({ x, y, payload }) => (
+                  <text x={x} y={y + 10} textAnchor="middle">
+                    {payload.value.split(" ").map((line, index) => (
+                      <tspan key={index} x={x} dy={index === 0 ? 0 : 14}>
+                        {line}
+                      </tspan>
+                    ))}
+                  </text>
+                )}
+              />
               <YAxis />
               <Tooltip cursor={false} />
               <Legend
                 verticalAlign="bottom"
                 align="center"
                 wrapperStyle={{
-                  paddingTop: 10,
+                  paddingTop: 20,
                   marginLeft: 25,
                   fontSize: "16px",
                   color: "#555",
