@@ -1,139 +1,46 @@
 import { useEffect, useState } from 'react'
-import CustomDropdown from '../../../people/components/CustomDropDown'
-import NormalBtn from '../../../people/components/NormalBtn'
+
 import SalesTicketDetailList from '../financeDetail/SalesTicketDetailList'
 import useTicketSalesData from '../../../../../hooks/Use-sales-ticket-list'
-import usePaymentStatus from '../../../../../hooks/Use-payment-status'
-import usePaymentMethod from '../../../../../hooks/User-payment-method'
-import useTicketType from '../../../../../hooks/Use-ticket-type'
-import useAttendeeType from '../../../../../hooks/Use-attendee-type'
-import Swal from 'sweetalert2'
+
 import { OrbitProgress } from 'react-loading-indicators'
 
-function SalesTicketForm() {
-  const ticketTypeOptions = useTicketType()
-  const attendeeTypeOptions = useAttendeeType()
-  const paymentOptions = usePaymentStatus()
-  const paymentMethodOptions = usePaymentMethod()
-  const { salesData, loading } = useTicketSalesData()
+function SalesTicketForm({eventId, attendeeSearch}) {
 
+  const [salesData, setSalesData] = useState([]);
 
-
-  const [formData, setFormData] = useState({
-    ticketType: '',
-    attendee: '',
-    paymentStatus: '',
-    amount: '',
-    paymentMethod: '',
-  })
+  const {data, isLoading: loading, refetch} = useTicketSalesData(eventId)
 
   useEffect(() => {
-    if (ticketTypeOptions.length > 0) {
-      const ticket = ticketTypeOptions[0]
-      setFormData((prev) => ({
-        ...prev,
-        ticketType: ticket,
-        amount: salesData?.find(t => t.ticketType === ticket)?.amount || 'Rs. 5000'
-      }))
+    
+      setSalesData([]);
+    
+  }, [eventId]);
+
+  useEffect(() => {
+    if(data)
+    {
+      console.log("Fetched Tickets: ",data);
+      setSalesData(data?.length ? data : []);
     }
-  }, [ticketTypeOptions, salesData])
+  }, [data]);
 
-  console.log(formData)
-
-  //  dropdowns
-  const handleSelect = (key, value) => {
-    let newAmount = formData.amount
-
-    if ((key === 'ticketType' || key === 'attendee') && salesData?.length) {
-      const ticket = salesData.find(
-        (item) =>
-          item.ticketType === (key === 'ticketType' ? value : formData.ticketType) &&
-          item.attendee === (key === 'attendee' ? value : formData.attendee)
-      )
-      if (ticket) newAmount = ticket.amount
-    }
-    setFormData({ ...formData, [key]: value, amount: newAmount })
+  const handleStatusChange = (ticket_id, attendee_id, newStatus) => {
+    setSalesData((prev) => 
+      prev.map((item) => 
+        item.ticket_id === ticket_id && item.attendee_id === attendee_id ? {...item, status: newStatus} : item
+    ));
   }
 
+// filter ticket by attendee name
+  const filteredTickets = salesData.filter((ticket) => 
+    ticket.name.toLowerCase().includes((attendeeSearch || "").toLowerCase())
+  )
 
-  const handleSubmit = () => {
-    const { attendee, paymentStatus, paymentMethod } = formData
-    if (!attendee || !paymentStatus || !paymentMethod) {
-      Swal.fire('Please Fill all the fields!')
-      return
-    }
-    Swal.fire('Form submitted successfully!')
-    setFormData({
-      ticketType: '',
-      attendee: '',
-      paymentStatus: '',
-      amount: '',
-      paymentMethod: '',
-    })
-  }
 
   return (
     <div className='w-full bg-white px-10 py-10 border-[1.3px] border-b-sidebar-bg space-y-6'>
-      {/* Ticket Type & Attendee */}
-      <div className='flex flex-col lg:flex-row lg:items-end w-full gap-6'>
-        <div className='flex flex-col flex-1'>
-          <label className='font-bold text-sidebar-bg text-md'>Ticket Type</label>
-          <input
-            type="text"
-            className='focus:outline-none h-10 px-2'
-            value={formData.ticketType}
-            placeholder="Ticket type"
-            style={{ border: 'black solid 1px' }}
-            readOnly
-          />
-        </div>
-        <div className='flex flex-col flex-1'>
-          <CustomDropdown
-            label='Attendee'
-            options={attendeeTypeOptions}
-            value={formData.attendee}
-            onSelect={(value) => handleSelect('attendee', value)}
-          />
-        </div>
-      </div>
 
-      {/* Payment Status & Amount */}
-      <div className='flex flex-col lg:flex-row lg:items-end w-full gap-6'>
-        <div className='flex flex-col flex-1'>
-          <CustomDropdown
-            label='Payment Status'
-            options={paymentOptions}
-            value={formData.paymentStatus}
-            onSelect={(value) => handleSelect('paymentStatus', value)}
-          />
-        </div>
-        <div className='flex flex-col flex-1'>
-          <label className='font-bold text-sidebar-bg text-md'>Amount</label>
-          <input
-            type="text"
-            name="amount"
-            className='focus:outline-none h-10 px-2'
-            style={{ border: 'black solid 1px' }}
-            placeholder='Rs.4000'
-            value={formData.amount}
-            readOnly
-          />
-        </div>
-      </div>
-
-      {/* Payment Method  */}
-      <div className='flex flex-col lg:flex-row lg:items-end w-full gap-6'>
-        <div className='flex flex-col flex-1'>
-          <CustomDropdown
-            label='Payment Method'
-            options={paymentMethodOptions}
-            value={formData.paymentMethod}
-            onSelect={(value) => handleSelect('paymentMethod', value)}
-          />
-        </div>
-      </div>
-
-      <NormalBtn text='Confirm' type='primary' onClick={handleSubmit} />
       {loading ? (
         <div className="w-full h-64 flex justify-center items-center">
           <OrbitProgress
@@ -143,8 +50,10 @@ function SalesTicketForm() {
             size="small"
           />
         </div>
-      ) : (
-        <SalesTicketDetailList data={salesData} />
+      ) : filteredTickets.length > 0 ? (
+        <SalesTicketDetailList data={filteredTickets} onStatusChange={handleStatusChange}/>
+      ): (
+        <p>No Sales tickets found</p>
       )}
     </div>
   )
